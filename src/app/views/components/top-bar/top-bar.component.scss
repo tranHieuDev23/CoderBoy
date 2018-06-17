@@ -1,0 +1,23 @@
+@import 'styles.scss';
+
+.navbar {
+    background-color: $color-top-bar-background;
+}
+
+.nav-link, .nav-link:visited {
+    font-size: $font-size-top-bar-item;
+    color: $color-top-bar-item;
+}
+
+.navbar-brand {
+    font-family: $font-family-primary;   
+}
+
+.nav-item {
+    font-family: $font-family-secondary;
+
+    :hover {
+        background-color: $color-top-bar-background-selected;
+        transition-duration: 150ms;
+    }
+}

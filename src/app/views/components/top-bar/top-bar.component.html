@@ -1,3 +1,20 @@
-<nav>
-    
+<nav class="navbar p-0">
+    <div class="navbar-brand p-0">
+        <a class="nav-link py-0" routerLink="#">CoderBoy</a>
+    </div>
+
+    <ul class="nav justify-content-end">
+        <li *ngFor="let c of categories" class="nav-item">
+            <a class="nav-link p-3" routerLink="#">{{ c.name }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-3" routerLink="#">Tag</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-3" routerLink="#">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link p-3" routerLink="#"><i class="fas fa-search"></i></a>
+        </li>
+    </ul>
 </nav>
