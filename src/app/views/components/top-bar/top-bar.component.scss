@@ -21,3 +21,9 @@
         transition-duration: 150ms;
     }
 }
+
+@include media-breakpoint-down(sm) {
+    .nav {
+        display: none
+    }
+}
