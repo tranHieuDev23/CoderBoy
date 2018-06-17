@@ -10,6 +10,8 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
 export class TopBarComponent implements OnInit {
 
   private categories: Category[];
+  private sideBar: HTMLElement;
+  private overlay: HTMLElement;
 
   constructor() { }
 
@@ -20,5 +22,13 @@ export class TopBarComponent implements OnInit {
       }, (res) => {
         console.log(res.data);
       })
+    
+    this.sideBar = document.getElementById('sidebar')
+    this.overlay = document.getElementById('overlay')
+  }
+
+  toggleSidebar(): void {
+    this.sideBar.classList.toggle('open');
+    this.overlay.classList.toggle('active');
   }
 }

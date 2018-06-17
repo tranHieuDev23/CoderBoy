@@ -18,12 +18,46 @@
 
     :hover {
         background-color: $color-top-bar-background-selected;
-        transition-duration: 150ms;
+        transition-duration: 200ms;
     }
 }
 
+#overlay {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition-duration: 200ms;
+}
+
+.active#overlay {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 @include media-breakpoint-down(sm) {
-    .nav {
-        display: none
+    #sidebar {
+        position: fixed;
+        top: 0;
+        right: -240px;
+        z-index: 10000;
+        height: 100vh;
+        width: 240px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        transition-duration: 200ms;
+        background: $color-top-bar-background;
+
+        > li {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .open#sidebar {
+        right: 0;
     }
 }

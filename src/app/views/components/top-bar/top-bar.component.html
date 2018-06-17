@@ -3,7 +3,10 @@
         <a class="nav-link py-3" routerLink="#">CoderBoy</a>
     </div>
 
-    <ul class="nav justify-content-end">
+    <ul class="nav align-content-start" id="sidebar">
+        <li class="nav-item d-md-none">
+            <a class="nav-link p-3" (click)="toggleSidebar()"><i class="fas fa-times"></i></a>
+        </li>
         <li *ngFor="let c of categories" class="nav-item">
             <a class="nav-link p-3" routerLink="#">{{ c.name }}</a>
         </li>
@@ -17,4 +20,12 @@
             <a class="nav-link p-3" routerLink="#"><i class="fas fa-search"></i></a>
         </li>
     </ul>
+
+    <ul class="nav d-md-none">
+        <li class="nav-item">
+            <a class="nav-link p-3" (click)="toggleSidebar()"><i class="fas fa-bars"></i></a>
+        </li>
+    </ul>
 </nav>
+
+<div id="overlay"></div>
