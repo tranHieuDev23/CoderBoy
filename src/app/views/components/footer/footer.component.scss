@@ -1,0 +1,19 @@
+@import "styles";
+
+* {
+    color: $color-footer;
+}
+
+.title {
+    font-family: $font-family-primary;
+}
+
+.credit {
+    font-family: $font-family-secondary;
+}
+
+@include media-breakpoint-down(xs) {
+    .container {
+        border-top: solid 1px $color-footer;
+    }
+}

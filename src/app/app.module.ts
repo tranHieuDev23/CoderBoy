@@ -16,6 +16,7 @@ import { CarouselPostItemComponent } from './views/components/carousel/carousel-
 import { PostPreviewDisplayComponent } from './views/components/post-preview-display/post-preview-display.component';
 import { SectionHeadComponent } from './views/components/section-head/section-head.component';
 import { CategoriesNewPostComponent } from './views/pages/home-page/categories-new-post/categories-new-post.component';
+import { FooterComponent } from './views/components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { CategoriesNewPostComponent } from './views/pages/home-page/categories-n
     CarouselPostItemComponent,
     PostPreviewDisplayComponent,
     SectionHeadComponent,
-    CategoriesNewPostComponent
+    CategoriesNewPostComponent,
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
