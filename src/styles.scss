@@ -21,8 +21,11 @@ $font-family-secondary: 'Lato-Regular', sans-serif;
 $font-size-top-bar-item: 1rem;
 
 /* Colors */
-$color-top-bar-background: white !important;
-$color-top-bar-background-selected: gray !important;
-$color-top-bar-item: black !important;
+$color-top-bar-background: black !important;
+$color-top-bar-background-selected: white !important;
+$color-top-bar-text: white !important;
+$color-top-bar-text-selected: black !important;
 
 $color-carousel-text: white !important;
+
+$color-post-text: black !important;

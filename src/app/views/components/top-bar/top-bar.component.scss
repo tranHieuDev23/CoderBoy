@@ -2,15 +2,16 @@
 
 .navbar {
     background-color: $color-top-bar-background;
+    z-index: 8000;
 }
 
 .nav-link, .nav-link:visited {
     font-size: $font-size-top-bar-item;
-    color: $color-top-bar-item;
+    color: $color-top-bar-text;
 }
 
 .navbar-brand {
-    font-family: $font-family-primary;   
+    font-family: $font-family-primary;
 }
 
 .nav-item {
@@ -18,8 +19,13 @@
 
     :hover {
         background-color: $color-top-bar-background-selected;
+        color: $color-top-bar-text-selected;
         transition-duration: 200ms;
     }
+}
+
+#sidebar {
+    z-index: 10000;
 }
 
 #overlay {
@@ -31,7 +37,7 @@
     width: 100vw;
     height: 100vh;
     transition-duration: 200ms;
-    z-index: 9999;
+    z-index: 9000;
 }
 
 .active#overlay {
