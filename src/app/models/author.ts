@@ -1,16 +1,16 @@
 export class Author {
     constructor (
-        private slug: string,
-        private first_name: string,
-        private last_name: string,
-        private email: string,
-        private bio: string,
-        private title: string,
-        private linkedin_url: string,
-        private facebook_url: string,
-        private pinterest_url: string,
-        private instagram_url: string,
-        private twitter_handle: string,
-        private profile_image: string
+        public slug: string,
+        public first_name: string,
+        public last_name: string,
+        public email: string,
+        public bio: string,
+        public title: string,
+        public linkedin_url: string,
+        public facebook_url: string,
+        public pinterest_url: string,
+        public instagram_url: string,
+        public twitter_handle: string,
+        public profile_image: string
     ) {}
 }

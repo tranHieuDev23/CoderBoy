@@ -1,4 +1,7 @@
 <app-carousel></app-carousel>
 <div class="post-preview-container p-5">
-    <app-post-preview-display *ngFor="let p of posts" [post]="p"></app-post-preview-display>
+    <div *ngFor="let c of categories">
+        <app-section-head [text]="c.name"></app-section-head>
+        <app-categories-new-post [category]="c"></app-categories-new-post>
+    </div>
 </div>

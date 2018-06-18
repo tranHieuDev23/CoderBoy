@@ -14,6 +14,8 @@ import { NotFoundPageComponent } from './views/pages/not-found-page/not-found-pa
 import { CarouselComponent } from './views/components/carousel/carousel.component';
 import { CarouselPostItemComponent } from './views/components/carousel/carousel-post-item/carousel-post-item.component';
 import { PostPreviewDisplayComponent } from './views/components/post-preview-display/post-preview-display.component';
+import { SectionHeadComponent } from './views/components/section-head/section-head.component';
+import { CategoriesNewPostComponent } from './views/pages/home-page/categories-new-post/categories-new-post.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { PostPreviewDisplayComponent } from './views/components/post-preview-dis
     NotFoundPageComponent,
     CarouselComponent,
     CarouselPostItemComponent,
-    PostPreviewDisplayComponent
+    PostPreviewDisplayComponent,
+    SectionHeadComponent,
+    CategoriesNewPostComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
