@@ -11,7 +11,7 @@
 
 .nav-link, .nav-link:visited {
     font-size: $font-size-top-bar-item;
-    color: $color-top-bar-text;
+    color: $color-top-bar-text !important;
 }
 
 .navbar-brand {
@@ -20,11 +20,10 @@
 
 .nav-item {
     font-family: $font-family-secondary;
-    color: $color-top-bar-text;
 
     :hover {
         background-color: $color-top-bar-background-selected;
-        color: $color-top-bar-text-selected;
+        color: $color-top-bar-text-selected !important;
         transition-duration: 200ms;
     }
 }
