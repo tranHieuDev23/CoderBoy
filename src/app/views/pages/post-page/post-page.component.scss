@@ -1,0 +1,35 @@
+@import "styles";
+
+.post-container {
+    margin: 5rem;
+    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+}
+
+#post-content {
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-family-primary;
+    }
+
+    p {
+        font-family: $font-family-secondary;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .post-container {
+        margin: 3rem;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .post-container {
+        margin: 1rem;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .post-container {
+        margin: 0;
+        box-shadow: none;
+    }
+}
