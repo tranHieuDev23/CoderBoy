@@ -2,7 +2,7 @@
 
 .background {
     width: 100vw;
-    height: 50vw;
+    height: 100vh;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -38,14 +38,6 @@
 
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
-}
-
-@include media-breakpoint-down(sm) {
-    @media (orientation: portrait) {
-        .background {
-            height: 75vw;
-        }
-    }
 }
 
 @include media-breakpoint-down(xs) {

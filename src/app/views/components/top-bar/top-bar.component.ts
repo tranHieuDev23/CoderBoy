@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../../models/category';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
+import GlobalConfig from '../../../configs/global-config.json';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,6 +10,7 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
 })
 export class TopBarComponent implements OnInit {
 
+  private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
   private categories: Category[];
   private sideBar: HTMLElement;
   private overlay: HTMLElement;
@@ -22,7 +24,6 @@ export class TopBarComponent implements OnInit {
       }, (res) => {
         console.log(res.data);
       })
-    
     this.sideBar = document.getElementById('sidebar')
     this.overlay = document.getElementById('overlay')
   }

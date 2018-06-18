@@ -5,6 +5,10 @@
     z-index: 8000;
 }
 
+.transparent {
+    background-color: transparent;
+}
+
 .nav-link, .nav-link:visited {
     font-size: $font-size-top-bar-item;
     color: $color-top-bar-text;
@@ -16,6 +20,7 @@
 
 .nav-item {
     font-family: $font-family-secondary;
+    color: $color-top-bar-text;
 
     :hover {
         background-color: $color-top-bar-background-selected;
