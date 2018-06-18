@@ -12,6 +12,7 @@ import { AppRoutingModule } from './controllers/app-routing/app-routing.module';
 import { NotFoundPageComponent } from './views/pages/not-found-page/not-found-page.component';
 import { CarouselComponent } from './views/components/carousel/carousel.component';
 import { CarouselPostItemComponent } from './views/components/carousel/carousel-post-item/carousel-post-item.component';
+import { PostPreviewDisplayComponent } from './views/components/post-preview-display/post-preview-display.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { CarouselPostItemComponent } from './views/components/carousel/carousel-
     TopBarComponent,
     NotFoundPageComponent,
     CarouselComponent,
-    CarouselPostItemComponent
+    CarouselPostItemComponent,
+    PostPreviewDisplayComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

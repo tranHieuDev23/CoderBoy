@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../../../models/post';
+import { ButterService } from '../../../controllers/butterCMS/butter.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  private posts: Post[]
+
   constructor() { }
 
   ngOnInit() {
+    ButterService.post.list()
+      .then((res) => {
+        this.posts = res.data.data
+      }, (res) => {
+        console.log(res.data)
+      })
   }
 
 }

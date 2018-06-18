@@ -1,0 +1,15 @@
+<div class="container">
+  <a routerLink="/post/{{ post.slug }}">
+    <h3 class="title">{{ post.title }}</h3>
+  </a>
+  <div>
+    <a routerLink="/author/{{ post.author.slug }}">
+      <span class="author">{{ post.author.last_name }} {{ post.author.first_name }}</span>
+    </a>
+    /<span class="timestamp">{{ post.published }}</span>
+  </div>
+  <div class="container" lazy-load-images>
+    <img class="img-fluid" data-src="{{ post.featured_image }}"/>
+  </div>
+  <p class="summary">{{ post.summary }}</p>
+</div>
