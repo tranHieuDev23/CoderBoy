@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-size: 18px;
+}
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 @font-face {
@@ -30,7 +34,7 @@ $color-carousel-text: white !important;
 
 $color-post-text: black !important;
 
-$color-button-background: black !important;
-$color-button-background-selected: white !important;
-$color-button-text: white !important;
-$color-button-text-selected: black !important;
+$color-button-outline: black !important;
+$color-button-background: white !important;
+$color-button-background-selected: black !important;
+$color-button-text-selected: white !important;

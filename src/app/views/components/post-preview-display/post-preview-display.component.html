@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container">
   <a routerLink="/post/{{ post.slug }}">
     <h3 class="title">{{ post.title }}</h3>
   </a>
@@ -13,10 +13,14 @@
 
   <div>
     <a routerLink="/post/{{ post.slug }}">
-      <button type="button" class="read-more button-outline my-2 mr-2 py-2">Đọc thêm</button>
+      <button type="button" class="read-more my-2 mr-2 py-2 button-outline ">Đọc thêm</button>
     </a>
     <a routerLink="#">
-      <button type="button" class="facebook button-outline my-2 py-2"><i class="fab fa-facebook-f"></i></button>
+      <button type="button" class="facebook my-2 py-2 button-outline"><i class="fab fa-facebook-f"></i></button>
     </a>
+  </div>
+
+  <div class="pagination">
+    <div class="pagination-line"></div>
   </div>
 </div>

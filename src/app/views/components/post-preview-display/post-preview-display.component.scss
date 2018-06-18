@@ -24,11 +24,11 @@ a:hover, a:visited, a:link, a:active {
     appearance: none;
     box-shadow: none;
     border-radius: 0;
-    border: none;
     width: 100%;
     max-width: 200px;
+    border: solid 3px $color-button-outline;
     background-color: $color-button-background;
-    color: $color-button-text;
+    color: $color-button-outline;
     font-family: $font-family-primary;
 }
 
@@ -36,7 +36,23 @@ a:hover, a:visited, a:link, a:active {
     outline: none;
 }
 
-.button-outline:active {
+.button-outline:hover {
+    background-color: $color-button-background-selected;
+    color: $color-button-text-selected;
+}
+
+.pagination {
+    padding: 70px 0;
+
+    .pagination-line {
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        width: 50px;
+        height: 1px;
+        background-color: grey;
+        display: block;
+    }
 }
 
 @include media-breakpoint-down(sm) {
