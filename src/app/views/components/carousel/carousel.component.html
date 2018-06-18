@@ -1,0 +1,17 @@
+<div id="carousel" class="carousel slide" data-ride="carousel" data-wrap="true" data-interval="5000">
+  <div class="carousel-inner">
+    <div 
+      *ngFor="let p of posts; let i = index" 
+      [ngClass]="{'carousel-item': true, 'active': i == 0}">
+      <app-carousel-post-item [post]="p"></app-carousel-post-item>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

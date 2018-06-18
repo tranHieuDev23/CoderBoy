@@ -1,0 +1,14 @@
+<div lazy-load-images>
+  <div class="background" [attr.data-background-src]="post.featured_image">
+    <div class="overlay"></div>
+    <div class="carousel-caption">
+      <a routerLink="/post/{{ post.slug }}">
+        <h4 class="carousel-title">{{ post.title }}</h4>
+      </a>
+      <a routerLink="/author/{{ post.author.slug }}">
+        <p class="carousel-metadata">{{ post.author.last_name}} {{ post.author.first_name }}</p>
+      </a>
+      <p class="carousel-summary">{{ post.summary }}</p>
+    </div>
+  </div>
+</div>

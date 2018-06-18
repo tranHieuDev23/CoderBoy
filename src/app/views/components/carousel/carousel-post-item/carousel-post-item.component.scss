@@ -1,0 +1,53 @@
+@import "styles";
+
+.background {
+    width: 100vw;
+    height: 56.25vw;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4)
+}
+
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+}
+
+.carousel-title {
+    font-family: $font-family-primary;
+    color: $color-carousel-text;
+}
+
+.carousel-metadata, .carousel-summary {
+    font-family: $font-family-secondary;
+    color: $color-carousel-text;
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+@include media-breakpoint-down(sm) {
+    @media (orientation: portrait) {
+        .background {
+            height: 75vw;
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .carousel-summary {
+        display: none;
+    }
+}
+
