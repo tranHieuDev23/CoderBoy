@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../../../models/category';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import GlobalConfig from '../../../configs/global-config.json';
+import { ScrollEvent } from 'ngx-scroll-event';
 
 @Component({
   selector: 'app-top-bar',
@@ -12,6 +13,7 @@ export class TopBarComponent implements OnInit {
 
   private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
   private categories: Category[];
+  private topBar: HTMLElement;
   private sideBar: HTMLElement;
   private overlay: HTMLElement;
 
@@ -24,6 +26,7 @@ export class TopBarComponent implements OnInit {
       }, (res) => {
         console.log(res.data);
       })
+    this.topBar = document.getElementById('topbar')
     this.sideBar = document.getElementById('sidebar')
     this.overlay = document.getElementById('overlay')
   }
@@ -31,5 +34,12 @@ export class TopBarComponent implements OnInit {
   toggleSidebar(): void {
     this.sideBar.classList.toggle('open');
     this.overlay.classList.toggle('active');
+  }
+
+  public handleScroll(event: ScrollEvent) {
+    if (event.isReachingTop) 
+      this.topBar.classList.add('transparent');
+    else
+      this.topBar.classList.remove('transparent');
   }
 }

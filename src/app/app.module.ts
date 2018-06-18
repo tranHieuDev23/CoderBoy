@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
+import { ScrollEventModule } from "ngx-scroll-event";
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './views/pages/home-page/home-page.component';
@@ -18,7 +19,8 @@ import { PostPreviewDisplayComponent } from './views/components/post-preview-dis
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LazyLoadImagesModule
+    LazyLoadImagesModule,
+    ScrollEventModule
   ],
   declarations: [
     AppComponent,

@@ -3,6 +3,7 @@
 .navbar {
     background-color: $color-top-bar-background;
     z-index: 8000;
+    transition: background-color 250ms;
 }
 
 .transparent {

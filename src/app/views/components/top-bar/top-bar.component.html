@@ -1,4 +1,4 @@
-<nav class="navbar transparent fixed-top p-0">
+<nav id="topbar" class="navbar transparent fixed-top p-0" detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1">
     <div class="navbar-brand p-0">
         <a class="nav-link py-3" routerLink="/">{{ BLOG_TITLE }}</a>
     </div>
