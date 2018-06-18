@@ -6,6 +6,9 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .overlay {

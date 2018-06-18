@@ -18,3 +18,29 @@
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
+
+.button-outline {
+    display: inline-block;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    background-color: $color-button-background;
+    color: $color-button-text;
+    font-family: $font-family-primary;
+}
+
+.button-outline:focus {
+    outline: none;
+}
+
+.button-outline:active {
+}
+
+@include media-breakpoint-down(sm) {
+    .button-outline {
+        max-width: initial;
+    }
+}

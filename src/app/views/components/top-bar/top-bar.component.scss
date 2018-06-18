@@ -34,9 +34,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    transition-duration: 200ms;
+    width: 0;
+    height: 0;
+    transition: background-color 200ms;
     z-index: 9000;
 }
 
@@ -66,5 +66,10 @@
 
     .open#sidebar {
         right: 0;
+    }
+
+    #overlay {
+        width: 100vw;
+        height: 100vh;
     }
 }
