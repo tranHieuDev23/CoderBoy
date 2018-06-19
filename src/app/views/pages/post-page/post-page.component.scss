@@ -14,6 +14,10 @@
         font-family: $font-family-secondary;
     }
 
+    a:hover, a:visited, a:link, a:active {
+        text-decoration: none;
+    }
+
     img {
         max-width: 100%;
         height: auto;
