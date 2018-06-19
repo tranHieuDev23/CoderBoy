@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
 import { ScrollEventModule } from "ngx-scroll-event";
+import { HighlightJsModule } from "angular2-highlight-js";
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './views/pages/home-page/home-page.component';
@@ -24,7 +25,8 @@ import { SafeHtmlPipe } from './views/pipes/safe-html.pipe';
     BrowserModule,
     AppRoutingModule,
     LazyLoadImagesModule,
-    ScrollEventModule
+    ScrollEventModule,
+    HighlightJsModule
   ],
   declarations: [
     AppComponent,
