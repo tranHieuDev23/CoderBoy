@@ -13,6 +13,15 @@
     p {
         font-family: $font-family-secondary;
     }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    iframe {
+        max-width: 100%;
+    }
 }
 
 @include media-breakpoint-down(lg) {

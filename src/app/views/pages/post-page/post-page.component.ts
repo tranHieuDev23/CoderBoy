@@ -14,7 +14,9 @@ export class PostPageComponent implements OnInit {
 
   constructor(
     private router: Router
-  ) {
+  ) {}
+
+  ngOnInit() {
     let slug = this.router.url.split('/')[2]
     ButterService.post.retrieve(slug)
       .then((res) => {
@@ -23,9 +25,5 @@ export class PostPageComponent implements OnInit {
         console.log(res.data);
         this.router.navigateByUrl('/404')
       })
-  }
-
-  ngOnInit() {
-    
   }
 }

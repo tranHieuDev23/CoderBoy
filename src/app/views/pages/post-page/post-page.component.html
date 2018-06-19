@@ -1,6 +1,6 @@
 <div *ngIf="post">
   <app-carousel-post-item [post]="post"></app-carousel-post-item>
   <div class="post-container px-5 py-4">
-    <div id="post-content" [innerHTML]="post.body"></div>
+    <div id="post-content" [innerHTML]="post.body | safeHtml"></div>
   </div>
 </div>

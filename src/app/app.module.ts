@@ -17,6 +17,7 @@ import { PostPreviewDisplayComponent } from './views/components/post-preview-dis
 import { SectionHeadComponent } from './views/components/section-head/section-head.component';
 import { CategoriesNewPostComponent } from './views/pages/home-page/categories-new-post/categories-new-post.component';
 import { FooterComponent } from './views/components/footer/footer.component';
+import { SafeHtmlPipe } from './views/pipes/safe-html.pipe';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { FooterComponent } from './views/components/footer/footer.component';
     PostPreviewDisplayComponent,
     SectionHeadComponent,
     CategoriesNewPostComponent,
-    FooterComponent
+    FooterComponent,
+    SafeHtmlPipe
   ],
   providers: [],
   bootstrap: [AppComponent]
