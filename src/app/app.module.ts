@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
 import { ScrollEventModule } from "ngx-scroll-event";
 import { HighlightJsModule } from "angular2-highlight-js";
+import { DisqusModule } from "ngx-disqus";
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './views/pages/home-page/home-page.component';
@@ -27,7 +28,8 @@ import { TagListItemComponent } from './views/components/tag-list-item/tag-list-
     AppRoutingModule,
     LazyLoadImagesModule,
     ScrollEventModule,
-    HighlightJsModule
+    HighlightJsModule,
+    DisqusModule.forRoot('coderboy23-surge-sh')
   ],
   declarations: [
     AppComponent,
