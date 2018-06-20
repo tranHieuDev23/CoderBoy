@@ -19,6 +19,7 @@ import { SectionHeadComponent } from './views/components/section-head/section-he
 import { CategoriesNewPostComponent } from './views/pages/home-page/categories-new-post/categories-new-post.component';
 import { FooterComponent } from './views/components/footer/footer.component';
 import { SafeHtmlPipe } from './views/pipes/safe-html.pipe';
+import { TagListItemComponent } from './views/components/tag-list-item/tag-list-item.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { SafeHtmlPipe } from './views/pipes/safe-html.pipe';
     SectionHeadComponent,
     CategoriesNewPostComponent,
     FooterComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    TagListItemComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
