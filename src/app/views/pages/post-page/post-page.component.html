@@ -2,7 +2,7 @@
   <app-carousel-post-item [post]="post"></app-carousel-post-item>
   <div class="post-container px-5 py-4">
     <div id="post-content" [innerHTML]="post.body | safeHtml" highlight-js-content="pre code"></div>
-    <div id="post-tag-list" class="my-5">
+    <div id="post-tag-list" class="mt-5 mb-3">
       <app-tag-list-item *ngFor="let t of post.tags" [tag]="t"></app-tag-list-item>
     </div>
   </div>
