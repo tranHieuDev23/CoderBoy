@@ -1,11 +1,12 @@
-<nav id="topbar" class="navbar transparent fixed-top p-0" detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1">
+<nav id="topbar" class="navbar transparent fixed-top p-0" 
+detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1" #topBar>
     <div class="navbar-brand p-0">
         <a class="nav-link py-3" routerLink="/">{{ BLOG_TITLE }}</a>
     </div>
 
-    <div id="overlay"></div>
+    <div id="overlay" #overlay></div>
 
-    <ul class="nav align-content-start" id="sidebar">
+    <ul class="nav align-content-start" id="sidebar" #sideBar>
         <li class="nav-item d-md-none">
             <a class="nav-link p-3" (click)="toggleSidebar()"><i class="fas fa-times"></i></a>
         </li>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2, NgZone } from '@angular/core';
 import { Category } from '../../../models/category';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import GlobalConfig from '../../../configs/global-config.json';
@@ -10,14 +10,17 @@ import { ScrollEvent } from 'ngx-scroll-event';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-
+  @ViewChild('topBar') topBar: ElementRef;
+  @ViewChild('sideBar') sideBar: ElementRef;
+  @ViewChild('overlay') overlay: ElementRef;
   private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
   private categories: Category[];
-  private topBar: HTMLElement;
-  private sideBar: HTMLElement;
-  private overlay: HTMLElement;
+  private opened: boolean = false;
 
-  constructor() { }
+  constructor(
+    private ngZone: NgZone,
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit() {
     ButterService.category.list()
@@ -26,20 +29,32 @@ export class TopBarComponent implements OnInit {
       }, (res) => {
         console.log(res.data);
       })
-    this.topBar = document.getElementById('topbar')
-    this.sideBar = document.getElementById('sidebar')
-    this.overlay = document.getElementById('overlay')
   }
 
   toggleSidebar(): void {
-    this.sideBar.classList.toggle('open');
-    this.overlay.classList.toggle('active');
+    if (!this.opened) {
+      this.ngZone.runOutsideAngular(() => {
+        this.renderer.addClass(this.sideBar.nativeElement, 'open')
+        this.renderer.addClass(this.overlay.nativeElement, 'active')
+        this.opened = true;
+      })
+    } else {
+      this.ngZone.runOutsideAngular(() => {
+        this.renderer.removeClass(this.sideBar.nativeElement, 'open')
+        this.renderer.removeClass(this.overlay.nativeElement, 'active')
+        this.opened = false;
+      })
+    }
   }
 
   public handleScroll(event: ScrollEvent) {
     if (event.isReachingTop) 
-      this.topBar.classList.add('transparent');
+      this.ngZone.runOutsideAngular(() => {
+        this.renderer.addClass(this.topBar.nativeElement, 'transparent')
+      })
     else
-      this.topBar.classList.remove('transparent');
+      this.ngZone.runOutsideAngular(() => {
+        this.renderer.removeClass(this.topBar.nativeElement, 'transparent')
+      })
   }
 }
