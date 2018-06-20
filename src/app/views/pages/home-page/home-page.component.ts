@@ -3,6 +3,8 @@ import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Category } from '../../../models/category';
 import { Router, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import GlobalConfig from "../../../configs/global-config.json";
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +17,8 @@ export class HomePageComponent implements OnInit {
   private categories: Category[]
 
   constructor(
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
@@ -26,12 +29,14 @@ export class HomePageComponent implements OnInit {
         console.log(res.data)
       })
 
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
+    this.router.events.subscribe((event) => {
+      if (!(event instanceof NavigationEnd)) {
           return;
       }
       window.scrollTo(0, 0)
     });
+
+    this.titleService.setTitle(GlobalConfig.BLOG_TITLE)
   }
 
 }

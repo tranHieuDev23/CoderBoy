@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-page',
@@ -13,7 +14,8 @@ export class PostPageComponent implements OnInit {
   private post: Post;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class PostPageComponent implements OnInit {
     ButterService.post.retrieve(slug)
       .then((res) => {
         this.post = res.data.data
+        this.titleService.setTitle(this.post.title)
       }, (res) => {
         console.log(res.data);
         this.router.navigateByUrl('/404')
