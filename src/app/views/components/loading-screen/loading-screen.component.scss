@@ -11,6 +11,8 @@
     z-index: 7000;
     opacity: 1;
     background-color: $color-loading-background;
+    transition: opacity 0;
+    pointer-events: none;
 
     .loading-animation {
         display: inline-block;
@@ -49,11 +51,7 @@
 
     &.hide {
         opacity: 0;
-        height: 0;
-
-        .loading-animation {
-            display: none;
-        }
+        transition: opacity 200ms;
     }
 }
 
