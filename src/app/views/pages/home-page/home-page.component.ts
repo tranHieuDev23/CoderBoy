@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Category } from '../../../models/category';
 import { Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import GlobalConfig from "../../../configs/global-config.json";
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +14,8 @@ import GlobalConfig from "../../../configs/global-config.json";
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
+  @ViewChild(CarouselComponent) carousel: CarouselComponent;
   private posts: Post[]
   private categories: Category[]
 
@@ -28,6 +31,10 @@ export class HomePageComponent implements OnInit {
       }, (res) => {
         console.log(res.data)
       })
+    
+    this.carousel.done.subscribe(() => {
+      this.loadingScreen.hideSpinner()
+    })
 
     this.router.events.subscribe((event) => {
       if (!(event instanceof NavigationEnd)) {

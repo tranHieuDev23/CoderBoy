@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 
@@ -8,8 +8,8 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-
   private posts: Post[];
+  @Output() done: EventEmitter<void> = new EventEmitter();  
 
   constructor() { }
 
@@ -20,6 +20,7 @@ export class CarouselComponent implements OnInit {
       exclude_body: true
     }).then((res) => {
       this.posts = res.data.data
+      this.done.emit()
     }, (res) => {
       console.log(res.data)
     })

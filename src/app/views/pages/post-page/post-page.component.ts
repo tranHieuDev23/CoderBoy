@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 
 @Component({
   selector: 'app-post-page',
@@ -11,6 +12,7 @@ import { Title } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class PostPageComponent implements OnInit {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
   private post: Post;
 
   constructor(
@@ -24,6 +26,7 @@ export class PostPageComponent implements OnInit {
       .then((res) => {
         this.post = res.data.data
         this.titleService.setTitle(this.post.title)
+        this.loadingScreen.hideSpinner()
       }, (res) => {
         console.log(res.data);
         this.router.navigateByUrl('/404')
