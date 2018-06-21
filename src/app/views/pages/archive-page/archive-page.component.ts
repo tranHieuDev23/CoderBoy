@@ -4,6 +4,7 @@ import { LoadingScreenComponent } from '../../components/loading-screen/loading-
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
+import GlobalConfig from '../../../configs/global-config.json';
 
 @Component({
   selector: 'app-archive-page',
@@ -53,7 +54,7 @@ export class ArchivePageComponent implements OnInit {
 
     const REQUEST_PARAMS: any = {
       page: this.currentPage,
-      page_size: 10
+      page_size: GlobalConfig.ARCHIVE_PAGE_SIZE
     }
     if (type == 'category')
       REQUEST_PARAMS.category_slug = slug
@@ -62,7 +63,10 @@ export class ArchivePageComponent implements OnInit {
     ButterService.post.list(REQUEST_PARAMS)
       .then((res) => {
         this.posts = res.data.data
-        this.lastPage = Math.floor((res.data.meta.count + 9) / 10)
+        this.lastPage = Math.floor(
+          (res.data.meta.count + GlobalConfig.ARCHIVE_PAGE_SIZE - 1) 
+          / GlobalConfig.ARCHIVE_PAGE_SIZE
+        )
         this.loadingScreen.hideSpinner()
         console.log(this.lastPage)
       }, (res) => {
