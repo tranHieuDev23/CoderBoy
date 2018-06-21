@@ -9,8 +9,8 @@ import { NotFoundPageComponent } from '../../views/pages/not-found-page/not-foun
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
-  {path: 'category/:category', component: ArchivePageComponent},
-  {path: 'tag/:tag', component: ArchivePageComponent},
+  {path: 'archive/:type/:slug', component: ArchivePageComponent},
+  {path: 'archive/:type/:slug/:page', component: ArchivePageComponent},
   {path: 'post/:slug', component: PostPageComponent},
   {path: 'search', component: SearchPageComponent},
   {path: '**', component: NotFoundPageComponent}

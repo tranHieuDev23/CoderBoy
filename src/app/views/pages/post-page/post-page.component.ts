@@ -27,16 +27,15 @@ export class PostPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(() =>{
-      this.initView()
+    this.activatedRoute.params.subscribe((params) =>{
+      this.initView(params)
     })
   }
 
-  initView() {
+  initView(params: any) {
     window.scrollTo(0, 0)
     this.loadingScreen.showSpinner()
-
-    let slug = this.router.url.split('/')[2]
+    let slug = params['slug']
     ButterService.post.retrieve(slug)
       .then((res) => {
         this.post = res.data.data
