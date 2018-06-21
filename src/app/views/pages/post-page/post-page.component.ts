@@ -36,8 +36,8 @@ export class PostPageComponent implements OnInit {
     ButterService.post.retrieve(slug)
       .then((res) => {
         this.post = res.data.data
-        this.prevPost = res.data.meta.previous_post;
-        this.nextPost = res.data.meta.next_post;
+        this.prevPost = res.data.meta.previous_post
+        this.nextPost = res.data.meta.next_post
         this.titleService.setTitle(this.post.title)
         this.loadingScreen.hideSpinner()
       }, (res) => {
