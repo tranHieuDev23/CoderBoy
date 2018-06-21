@@ -20,7 +20,7 @@ export class TopBarComponent implements OnInit {
   constructor(
     private ngZone: NgZone,
     private renderer: Renderer2
-  ) { }
+  ) {}
 
   ngOnInit() {
     ButterService.category.list()
@@ -56,5 +56,16 @@ export class TopBarComponent implements OnInit {
       this.ngZone.runOutsideAngular(() => {
         this.renderer.removeClass(this.topBar.nativeElement, 'transparent')
       })
+  }
+
+  public disableTransparentTopbar(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.renderer.addClass(this.topBar.nativeElement, 'disable-transparent')
+    })
+  }
+  public enableTransparentTopbar(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.renderer.removeClass(this.topBar.nativeElement, 'disable-transparent')
+    })
   }
 }

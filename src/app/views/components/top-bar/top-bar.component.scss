@@ -4,10 +4,14 @@
     background-color: $color-top-bar-background;
     z-index: 8000;
     transition: background-color 250ms;
-}
 
-.transparent {
-    background-color: transparent;
+    &.transparent {
+        background-color: transparent;
+
+        &.disable-transparent {
+            background-color: $color-top-bar-background;
+        }
+    }
 }
 
 .nav-link, .nav-link:visited {
