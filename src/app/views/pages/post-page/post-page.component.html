@@ -1,13 +1,30 @@
 <app-loading-screen #loadingScreen></app-loading-screen>
 <div *ngIf="post">
   <app-carousel-post-item [post]="post"></app-carousel-post-item>
-  <div class="post-container px-5 py-4">
+  <div class="base-container px-5 py-4">
     <div id="post-content" [innerHTML]="post.body | safeHtml" highlight-js-content="pre code"></div>
     <div id="post-tag-list" class="my-4">
       <app-tag-list-item *ngFor="let t of post.tags" [tag]="t"></app-tag-list-item>
     </div>
     <div class="py-4">
       <disqus [title]="post.title"></disqus>
+    </div>
+  </div>
+
+  <div id="prev-next-nagivation" class="base-container px-5 py-4">
+    <div class="row">
+      <div class="col-md-6">
+        <app-section-head text="Bài viết trước"></app-section-head>
+        <a *ngIf="prevPost" routerLink="/post/{{ prevPost.slug }}">
+          {{ prevPost.title }}
+        </a>
+      </div>
+      <div class="col-md-6">
+        <app-section-head text="Bài viết sau"></app-section-head>
+        <a *ngIf="nextPost" routerLink="/post/{{ nextPost.slug }}">
+          {{ nextPost.title }}
+        </a>
+      </div>
     </div>
   </div>
 </div>

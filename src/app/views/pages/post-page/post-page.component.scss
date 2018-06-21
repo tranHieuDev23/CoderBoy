@@ -1,18 +1,16 @@
 @import "styles";
 
-.post-container {
+.base-container {
     margin: 5rem;
     background-color: $color-card-background;
     box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
 }
 
 #post-content {
+    font-family: $font-family-secondary;
+
     h1, h2, h3, h4, h5, h6 {
         font-family: $font-family-primary;
-    }
-
-    p {
-        font-family: $font-family-secondary;
     }
 
     a:hover, a:visited, a:link, a:active {
@@ -43,7 +41,6 @@
     figcaption {
         text-align: center;
         font-size: 80%;
-        font-family: $font-family-secondary;
         color: #6c757d;
     }
 
@@ -81,20 +78,29 @@
     }
 }
 
+#prev-next-nagivation {
+    text-align: center;
+    font-family: $font-family-secondary;
+
+    a:hover, a:visited, a:link, a:active {
+        text-decoration: none;
+    }
+}
+
 @include media-breakpoint-down(lg) {
-    .post-container {
+    .base-container {
         margin: 3rem;
     }
 }
 
 @include media-breakpoint-down(sm) {
-    .post-container {
+    .base-container {
         margin: 1rem;
     }
 }
 
 @include media-breakpoint-down(xs) {
-    .post-container {
+    .base-container {
         margin: 0;
         box-shadow: none;
     }
