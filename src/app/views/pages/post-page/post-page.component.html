@@ -13,16 +13,18 @@
 
   <div id="prev-next-nagivation" class="base-container px-5 py-4">
     <div class="row">
-      <div class="col-md-6">
-        <app-section-head text="Bài viết trước"></app-section-head>
-        <a *ngIf="prevPost" routerLink="/post/{{ prevPost.slug }}">
-          {{ prevPost.title }}
+      <div *ngIf="prevPost == null" class="col-md-6"></div>
+      <div *ngIf="prevPost" class="col-md-6">
+        <app-section-head text="Bài viết trước" padding="small"></app-section-head>
+        <a routerLink="/post/{{ prevPost.slug }}">
+          <p>{{ prevPost.title }}</p>
         </a>
       </div>
-      <div class="col-md-6">
-        <app-section-head text="Bài viết sau"></app-section-head>
-        <a *ngIf="nextPost" routerLink="/post/{{ nextPost.slug }}">
-          {{ nextPost.title }}
+      <div *ngIf="nextPost == null" class="col-md-6"></div>
+      <div *ngIf="nextPost" class="col-md-6">
+        <app-section-head text="Bài viết sau" padding="small"></app-section-head>
+        <a routerLink="/post/{{ nextPost.slug }}">
+          <p>{{ nextPost.title }}</p>
         </a>
       </div>
     </div>

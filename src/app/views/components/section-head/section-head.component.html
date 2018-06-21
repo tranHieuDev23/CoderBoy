@@ -1,5 +1,5 @@
-<div>
-  <h5 class="text text-center mt-4">{{ text }}</h5>
+<div [ngClass]="{'large': padding != 'small', 'small': padding == 'small'}">
+  <h5 class="text text-center">{{ text }}</h5>
   <div class="pagination">
     <div class="pagination-line"></div>
   </div>

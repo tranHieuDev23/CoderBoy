@@ -7,10 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SectionHeadComponent implements OnInit {
   @Input() text: string;
+  @Input() padding: string;
   
   constructor() { }
 
   ngOnInit() {
   }
-
 }

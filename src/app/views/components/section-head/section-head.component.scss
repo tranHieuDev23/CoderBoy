@@ -4,16 +4,30 @@
     font-family: $font-family-primary;
 }
 
-.pagination {
-    padding: 20px 0 40px;
+.pagination-line {
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 1px;
+    background-color: $color-pagination-line;
+    display: block;
+}
 
-    .pagination-line {
-        position: absolute;
-        left: 50%;
-        margin-left: -25px;
-        width: 50px;
-        height: 1px;
-        background-color: $color-pagination-line;
-        display: block;
+.large {
+    .text {
+        margin-top: $spacer * 1.5;
+    }
+    .pagination {
+        padding: 20px 0 40px; 
+    }
+}
+
+.small {
+    .text {
+        margin-top: $spacer;
+    }
+    .pagination {
+        padding: 10px 0 20px; 
     }
 }
