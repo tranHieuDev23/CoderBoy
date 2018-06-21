@@ -14,6 +14,9 @@ export class ArchivePageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
   private posts: Post[]
   private title: string
+  private currentPage: number
+  private lastPage: number
+  private baseUrl: string
 
   constructor(
     private router: Router,
@@ -34,7 +37,8 @@ export class ArchivePageComponent implements OnInit {
       return
     }
     let slug = params['slug']
-    let page = (params['page'] != null? +params['page'] : 1)
+    this.currentPage = (params['page'] != null? +params['page'] : 1)
+    this.baseUrl = `/archive/${type}/${slug}`
 
     window.scrollTo(0, 0)
     this.loadingScreen.showSpinner()
@@ -48,7 +52,7 @@ export class ArchivePageComponent implements OnInit {
     })
 
     const REQUEST_PARAMS: any = {
-      page: page,
+      page: this.currentPage,
       page_size: 10
     }
     if (type == 'category')
@@ -58,7 +62,9 @@ export class ArchivePageComponent implements OnInit {
     ButterService.post.list(REQUEST_PARAMS)
       .then((res) => {
         this.posts = res.data.data
+        this.lastPage = Math.floor((res.data.meta.count + 9) / 10)
         this.loadingScreen.hideSpinner()
+        console.log(this.lastPage)
       }, (res) => {
         console.log(res.data);
         this.router.navigateByUrl('/404')

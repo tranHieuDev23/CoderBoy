@@ -4,4 +4,6 @@
     <div *ngFor="let p of posts">
         <app-post-preview-display [post]="p"></app-post-preview-display>
     </div>
+    <app-pagination 
+        [currentPage]="currentPage" [lastPage]="lastPage" [baseUrl]="baseUrl"></app-pagination>
 </div>

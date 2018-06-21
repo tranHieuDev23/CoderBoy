@@ -19,9 +19,11 @@ import { PostPreviewDisplayComponent } from './views/components/post-preview-dis
 import { SectionHeadComponent } from './views/components/section-head/section-head.component';
 import { CategoriesNewPostComponent } from './views/pages/home-page/categories-new-post/categories-new-post.component';
 import { FooterComponent } from './views/components/footer/footer.component';
-import { SafeHtmlPipe } from './views/pipes/safe-html.pipe';
+import { SafeHtmlPipe } from './views/pipes/safe-html/safe-html.pipe';
 import { TagListItemComponent } from './views/components/tag-list-item/tag-list-item.component';
 import { LoadingScreenComponent } from './views/components/loading-screen/loading-screen.component';
+import { PaginationComponent } from './views/components/pagination/pagination.component';
+import { AddPipe } from './views/pipes/add/add.pipe';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import { LoadingScreenComponent } from './views/components/loading-screen/loadin
     FooterComponent,
     SafeHtmlPipe,
     TagListItemComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    PaginationComponent,
+    AddPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

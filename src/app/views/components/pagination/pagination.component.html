@@ -1,0 +1,25 @@
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item" *ngIf="currentPage > 3">
+      <a class="page-link" routerLink="{{ baseUrl }}/1"><i class="fas fa-angle-double-left"></i></a>
+    </li>
+    <li class="page-item" *ngIf="currentPage > 2">
+      <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage | add:-2 }}">{{ currentPage | add:-2 }}</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage > 1">
+      <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage | add:-1 }}">{{ currentPage | add:-1 }}</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage}}">{{ currentPage }}</a>
+    </li>
+    <li class="page-item" *ngIf="lastPage - 1 > currentPage">
+      <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage | add:1 }}">{{ currentPage | add:1 }}</a>
+    </li>
+    <li class="page-item" *ngIf="lastPage - 2 > currentPage">
+      <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage | add:2 }}">{{ currentPage | add:2 }}</a>
+    </li>
+    <li class="page-item" *ngIf="lastPage - 3 > currentPage">
+      <a class="page-link" routerLink="{{ baseUrl }}/{{ lastPage }}"><i class="fas fa-angle-double-right"></i></a>
+    </li>
+  </ul>
+</nav>
