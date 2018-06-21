@@ -31,20 +31,20 @@ export class TopBarComponent implements OnInit {
       })
   }
 
-  toggleSidebar(): void {
-    if (!this.opened) {
-      this.ngZone.runOutsideAngular(() => {
-        this.renderer.addClass(this.sideBar.nativeElement, 'open')
-        this.renderer.addClass(this.overlay.nativeElement, 'active')
-        this.opened = true;
-      })
-    } else {
-      this.ngZone.runOutsideAngular(() => {
-        this.renderer.removeClass(this.sideBar.nativeElement, 'open')
-        this.renderer.removeClass(this.overlay.nativeElement, 'active')
-        this.opened = false;
-      })
-    }
+  public openSideBar(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.renderer.addClass(this.sideBar.nativeElement, 'open')
+      this.renderer.addClass(this.overlay.nativeElement, 'active')
+      this.opened = true;
+    })
+  }
+
+  public closeSideBar(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.renderer.removeClass(this.sideBar.nativeElement, 'open')
+      this.renderer.removeClass(this.overlay.nativeElement, 'active')
+      this.opened = false;
+    })
   }
 
   public handleScroll(event: ScrollEvent) {

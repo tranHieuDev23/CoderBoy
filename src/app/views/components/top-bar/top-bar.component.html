@@ -4,29 +4,29 @@ detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1" #topBar>
         <a class="nav-link py-3" routerLink="/"><h5 class="m-0">{{ BLOG_TITLE }}</h5></a>
     </div>
 
-    <div id="overlay" #overlay></div>
+    <div id="overlay" #overlay (click)="closeSideBar()"></div>
 
     <ul class="nav align-content-start" id="sidebar" #sideBar>
         <li class="nav-item d-md-none">
-            <a class="nav-link p-3" (click)="toggleSidebar()"><i class="fas fa-times"></i></a>
+            <a class="nav-link p-3" (click)="closeSideBar()"><i class="fas fa-times"></i></a>
         </li>
         <li *ngFor="let c of categories" class="nav-item">
-            <a class="nav-link p-3" routerLink="/archive/category/{{ c.slug }}">{{ c.name }}</a>
+            <a class="nav-link p-3" routerLink="/archive/category/{{ c.slug }}" (click)="closeSideBar()">{{ c.name }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-3" routerLink="/tag">Tag</a>
+            <a class="nav-link p-3" routerLink="/tag" (click)="closeSideBar()">Tag</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-3" routerLink="/about">About</a>
+            <a class="nav-link p-3" routerLink="/about" (click)="closeSideBar()">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-3" routerLink="/search"><i class="fas fa-search"></i></a>
+            <a class="nav-link p-3" routerLink="/search" (click)="closeSideBar()"><i class="fas fa-search"></i></a>
         </li>
     </ul>
 
     <ul class="nav d-md-none">
         <li class="nav-item">
-            <a class="nav-link p-3" (click)="toggleSidebar()"><i class="fas fa-bars"></i></a>
+            <a class="nav-link p-3" (click)="openSideBar()"><i class="fas fa-bars"></i></a>
         </li>
     </ul>
 </nav>
