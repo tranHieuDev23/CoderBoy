@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
+import { HighlightJS } from "ngx-highlightjs";
 
 @Component({
   selector: 'app-post-page',
@@ -13,6 +14,7 @@ import { LoadingScreenComponent } from '../../components/loading-screen/loading-
 })
 export class PostPageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
+  @ViewChild('postContent') postContent: ElementRef;
   private post: Post;
   private prevPost: Post;
   private nextPost: Post;
@@ -20,11 +22,12 @@ export class PostPageComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private hljs: HighlightJS
   ) {}
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((res) =>{
+    this.activatedRoute.params.subscribe(() =>{
       this.initView()
     })
   }
@@ -32,6 +35,7 @@ export class PostPageComponent implements OnInit {
   initView() {
     window.scrollTo(0, 0)
     this.loadingScreen.showSpinner()
+
     let slug = this.router.url.split('/')[2]
     ButterService.post.retrieve(slug)
       .then((res) => {

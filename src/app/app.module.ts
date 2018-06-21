@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
 import { ScrollEventModule } from "ngx-scroll-event";
-import { HighlightJsModule } from "angular2-highlight-js";
+import { HighlightModule } from "ngx-highlightjs";
 import { DisqusModule } from "ngx-disqus";
 
 import { AppComponent } from './app.component';
@@ -29,7 +29,10 @@ import { LoadingScreenComponent } from './views/components/loading-screen/loadin
     AppRoutingModule,
     LazyLoadImagesModule,
     ScrollEventModule,
-    HighlightJsModule,
+    HighlightModule.forRoot({
+      theme: 'atom-one-dark',
+      path: 'assets/js'
+    }),
     DisqusModule.forRoot('coderboy23-surge-sh')
   ],
   declarations: [
