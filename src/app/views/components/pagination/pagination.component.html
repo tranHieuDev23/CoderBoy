@@ -10,7 +10,7 @@
       <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage | add:-1 }}">{{ currentPage | add:-1 }}</a>
     </li>
     <li class="page-item active">
-      <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage}}">{{ currentPage }}</a>
+      <a class="page-link">{{ currentPage }}</a>
     </li>
     <li class="page-item" *ngIf="lastPage > currentPage">
       <a class="page-link" routerLink="{{ baseUrl }}/{{ currentPage | add:1 }}">{{ currentPage | add:1 }}</a>

@@ -68,7 +68,6 @@ export class ArchivePageComponent implements OnInit {
           / GlobalConfig.ARCHIVE_PAGE_SIZE
         )
         this.loadingScreen.hideSpinner()
-        console.log(this.lastPage)
       }, (res) => {
         console.log(res.data);
         this.router.navigateByUrl('/404')
