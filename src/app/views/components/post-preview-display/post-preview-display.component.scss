@@ -30,6 +30,7 @@ a:hover, a:visited, a:link, a:active {
     background-color: $color-button-background;
     color: $color-button-outline;
     font-family: $font-family-primary;
+    cursor: pointer;
 }
 
 .button-outline:focus {
@@ -55,7 +56,7 @@ a:hover, a:visited, a:link, a:active {
     }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(xs) {
     .button-outline {
         max-width: initial;
     }

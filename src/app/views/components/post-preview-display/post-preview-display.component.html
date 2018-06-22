@@ -11,14 +11,9 @@
   </div>
   <p class="summary">{{ post.summary }}</p>
 
-  <div>
-    <a routerLink="/post/{{ post.slug }}">
-      <button type="button" class="read-more my-2 mr-2 py-2 button-outline ">Đọc thêm</button>
-    </a>
-    <a routerLink="#">
-      <button type="button" class="facebook my-2 py-2 button-outline"><i class="fab fa-facebook-f"></i></button>
-    </a>
-  </div>
+  <a routerLink="/post/{{ post.slug }}">
+    <button type="button" class="read-more my-2 mr-2 py-2 button-outline ">Đọc thêm</button>
+  </a>
 
   <div class="pagination">
     <div class="pagination-line"></div>
