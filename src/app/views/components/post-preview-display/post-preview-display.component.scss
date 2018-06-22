@@ -31,15 +31,15 @@ a:hover, a:visited, a:link, a:active {
     color: $color-button-outline;
     font-family: $font-family-primary;
     cursor: pointer;
-}
 
-.button-outline:focus {
-    outline: none;
-}
+    &:focus {
+        outline: none;
+    }
 
-.button-outline:hover {
-    background-color: $color-button-background-selected;
-    color: $color-button-text-selected;
+    &:hover {
+        background-color: $color-button-background-selected;
+        color: $color-button-text-selected;
+    }
 }
 
 .pagination {

@@ -1,4 +1,4 @@
-@import 'styles.scss';
+@import 'styles';
 
 .navbar {
     background-color: $color-top-bar-background;
@@ -52,6 +52,81 @@
 .active#overlay {
     visibility: visible;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-menu {
+    min-width: 195px;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+    font-family: $font-family-secondary;
+
+    input {
+        border-radius: 0;
+        &:focus {
+            outline: none;
+            box-shadow: none !important;
+            border-color: #ced4da !important;
+        }
+    }
+
+    button {
+        appearance: none;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        border: 0;
+        background-color: $color-button-background-selected;
+        color: $color-button-text-selected;
+        font-family: $font-family-secondary;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background-color: $color-button-background-selected !important;
+            color: $color-button-text-selected !important;
+        }
+    }
+}
+
+.show > .dropdown-menu {
+    animation-name: fadeInAnimation;
+    animation-duration:.1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: fadeInAnimation;
+    -webkit-animation-duration:.1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: fadeInAnimation;
+    -moz-animation-duration:.1s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease;
+    -moz-animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @include media-breakpoint-down(sm) {

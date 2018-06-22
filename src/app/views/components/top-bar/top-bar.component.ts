@@ -3,6 +3,7 @@ import { Category } from '../../../models/category';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import GlobalConfig from '../../../configs/global-config.json';
 import { ScrollEvent } from 'ngx-scroll-event';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -13,11 +14,12 @@ export class TopBarComponent implements OnInit {
   @ViewChild('topBar') topBar: ElementRef;
   @ViewChild('sideBar') sideBar: ElementRef;
   @ViewChild('overlay') overlay: ElementRef;
+  @ViewChild('query') query: ElementRef;
   private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
   private categories: Category[];
-  private opened: boolean = false;
 
   constructor(
+    private router: Router,
     private ngZone: NgZone,
     private renderer: Renderer2
   ) {}
@@ -35,7 +37,6 @@ export class TopBarComponent implements OnInit {
     this.ngZone.runOutsideAngular(() => {
       this.renderer.addClass(this.sideBar.nativeElement, 'open')
       this.renderer.addClass(this.overlay.nativeElement, 'active')
-      this.opened = true;
     })
   }
 
@@ -43,7 +44,6 @@ export class TopBarComponent implements OnInit {
     this.ngZone.runOutsideAngular(() => {
       this.renderer.removeClass(this.sideBar.nativeElement, 'open')
       this.renderer.removeClass(this.overlay.nativeElement, 'active')
-      this.opened = false;
     })
   }
 
@@ -67,5 +67,9 @@ export class TopBarComponent implements OnInit {
     this.ngZone.runOutsideAngular(() => {
       this.renderer.removeClass(this.topBar.nativeElement, 'disable-transparent')
     })
+  }
+
+  performSearch() {
+    this.router.navigate(['/search', this.query.nativeElement.value])
   }
 }

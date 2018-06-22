@@ -6,7 +6,7 @@ detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1" #topBar>
 
     <div id="overlay" #overlay (click)="closeSideBar()"></div>
 
-    <ul class="nav align-content-start" id="sidebar" #sideBar>
+    <ul class="nav align-content-start ml-auto" id="sidebar" #sideBar>
         <li class="nav-item d-md-none">
             <a class="nav-link p-3" (click)="closeSideBar()"><i class="fas fa-times"></i></a>
         </li>
@@ -19,13 +19,22 @@ detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1" #topBar>
         <li class="nav-item">
             <a class="nav-link p-3" routerLink="/about" (click)="closeSideBar()">About</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link p-3" routerLink="/search" (click)="closeSideBar()"><i class="fas fa-search"></i></a>
-        </li>
     </ul>
 
-    <ul class="nav d-md-none">
-        <li class="nav-item">
+    <ul class="nav align-content-start">
+        <li class="nav-item dropdown">
+            <a class="nav-link p-3" data-toggle="dropdown" href="#" role="button" 
+            aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <form class="px-3 py-2" (ngSummit)="performSearch()">
+                    <input #query type="text" name="query" id="query" class="form-control" placeholder="Tìm kiếm bài viết..." required/>
+                    <button type="submit" class="mt-2 p-1">Tìm kiếm</button>
+                </form>
+            </div>
+        </li>
+        <li class="nav-item d-md-none">
             <a class="nav-link p-3" (click)="openSideBar()"><i class="fas fa-bars"></i></a>
         </li>
     </ul>
