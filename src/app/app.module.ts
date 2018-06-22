@@ -24,6 +24,7 @@ import { TagListItemComponent } from './views/components/tag-list-item/tag-list-
 import { LoadingScreenComponent } from './views/components/loading-screen/loading-screen.component';
 import { PaginationComponent } from './views/components/pagination/pagination.component';
 import { AddPipe } from './views/pipes/add/add.pipe';
+import { TagListPageComponent } from './views/pages/tag-list-page/tag-list-page.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { AddPipe } from './views/pipes/add/add.pipe';
     TagListItemComponent,
     LoadingScreenComponent,
     PaginationComponent,
-    AddPipe
+    AddPipe,
+    TagListPageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

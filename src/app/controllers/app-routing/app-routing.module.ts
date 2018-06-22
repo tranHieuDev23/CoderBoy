@@ -5,10 +5,12 @@ import { ArchivePageComponent } from '../../views/pages/archive-page/archive-pag
 import { PostPageComponent } from '../../views/pages/post-page/post-page.component';
 import { SearchPageComponent } from '../../views/pages/search-page/search-page.component';
 import { NotFoundPageComponent } from '../../views/pages/not-found-page/not-found-page.component';
+import { TagListPageComponent } from '../../views/pages/tag-list-page/tag-list-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent},
+  {path: 'tag', component: TagListPageComponent},
   {path: 'archive/:type/:slug', component: ArchivePageComponent},
   {path: 'archive/:type/:slug/:page', component: ArchivePageComponent},
   {path: 'post/:slug', component: PostPageComponent},
