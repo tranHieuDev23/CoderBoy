@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
 import { ScrollEventModule } from "ngx-scroll-event";
 import { HighlightModule } from "ngx-highlightjs";
@@ -30,6 +31,7 @@ import { TagListPageComponent } from './views/pages/tag-list-page/tag-list-page.
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     LazyLoadImagesModule,
     ScrollEventModule,
     HighlightModule.forRoot({

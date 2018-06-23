@@ -14,9 +14,10 @@ export class TopBarComponent implements OnInit {
   @ViewChild('topBar') topBar: ElementRef;
   @ViewChild('sideBar') sideBar: ElementRef;
   @ViewChild('overlay') overlay: ElementRef;
-  @ViewChild('query') query: ElementRef;
+  @ViewChild('dropdown') dropdown: ElementRef;
   private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
   private categories: Category[];
+  private query: string;
 
   constructor(
     private router: Router,
@@ -70,6 +71,12 @@ export class TopBarComponent implements OnInit {
   }
 
   performSearch() {
-    this.router.navigate(['/search', this.query.nativeElement.value])
+    this.router.navigate(['/search'], {
+      queryParams: {
+        query: this.query
+      }
+    })
+    this.query = null
+    this.dropdown.nativeElement.dropdown()
   }
 }

@@ -22,14 +22,14 @@ detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1" #topBar>
     </ul>
 
     <ul class="nav align-content-start">
-        <li class="nav-item dropdown">
+        <li #dropdown class="nav-item dropdown">
             <a class="nav-link p-3" data-toggle="dropdown" href="#" role="button" 
-            aria-haspopup="true" aria-expanded="false">
+            aria-haspopup="true">
                 <i class="fas fa-search"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <form class="px-3 py-2" (ngSummit)="performSearch()">
-                    <input #query type="text" name="query" id="query" class="form-control" placeholder="Tìm kiếm bài viết..." required/>
+                <form class="px-3 py-2" (submit)="performSearch()">
+                    <input type="text" name="query" id="query" class="form-control" placeholder="Tìm kiếm bài viết..." required [(ngModel)]="query"/>
                     <button type="submit" class="mt-2 p-1">Tìm kiếm</button>
                 </form>
             </div>
