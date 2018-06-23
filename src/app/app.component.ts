@@ -20,8 +20,9 @@ export class AppComponent {
   }
 
   routeAllowsTransparentTopbar(url: string): boolean {
-    let postRegExp = new RegExp('(\/post\/)[a-zA-Z0-9_-]+')
-    return url == '/home' || postRegExp.test(url)
+    let homeRegExp = new RegExp('(\/home).*')
+    let postRegExp = new RegExp('(\/post\/)[a-zA-Z0-9_-]+.*')
+    return homeRegExp.test(url) || postRegExp.test(url)
   }
 
   handleRoutingEvents(event: RouterEvent): void {
