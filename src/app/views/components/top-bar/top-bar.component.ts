@@ -15,6 +15,8 @@ export class TopBarComponent implements OnInit {
   @ViewChild('sideBar') sideBar: ElementRef;
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('dropdown') dropdown: ElementRef;
+  @ViewChild('dropdownToggle') dropdownToggle: ElementRef;
+  @ViewChild('dropdownMenu') dropdownMenu: ElementRef;
   private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
   private categories: Category[];
   private query: string;
@@ -70,6 +72,14 @@ export class TopBarComponent implements OnInit {
     })
   }
 
+  closeSearchDropdown(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.renderer.removeClass(this.dropdown.nativeElement, 'show')
+      this.renderer.removeClass(this.dropdownMenu.nativeElement, 'show')
+      this.renderer.setProperty(this.dropdownToggle.nativeElement, 'aria-expanded', false)
+    })
+  }
+
   performSearch() {
     this.router.navigate(['/search'], {
       queryParams: {
@@ -77,6 +87,6 @@ export class TopBarComponent implements OnInit {
       }
     })
     this.query = null
-    this.dropdown.nativeElement.dropdown()
+    this.closeSearchDropdown();
   }
 }
