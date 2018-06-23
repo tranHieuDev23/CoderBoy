@@ -29,7 +29,7 @@ detect-scroll (onScroll)="handleScroll($event)" [topOffset]="1" #topBar>
             </a>
             <div class="dropdown-menu dropdown-menu-right" #dropdownMenu>
                 <form class="px-3 py-2" (submit)="performSearch()" ngNativeValidate>
-                    <input type="text" name="query" id="query" class="form-control" placeholder="Tìm kiếm bài viết..." required [(ngModel)]="query"/>
+                    <input type="text" name="query" id="query" class="form-control" placeholder="Tìm kiếm bài viết..." required autocomplete="off" [(ngModel)]="query"/>
                     <button type="submit" class="mt-2 p-1">Tìm kiếm</button>
                 </form>
             </div>
