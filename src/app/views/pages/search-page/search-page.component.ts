@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
+import { Post } from '../../../models/post';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ButterService } from '../../../controllers/butterCMS/butter.service';
+import GlobalConfig from '../../../configs/global-config.json';
 
 @Component({
   selector: 'app-search-page',
@@ -6,10 +12,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
+  private posts: Post[]
+  private query: string
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe((params) =>{
+      this.initView(params)
+    })
   }
 
+  initView(params: any) {
+    window.scrollTo(0, 0)
+    this.titleService.setTitle("Tìm kiếm")
+    this.query = params['query']
+    if (!this.query)
+      this.loadingScreen.hideSpinner()
+    else
+    {
+      this.loadingScreen.showSpinner()
+      ButterService.post.search(this.query, {
+        page: 1,
+        page_size: GlobalConfig.SEARCH_MAXIMUM_RESULTS
+      })
+      .then((res) => {
+        console.log(res.data)
+        this.posts = res.data.data
+        this.loadingScreen.hideSpinner()
+      }, (res) => {
+        console.log(res.data)
+      })
+    }
+  }
+
+  performSearch() {
+    this.router.navigate(['/search'], {
+      queryParams: {
+        query: this.query
+      }
+    })
+  }
 }
