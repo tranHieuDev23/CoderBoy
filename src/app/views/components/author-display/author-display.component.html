@@ -3,7 +3,9 @@
     <div class="avatar" [attr.data-background-src]="author.profile_image"></div>
   </div>
   <div class="content col-sm-8 col-md-9 col-lg-10">
-    <h5 class="author-name mt-0">{{ author.last_name }} {{ author.first_name }}</h5>
+    <a routerLink="/archive/author/{{ author.slug }}">
+      <h5 class="author-name mt-0">{{ author.last_name }} {{ author.first_name }}</h5>
+    </a>
     <h6 class="author-title"><i>{{ author.title }}</i></h6>
     <p class="author-bio">{{ author.bio }}</p>
     <div class="contact">
