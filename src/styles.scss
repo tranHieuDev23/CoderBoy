@@ -70,3 +70,7 @@ body {
     font-size: 18px;
     background-color: $color-fake-background;
 }
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}

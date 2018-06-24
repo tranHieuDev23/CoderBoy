@@ -1,0 +1,24 @@
+@import "styles";
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto $spacer;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+}
+
+.author-name {
+    font-family: $font-family-primary;
+}
+
+.author-title, .author-bio, .contact {
+    font-family: $font-family-secondary;
+}
+
+@include media-breakpoint-down(xs) {
+    .content {
+        text-align: center;
+    }
+}

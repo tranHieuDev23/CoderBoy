@@ -81,10 +81,6 @@
 #prev-next-nagivation {
     text-align: center;
     font-family: $font-family-secondary;
-
-    a:hover, a:visited, a:link, a:active {
-        text-decoration: none;
-    }
 }
 
 @include media-breakpoint-down(lg) {

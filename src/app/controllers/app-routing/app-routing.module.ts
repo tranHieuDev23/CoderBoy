@@ -6,6 +6,7 @@ import { PostPageComponent } from '../../views/pages/post-page/post-page.compone
 import { SearchPageComponent } from '../../views/pages/search-page/search-page.component';
 import { NotFoundPageComponent } from '../../views/pages/not-found-page/not-found-page.component';
 import { TagListPageComponent } from '../../views/pages/tag-list-page/tag-list-page.component';
+import { AboutPageComponent } from '../../views/pages/about-page/about-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'archive/:type/:slug/:page', component: ArchivePageComponent},
   {path: 'post/:slug', component: PostPageComponent},
   {path: 'search', component: SearchPageComponent},
+  {path: 'about', component: AboutPageComponent},
   {path: '**', component: NotFoundPageComponent}
 ]
 

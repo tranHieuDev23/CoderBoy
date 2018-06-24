@@ -26,6 +26,10 @@ import { LoadingScreenComponent } from './views/components/loading-screen/loadin
 import { PaginationComponent } from './views/components/pagination/pagination.component';
 import { AddPipe } from './views/pipes/add/add.pipe';
 import { TagListPageComponent } from './views/pages/tag-list-page/tag-list-page.component';
+import { AuthorDisplayComponent } from './views/components/author-display/author-display.component';
+import { AboutPageComponent } from './views/pages/about-page/about-page.component';
+import { ExtractUrlPipe } from './views/pipes/extract-url/extract-url.pipe';
+import { TwitterHandleUrlPipe } from './views/pipes/twitter-handle-url/twitter-handle-url.pipe';
 
 @NgModule({
   imports: [
@@ -59,7 +63,11 @@ import { TagListPageComponent } from './views/pages/tag-list-page/tag-list-page.
     LoadingScreenComponent,
     PaginationComponent,
     AddPipe,
-    TagListPageComponent
+    TagListPageComponent,
+    AuthorDisplayComponent,
+    AboutPageComponent,
+    ExtractUrlPipe,
+    TwitterHandleUrlPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

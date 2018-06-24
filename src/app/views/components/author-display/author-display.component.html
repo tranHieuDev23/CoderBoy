@@ -1,0 +1,42 @@
+<div class="row" lazy-load-images>
+  <div class="col-sm-4 col-md-3 col-lg-2">
+    <div class="avatar" [attr.data-background-src]="author.profile_image"></div>
+  </div>
+  <div class="content col-sm-8 col-md-9 col-lg-10">
+    <h5 class="author-name mt-0">{{ author.last_name }} {{ author.first_name }}</h5>
+    <h6 class="author-title"><i>{{ author.title }}</i></h6>
+    <p class="author-bio">{{ author.bio }}</p>
+    <div class="contact">
+      <p>
+        <a class="email" *ngIf="author.email" [href]="'mailto:' + author.email" target="blank">
+            <i class="fas fa-envelope"></i> {{ author.email }}
+        </a>
+      </p>
+      <p>
+        <a class="linkedin-profile" *ngIf="author.linkedin_url" [href]="author.linkedin_url" target="blank">
+          <i class="fab fa-linkedin"></i> {{ author.linkedin_url | extractUrl }}
+        </a>
+      </p>
+      <p>
+        <a class="facebook-profile" *ngIf="author.facebook_url" [href]="author.facebook_url" target="blank">
+          <i class="fab fa-facebook"></i> {{ author.facebook_url | extractUrl }}
+        </a>
+      </p>
+      <p>
+        <a class="pinterest-profile" *ngIf="author.pinterest_url" [href]="author.pinterest_url" target="blank">
+          <i class="fab fa-pinterest"></i> {{ author.pinterest_url | extractUrl }}
+        </a>
+      </p>
+      <p>
+        <a class="instagram-profile" *ngIf="author.instagram_url"  [href]="author.instagram_url" target="blank">
+          <i class="fab fa-instagram"></i> {{ author.instagram_url | extractUrl }}
+        </a>
+      </p>
+      <p>
+        <a class="twitter-profile" *ngIf="author.twitter_handle" [href]="author.twitter_handle | twitterHandleUrl" target="blank">
+          <i class="fab fa-twitter"></i> {{ author.twitter_handle }}
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
