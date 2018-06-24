@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import GlobalConfig from '../../../configs/global-config.json';
+import html from '../../../configs/footer-content.html';
 
 @Component({
   selector: 'app-footer',
@@ -7,8 +8,8 @@ import GlobalConfig from '../../../configs/global-config.json';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
-  private CREDIT = GlobalConfig.CREDIT;
+  private title = GlobalConfig.BLOG_TITLE;
+  private content = html;
 
   constructor() { }
 
