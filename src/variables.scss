@@ -1,0 +1,65 @@
+/* Fonts */
+@font-face {
+    font-family: 'Lato-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: url('/assets/fonts/Lato-Regular/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OpenSans-ExtraBold';
+    font-weight: 800;
+    font-style: normal;
+    src: url('/assets/fonts/OpenSans-ExtraBold/OpenSans-ExtraBold.ttf') format('truetype');
+}
+
+$font-family-primary: 'OpenSans-ExtraBold', sans-serif;
+$font-family-secondary: 'Lato-Regular', sans-serif;
+
+$font-size-top-bar-item: 1rem;
+
+/* Colors */
+$color-top-bar-background: black;
+$color-top-bar-background-selected: white;
+$color-top-bar-text: white;
+$color-top-bar-text-selected: black;
+
+$color-loading-background: black;
+$color-loading-animation: white;
+
+$color-carousel-text: white;
+
+$color-fake-background: #f8f8f8;
+$color-card-background: white;
+
+$color-post-text: black;
+
+$color-button-outline: black;
+$color-button-background: white;
+$color-button-background-selected: black;
+$color-button-text-selected: white;
+
+$color-pagination-line: rgba(51,51,51,0.2);
+
+$color-footer: #aaaaaa;
+
+$color-blockquote: #ccc;
+
+$color-table-background: white;
+$color-table-text: black;
+$color-table-background-header: white;
+$color-table-text-header: black;
+$color-table-border: #dee2e6;
+
+$width-table-border: 1px;
+
+$color-tag-item-background: black;
+$color-tag-item-text: white;
+$color-tag-item-background-hover: grey;
+$color-tag-item-text-hover: white;
+
+$color-pagination-nav-background: white;
+$color-pagination-nav-text: black;
+$color-pagination-nav-border: black;
+$color-pagination-nav-background-selected: black;
+$color-pagination-nav-text-selected: white;
