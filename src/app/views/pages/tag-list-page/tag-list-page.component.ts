@@ -27,7 +27,6 @@ export class TagListPageComponent implements OnInit {
         this.loadingScreen.hideSpinner()
       }, (res) => {
         console.log(res.data)
-        this.router.navigateByUrl('/404')
       })
   }
 }

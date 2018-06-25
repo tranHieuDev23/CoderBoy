@@ -45,7 +45,9 @@ export class PostPageComponent implements OnInit {
         this.loadingScreen.hideSpinner()
       }, (res) => {
         console.log(res.data);
-        this.router.navigateByUrl('/404')
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: false
+        })
       })
   }
 }

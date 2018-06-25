@@ -29,7 +29,9 @@ export class AboutPageComponent implements OnInit {
         this.title.setTitle('About')
       }, (res) => {
         console.log(res.data)
-        this.router.navigateByUrl('/404')
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: false
+        })
       })
   }
 }

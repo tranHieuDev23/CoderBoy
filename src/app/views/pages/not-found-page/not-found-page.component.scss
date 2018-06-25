@@ -1,0 +1,39 @@
+@import "variables";
+
+#error-code {
+    font-family: $font-family-primary;
+}
+
+#message {
+    font-family: $font-family-secondary;
+}
+
+input {
+    border-radius: 0;
+    &:focus {
+        outline: none;
+        box-shadow: none !important;
+        border-color: #ced4da !important;
+    }
+}
+
+button {
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    border: 0;
+    background-color: $color-button-background-selected;
+    color: $color-button-text-selected;
+    font-family: $font-family-secondary;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: $color-button-background-selected !important;
+        color: $color-button-text-selected !important;
+    }
+}

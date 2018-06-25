@@ -57,6 +57,9 @@ export class ArchivePageComponent implements OnInit {
       }
     }, (res) => {
       console.log(res.data)
+      this.router.navigateByUrl('/404', {
+        skipLocationChange: false
+      })
     })
 
     const REQUEST_PARAMS: any = {
@@ -79,7 +82,9 @@ export class ArchivePageComponent implements OnInit {
         this.loadingScreen.hideSpinner()
       }, (res) => {
         console.log(res.data);
-        this.router.navigateByUrl('/404')
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: false
+        })
       })
   }
 
