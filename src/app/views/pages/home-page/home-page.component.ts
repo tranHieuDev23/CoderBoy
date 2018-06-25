@@ -33,17 +33,10 @@ export class HomePageComponent implements OnInit {
       })
     
     this.carousel.done.subscribe(() => {
+      window.scrollTo(0, 0)
       this.loadingScreen.hideSpinner()
     })
 
-    this.router.events.subscribe((event) => {
-      if (!(event instanceof NavigationEnd)) {
-          return;
-      }
-      window.scrollTo(0, 0)
-    });
-
     this.titleService.setTitle(GlobalConfig.BLOG_TITLE)
   }
-
 }
