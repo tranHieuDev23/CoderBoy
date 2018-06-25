@@ -42,7 +42,6 @@ export class SearchPageComponent implements OnInit {
         page_size: GlobalConfig.SEARCH_MAXIMUM_RESULTS
       })
       .then((res) => {
-        console.log(res.data)
         this.posts = res.data.data
         this.loadingScreen.hideSpinner()
       }, (res) => {

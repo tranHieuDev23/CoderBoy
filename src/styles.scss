@@ -10,3 +10,36 @@ body {
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
+
+.content-container {
+    margin: 5rem;
+    background-color: $color-card-background;
+    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+
+    &.extra-top-padding {
+        margin-top: $spacer * 6;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .content-container {
+        margin: 3rem;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .content-container {
+        margin: 1rem;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .content-container {
+        margin: 0;
+        box-shadow: none;
+
+        &.extra-top-padding {
+            margin-top: $spacer * 3;
+        }
+    }
+}

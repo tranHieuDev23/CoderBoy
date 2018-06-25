@@ -1,7 +1,7 @@
 <app-loading-screen #loadingScreen></app-loading-screen>
 <div *ngIf="post">
   <app-carousel-post-item [post]="post"></app-carousel-post-item>
-  <div class="base-container px-5 py-4">
+  <div class="content-container px-5 py-4">
     <div id="post-content" [innerHTML]="post.body | safeHtml" highlight="all"></div>
     <div id="post-tag-list" class="my-4">
       <app-tag-list-item *ngFor="let t of post.tags" [tag]="t"></app-tag-list-item>
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div id="prev-next-nagivation" class="base-container px-5 py-4">
+  <div id="prev-next-nagivation" class="content-container px-5 py-4">
     <div class="row">
       <div *ngIf="prevPost == null" class="col-md-6"></div>
       <div *ngIf="prevPost" class="col-md-6">

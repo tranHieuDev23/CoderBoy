@@ -1,12 +1,6 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
-.base-container {
-    margin: 5rem;
-    background-color: $color-card-background;
-    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
-}
-
 #post-content {
     font-family: $font-family-secondary;
 
@@ -82,23 +76,4 @@
 #prev-next-nagivation {
     text-align: center;
     font-family: $font-family-secondary;
-}
-
-@include media-breakpoint-down(lg) {
-    .base-container {
-        margin: 3rem;
-    }
-}
-
-@include media-breakpoint-down(sm) {
-    .base-container {
-        margin: 1rem;
-    }
-}
-
-@include media-breakpoint-down(xs) {
-    .base-container {
-        margin: 0;
-        box-shadow: none;
-    }
 }
