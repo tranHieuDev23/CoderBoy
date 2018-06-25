@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
 import { ScrollEventModule } from "ngx-scroll-event";
@@ -30,6 +30,10 @@ import { AuthorDisplayComponent } from './views/components/author-display/author
 import { AboutPageComponent } from './views/pages/about-page/about-page.component';
 import { ExtractUrlPipe } from './views/pipes/extract-url/extract-url.pipe';
 import { TwitterHandleUrlPipe } from './views/pipes/twitter-handle-url/twitter-handle-url.pipe';
+import localeVi from '@angular/common/locales/vi'
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeVi)
 
 @NgModule({
   imports: [
@@ -69,7 +73,9 @@ import { TwitterHandleUrlPipe } from './views/pipes/twitter-handle-url/twitter-h
     ExtractUrlPipe,
     TwitterHandleUrlPipe
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID, useValue: 'vi'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
   </a>
   <div>
     <a routerLink="/author/{{ post.author.slug }}">
-      <span class="author">{{ post.author.last_name }} {{ post.author.first_name }}</span></a>/<span class="timestamp">{{ post.published }}</span>
+      <span class="author">{{ post.author.last_name }} {{ post.author.first_name }}</span></a>/<span class="timestamp">{{ post.published | date:'medium' }}</span>
   </div>
   <div lazy-load-images>
     <img class="img-fluid my-3" data-src="{{ post.featured_image }}"/>
