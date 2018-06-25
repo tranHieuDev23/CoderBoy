@@ -49,7 +49,12 @@ export class ArchivePageComponent implements OnInit {
     ButterService[type].retrieve(slug)
     .then((res) => {
       this.title = this.generateTitle(type, res.data.data)
-      this.titleService.setTitle(res.data.data.name)
+      if (type == 'author') {
+        this.author = res.data.data
+        this.titleService.setTitle(`${res.data.data.last_name} ${res.data.data.first_name}`)
+      } else {
+        this.titleService.setTitle(res.data.data.name)
+      }
     }, (res) => {
       console.log(res.data)
     })

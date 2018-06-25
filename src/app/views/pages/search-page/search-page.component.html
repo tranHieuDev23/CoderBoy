@@ -1,16 +1,18 @@
 <app-loading-screen></app-loading-screen>
-<div class="content-container extra-top-padding px-5 py-4">
-  <div class="container mb-4">
-    <form class="input-group" (submit)="performSearch()" ngNativeValidate>
-      <input type="text" name="query" id="query" class="form-control" 
-        placeholder="Tìm kiếm bài viết..." required autocomplete="off" [(ngModel)]="query"/>
-      <div class="input-group-append">
-        <button type="submit" class="px-3 py-2"><i class="fas fa-search"></i></button>
+<div class="content-container extra-top-margin">
+  <div class="content">
+      <div class="mb-4">
+        <form class="input-group" (submit)="performSearch()" ngNativeValidate>
+          <input type="text" name="query" id="query" class="form-control" 
+            placeholder="Tìm kiếm bài viết..." required autocomplete="off" [(ngModel)]="query"/>
+          <div class="input-group-append">
+            <button type="submit" class="px-3 py-2"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-  <app-section-head text="Kết quả tìm kiếm" padding="small"></app-section-head>
-  <div *ngFor="let p of posts">
-      <app-post-preview-display [post]="p"></app-post-preview-display>
+      <app-section-head text="Kết quả tìm kiếm" padding="small"></app-section-head>
+      <div *ngFor="let p of posts">
+          <app-post-preview-display [post]="p"></app-post-preview-display>
+      </div>
   </div>
 </div>

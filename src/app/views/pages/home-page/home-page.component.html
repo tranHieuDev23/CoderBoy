@@ -1,8 +1,10 @@
 <app-loading-screen></app-loading-screen>
 <app-carousel></app-carousel>
-<div class="content-container px-5 py-4">
-    <div *ngFor="let c of categories">
-        <app-section-head [text]="c.name"></app-section-head>
-        <app-categories-new-post [category]="c"></app-categories-new-post>
+<div class="content-container">
+    <div class="content">
+        <div *ngFor="let c of categories">
+            <app-section-head [text]="c.name"></app-section-head>
+            <app-categories-new-post [category]="c"></app-categories-new-post>
+        </div>
     </div>
 </div>

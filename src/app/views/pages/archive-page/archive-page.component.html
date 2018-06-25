@@ -1,10 +1,12 @@
 <app-loading-screen></app-loading-screen>
-<div class="content-container extra-top-padding px-5 py-4">
-    <app-author-display *ngIf="author" [author]="author"></app-author-display>
-    <app-section-head [text]="title"></app-section-head>
-    <div *ngFor="let p of posts">
-        <app-post-preview-display [post]="p"></app-post-preview-display>
+<div class="content-container extra-top-margin">
+    <div class="content">
+        <app-author-display *ngIf="author" [author]="author"></app-author-display>
+        <app-section-head [text]="title"></app-section-head>
+        <div *ngFor="let p of posts">
+            <app-post-preview-display [post]="p"></app-post-preview-display>
+        </div>
+        <app-pagination 
+            [currentPage]="currentPage" [lastPage]="lastPage" [baseUrl]="baseUrl"></app-pagination>
     </div>
-    <app-pagination 
-        [currentPage]="currentPage" [lastPage]="lastPage" [baseUrl]="baseUrl"></app-pagination>
 </div>

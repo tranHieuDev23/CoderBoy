@@ -1,7 +1,9 @@
 <app-loading-screen></app-loading-screen>
-<div class="content-container extra-top-padding px-5 py-4">
+<div class="content-container extra-top-margin">
+  <div class="content">
     <app-section-head text="Danh mục tag trên trang"></app-section-head>
     <div class="pb-4 text-center">
       <app-tag-list-item *ngFor="let t of tags" [tag]="t"></app-tag-list-item>
     </div>
+  </div>
 </div>

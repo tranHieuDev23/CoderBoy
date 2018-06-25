@@ -3,33 +3,40 @@
 
 /* Global Style */
 body {
-    font-size: 18px;
-    background-color: $color-fake-background;
+    font-size: 18px !important;
+    background-color: $color-fake-background !important;
 }
 
 a:hover, a:visited, a:link, a:active {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .content-container {
-    margin: 5rem;
+    margin: 3rem 5rem 5rem;
+    padding: 3rem 14%;
     background-color: $color-card-background;
     box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
 
-    &.extra-top-padding {
+    &.extra-top-margin {
         margin-top: $spacer * 6;
+    }
+
+    .content {
+        width: 100%;
     }
 }
 
 @include media-breakpoint-down(lg) {
     .content-container {
         margin: 3rem;
+        padding: 3rem 10%;
     }
 }
 
 @include media-breakpoint-down(sm) {
     .content-container {
         margin: 1rem;
+        padding: 3rem 8%;
     }
 }
 
@@ -38,7 +45,7 @@ a:hover, a:visited, a:link, a:active {
         margin: 0;
         box-shadow: none;
 
-        &.extra-top-padding {
+        &.extra-top-margin {
             margin-top: $spacer * 3;
         }
     }
