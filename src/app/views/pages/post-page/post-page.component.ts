@@ -2,9 +2,8 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@an
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
-import { HighlightJS } from "ngx-highlightjs";
 
 @Component({
   selector: 'app-post-page',
@@ -22,8 +21,8 @@ export class PostPageComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
-    private activatedRoute: ActivatedRoute,
-    private hljs: HighlightJS
+    private metaService: Meta,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -43,11 +42,22 @@ export class PostPageComponent implements OnInit {
         this.nextPost = res.data.meta.next_post
         this.titleService.setTitle(this.post.title)
         this.loadingScreen.hideSpinner()
+        this.addSEORelatedTags()
       }, (res) => {
         console.log(res.data);
         this.router.navigateByUrl('/404', {
           skipLocationChange: false
         })
       })
+  }
+
+  addSEORelatedTags(): void {
+    this.metaService.addTags([
+      {name: 'og:title', content: this.post.seo_title},
+      {name: 'og:description', content: this.post.meta_description},
+      {name: 'og:image', content: this.post.featured_image},
+      {name: 'fb:app_id', content: '1822549548041152'},
+      {name: 'og:type', content: 'arcticle'}
+    ])
   }
 }
