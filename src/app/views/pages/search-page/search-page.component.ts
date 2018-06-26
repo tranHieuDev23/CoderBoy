@@ -4,7 +4,7 @@ import { Post } from '../../../models/post';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
-import GlobalConfig from '../../../configs/global-config.json';
+import { GlobalConfig } from "../../../configs/global-config";
 
 @Component({
   selector: 'app-search-page',
@@ -13,8 +13,8 @@ import GlobalConfig from '../../../configs/global-config.json';
 })
 export class SearchPageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
-  private posts: Post[]
-  private query: string
+  public posts: Post[]
+  public query: string
 
   constructor(
     private router: Router,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import GlobalConfig from '../../../configs/global-config.json';
+import { GlobalConfig } from "../../../configs/global-config";
 
 @Component({
   selector: 'app-not-found-page',
@@ -9,8 +9,8 @@ import GlobalConfig from '../../../configs/global-config.json';
   styleUrls: ['./not-found-page.component.scss']
 })
 export class NotFoundPageComponent implements OnInit {
-  private message: string = GlobalConfig.MESSAGE_404
-  private query: string
+  public message: string = GlobalConfig.MESSAGE_404
+  public query: string
 
   constructor(
     private router: Router,

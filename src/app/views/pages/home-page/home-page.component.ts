@@ -4,7 +4,7 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Category } from '../../../models/category';
 import { Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import GlobalConfig from "../../../configs/global-config.json";
+import { GlobalConfig } from "../../../configs/global-config";
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 
@@ -16,8 +16,8 @@ import { CarouselComponent } from '../../components/carousel/carousel.component'
 export class HomePageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
   @ViewChild(CarouselComponent) carousel: CarouselComponent;
-  private posts: Post[]
-  private categories: Category[]
+  public posts: Post[]
+  public categories: Category[]
 
   constructor(
     private router: Router,

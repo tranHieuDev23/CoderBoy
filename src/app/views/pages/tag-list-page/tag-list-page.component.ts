@@ -12,7 +12,7 @@ import { Tag } from '../../../models/tag';
 })
 export class TagListPageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
-  private tags: Tag[]
+  public tags: Tag[]
 
   constructor(
     private router: Router,

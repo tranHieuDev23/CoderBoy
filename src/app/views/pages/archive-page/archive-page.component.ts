@@ -4,7 +4,7 @@ import { LoadingScreenComponent } from '../../components/loading-screen/loading-
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
-import GlobalConfig from '../../../configs/global-config.json';
+import { GlobalConfig } from '../../../configs/global-config';
 import { Author } from '../../../models/author';
 
 @Component({
@@ -14,12 +14,12 @@ import { Author } from '../../../models/author';
 })
 export class ArchivePageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
-  private author: Author
-  private posts: Post[]
-  private title: string
-  private currentPage: number
-  private lastPage: number
-  private baseUrl: string
+  public author: Author
+  public posts: Post[]
+  public title: string
+  public currentPage: number
+  public lastPage: number
+  public baseUrl: string
 
   constructor(
     private router: Router,

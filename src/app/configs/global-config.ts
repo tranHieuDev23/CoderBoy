@@ -1,4 +1,4 @@
-{
+export const GlobalConfig = {
     "BLOG_TITLE": "CoderBoy",
     "BUTTERCMS_API_TOKEN": "d0a9737fab9acd83e6024199769f7b4ac8fca901",
     "ARCHIVE_PAGE_SIZE": 10,

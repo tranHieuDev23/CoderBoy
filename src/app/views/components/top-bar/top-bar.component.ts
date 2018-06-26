@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer2, NgZone } from '@angular/core';
 import { Category } from '../../../models/category';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
-import GlobalConfig from '../../../configs/global-config.json';
+import { GlobalConfig } from '../../../configs/global-config';
 import { ScrollEvent } from 'ngx-scroll-event';
 import { Router } from '@angular/router';
 
@@ -17,9 +17,9 @@ export class TopBarComponent implements OnInit {
   @ViewChild('dropdown') dropdown: ElementRef;
   @ViewChild('dropdownToggle') dropdownToggle: ElementRef;
   @ViewChild('dropdownMenu') dropdownMenu: ElementRef;
-  private BLOG_TITLE = GlobalConfig.BLOG_TITLE;
-  private categories: Category[];
-  private query: string;
+  public BLOG_TITLE = GlobalConfig.BLOG_TITLE;
+  public categories: Category[];
+  public query: string;
 
   constructor(
     private router: Router,

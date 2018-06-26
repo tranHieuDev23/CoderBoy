@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import globalConfig from './configs/global-config.json'
 import { TopBarComponent } from './views/components/top-bar/top-bar.component';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 

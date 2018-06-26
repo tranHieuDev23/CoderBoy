@@ -13,8 +13,8 @@ import html from '../../../configs/blog-description.html';
 })
 export class AboutPageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loading: LoadingScreenComponent
-  private blogDescription: string = html;
-  private authors: Author[]
+  public blogDescription: string = html;
+  public authors: Author[]
 
   constructor(
     private router: Router,

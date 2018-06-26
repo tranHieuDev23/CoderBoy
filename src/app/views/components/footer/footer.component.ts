@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import GlobalConfig from '../../../configs/global-config.json';
+import { GlobalConfig } from '../../../configs/global-config';
 import html from '../../../configs/footer-content.html';
 
 @Component({
@@ -8,8 +8,8 @@ import html from '../../../configs/footer-content.html';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  private title = GlobalConfig.BLOG_TITLE;
-  private content = html;
+  public title = GlobalConfig.BLOG_TITLE;
+  public content = html;
 
   constructor() { }
 

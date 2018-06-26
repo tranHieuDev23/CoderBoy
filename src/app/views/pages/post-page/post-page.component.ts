@@ -15,9 +15,9 @@ import { HighlightJS } from "ngx-highlightjs";
 export class PostPageComponent implements OnInit {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
   @ViewChild('postContent') postContent: ElementRef;
-  private post: Post;
-  private prevPost: Post;
-  private nextPost: Post;
+  public post: Post;
+  public prevPost: Post;
+  public nextPost: Post;
 
   constructor(
     private router: Router,

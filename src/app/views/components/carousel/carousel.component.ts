@@ -8,7 +8,7 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  private posts: Post[];
+  public posts: Post[];
   @Output() done: EventEmitter<void> = new EventEmitter();  
 
   constructor() { }

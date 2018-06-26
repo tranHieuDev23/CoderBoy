@@ -11,7 +11,7 @@ import { ButterService } from '../../../../controllers/butterCMS/butter.service'
 export class CategoriesNewPostComponent implements OnInit {
 
   @Input() category: Category
-  private posts: Post[]
+  public posts: Post[]
 
   constructor() { }
 
