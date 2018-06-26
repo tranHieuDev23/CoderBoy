@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Renderer2, NgZone } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2, NgZone, HostListener } from '@angular/core';
 import { Category } from '../../../models/category';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from '../../../configs/global-config';
@@ -50,8 +50,9 @@ export class TopBarComponent implements OnInit {
     })
   }
 
-  public handleScroll(event: ScrollEvent) {
-    if (event.isReachingTop) 
+  @HostListener('window:scroll', [])
+  public handleScroll() {
+    if (window.scrollY <= 1) 
       this.ngZone.runOutsideAngular(() => {
         this.renderer.addClass(this.topBar.nativeElement, 'transparent')
       })

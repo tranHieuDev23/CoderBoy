@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
-import { ScrollEventModule } from "ngx-scroll-event";
 import { HighlightModule } from "ngx-highlightjs";
 import { DisqusModule } from "ngx-disqus";
 
@@ -41,7 +40,6 @@ registerLocaleData(localeVi)
     AppRoutingModule,
     FormsModule,
     LazyLoadImagesModule,
-    ScrollEventModule,
     HighlightModule.forRoot({
       theme: 'atom-one-dark',
       path: 'assets/js'
