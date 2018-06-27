@@ -9,7 +9,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod --build-optimizer"
+    "build:prod": "ng build --prod --build-optimizer",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:ssr": "node dist/server",
+    "build:client-and-server-bundles": "ng build --prod && ng run coderboy:server",
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +33,7 @@
     "bootstrap": "^4.1.1",
     "buttercms": "^1.1.1",
     "core-js": "^2.5.4",
+    "express": "^4.16.3",
     "jquery": "^3.3.1",
     "ngx-disqus": "^2.3.7",
     "ngx-highlightjs": "^2.1.1",
@@ -36,6 +41,7 @@
     "ngx-scroll-event": "^1.0.8",
     "popper.js": "^1.14.3",
     "prerender-node": "^3.1.1",
+    "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
     "ts-loader": "^4.4.1",
     "zone.js": "^0.8.26"
