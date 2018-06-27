@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from '../../../configs/global-config';
 import { Author } from '../../../models/author';
@@ -24,7 +24,6 @@ export class ArchivePageComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
-    private metaService: Meta,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -96,15 +95,5 @@ export class ArchivePageComponent implements OnInit {
       return `Bài viết gắn tag ${data.name}`
     if (type == 'author')
       return `Bài viết của tác giả ${data.last_name} ${data.first_name}`
-  }
-
-  addSEORelatedTags(): void {
-    this.metaService.addTags([
-      {name: 'og:title', content: this.title},
-      {name: 'og:description', content: this.title},
-      {name: 'og:image', content: GlobalConfig.BLOG_FEATURE_IMAGE_URL},
-      {name: 'fb:app_id', content: GlobalConfig.FACEBOOK_APP_ID},
-      {name: 'og:type', content: 'website'}
-    ])
   }
 }

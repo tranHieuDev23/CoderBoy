@@ -42,22 +42,11 @@ export class PostPageComponent implements OnInit {
         this.nextPost = res.data.meta.next_post
         this.titleService.setTitle(this.post.title)
         this.loadingScreen.hideSpinner()
-        this.addSEORelatedTags()
       }, (res) => {
         console.log(res.data);
         this.router.navigateByUrl('/404', {
           skipLocationChange: false
         })
       })
-  }
-
-  addSEORelatedTags(): void {
-    this.metaService.addTags([
-      {name: 'og:title', content: this.post.seo_title},
-      {name: 'og:description', content: this.post.meta_description},
-      {name: 'og:image', content: this.post.featured_image},
-      {name: 'fb:app_id', content: '1822549548041152'},
-      {name: 'og:type', content: 'arcticle'}
-    ])
   }
 }

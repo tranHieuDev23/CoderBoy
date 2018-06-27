@@ -52,14 +52,16 @@ export class TopBarComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   public handleScroll() {
-    if (window.scrollY <= 1) 
-      this.ngZone.runOutsideAngular(() => {
-        this.renderer.addClass(this.topBar.nativeElement, 'transparent')
-      })
-    else
-      this.ngZone.runOutsideAngular(() => {
-        this.renderer.removeClass(this.topBar.nativeElement, 'transparent')
-      })
+    if (window != null) {
+      if (window.scrollY <= 1) 
+        this.ngZone.runOutsideAngular(() => {
+          this.renderer.addClass(this.topBar.nativeElement, 'transparent')
+        })
+      else
+        this.ngZone.runOutsideAngular(() => {
+          this.renderer.removeClass(this.topBar.nativeElement, 'transparent')
+        })
+    }
   }
 
   public disableTransparentTopbar(): void {

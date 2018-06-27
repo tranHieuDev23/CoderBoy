@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Category } from '../../../models/category';
-import { Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { GlobalConfig } from "../../../configs/global-config";
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
@@ -20,16 +19,13 @@ export class HomePageComponent implements OnInit {
   public categories: Category[]
 
   constructor(
-    private router: Router,
     private titleService: Title,
-    private metaService: Meta
   ) {}
 
   ngOnInit() {
     ButterService.category.list()
       .then((res) => {
         this.categories = res.data.data
-        this.addSEORelatedTags()
       }, (res) => {
         console.log(res.data)
       })
@@ -40,15 +36,5 @@ export class HomePageComponent implements OnInit {
     })
 
     this.titleService.setTitle(GlobalConfig.BLOG_TITLE)
-  }
-
-  addSEORelatedTags(): void {
-    this.metaService.addTags([
-      {name: 'og:title', content: GlobalConfig.BLOG_TITLE},
-      {name: 'og:description', content: GlobalConfig.BLOG_DESCRIPTION},
-      {name: 'og:image', content: GlobalConfig.BLOG_FEATURE_IMAGE_URL},
-      {name: 'fb:app_id', content: GlobalConfig.FACEBOOK_APP_ID},
-      {name: 'og:type', content: 'website'}
-    ])
   }
 }

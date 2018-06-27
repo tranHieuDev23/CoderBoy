@@ -36,7 +36,7 @@ registerLocaleData(localeVi)
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'coderboy' }),
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     LazyLoadImagesModule,
