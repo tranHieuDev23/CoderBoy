@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, Inject, Optional } from '@angular/core';
+import { Component, PLATFORM_ID, Inject, Optional, ViewChild } from '@angular/core';
 import { Author } from '../../../models/author';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router, Params, ActivatedRoute } from '@angular/router';
@@ -7,6 +7,7 @@ import html from '../../../configs/blog-description.html';
 import { GlobalConfig } from "../../../configs/global-config";
 import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -16,6 +17,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   styleUrls: ['./about-page.component.scss']
 })
 export class AboutPageComponent extends SSRComponent {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
   public blogDescription: string = html;
   public authors: Author[]
 
@@ -32,6 +34,7 @@ export class AboutPageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params): void {
+    this.loadingScreen.showSpinner()
     let data = this.transferState.get(KEY_DATA, null)
     this.transferState.set(KEY_DATA, null)
     if (data) {
@@ -67,5 +70,6 @@ export class AboutPageComponent extends SSRComponent {
       {property: 'og:image', content: GlobalConfig.BLOG_FEATURE_IMAGE_URL},
       {property: 'og:type', content: 'website'},
     ])
+    this.loadingScreen.hideSpinner()
   }
 }

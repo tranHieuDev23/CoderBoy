@@ -1,4 +1,4 @@
-import { Component, Optional, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Optional, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
@@ -7,6 +7,7 @@ import { GlobalConfig } from '../../../configs/global-config';
 import { Author } from '../../../models/author';
 import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 const KEY_STATUS = makeStateKey('KEY_STATUS')
@@ -17,6 +18,7 @@ const KEY_STATUS = makeStateKey('KEY_STATUS')
   styleUrls: ['./archive-page.component.scss']
 })
 export class ArchivePageComponent extends SSRComponent {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
   public author: Author
   public posts: Post[]
   public title: string
@@ -37,6 +39,7 @@ export class ArchivePageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: any) {
+    this.loadingScreen.showSpinner()
     let status = this.transferState.get(KEY_STATUS, null)
     this.transferState.set(KEY_STATUS, null)
     if (status == '404') {
@@ -126,6 +129,7 @@ export class ArchivePageComponent extends SSRComponent {
       (resultPosts.data.meta.count + GlobalConfig.ARCHIVE_PAGE_SIZE - 1) / GlobalConfig.ARCHIVE_PAGE_SIZE
     )
     this.baseUrl = `/archive/${type}/${slug}`
+    this.loadingScreen.hideSpinner()
     this.addSEOMetaTags()
   }
 

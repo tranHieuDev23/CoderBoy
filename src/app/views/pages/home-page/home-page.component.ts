@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, Optional } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Optional, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Category } from '../../../models/category';
@@ -7,6 +7,7 @@ import { GlobalConfig } from "../../../configs/global-config";
 import { SSRComponent } from '../../ssr-component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -16,6 +17,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent extends SSRComponent {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
   public posts: Post[]
   public categories: Category[]
 
@@ -32,6 +34,7 @@ export class HomePageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params) {
+    this.loadingScreen.showSpinner()
     let data = this.transferState.get(KEY_DATA, null)
     this.transferState.set(KEY_DATA, null)
 
@@ -62,6 +65,7 @@ export class HomePageComponent extends SSRComponent {
   initView(data: any): void {
     this.categories = data.data
     this.titleService.setTitle(GlobalConfig.BLOG_TITLE)
+    this.loadingScreen.hideSpinner()
     this.metaService.addTags([
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: GlobalConfig.BLOG_TITLE},

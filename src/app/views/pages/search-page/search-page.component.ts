@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, Optional, Inject, OnInit } from '@angular/core';
+import { Component, PLATFORM_ID, Optional, Inject, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
@@ -7,6 +7,7 @@ import { GlobalConfig } from "../../../configs/global-config";
 import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 import { isPlatformBrowser } from '@angular/common';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -16,6 +17,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
   private isBrowser: boolean
   public posts: Post[]
   public query: string
@@ -42,6 +44,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   onBrowserInit(params: Params) {
+    this.loadingScreen.showSpinner()
     let data = this.transferState.get(KEY_DATA, null)
     this.transferState.set(KEY_DATA, null)
     if (data) {
@@ -76,6 +79,7 @@ export class SearchPageComponent implements OnInit {
   initView(data) {
     this.titleService.setTitle("Tìm kiếm")
     this.posts = data.data
+    this.loadingScreen.hideSpinner()
     this.metaService.addTags([
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: 'Tìm kiếm'},

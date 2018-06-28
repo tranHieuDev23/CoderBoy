@@ -1,10 +1,11 @@
 import { SSRComponent } from "../../ssr-component";
-import { Component, ViewEncapsulation, PLATFORM_ID, Inject, Optional } from '@angular/core';
+import { Component, ViewEncapsulation, PLATFORM_ID, Inject, Optional, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-browser';
 import { RESPONSE } from "@nguniversal/express-engine/tokens";
+import { LoadingScreenComponent } from "../../components/loading-screen/loading-screen.component";
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 const KEY_STATUS = makeStateKey('KEY_STATUS')
@@ -16,6 +17,7 @@ const KEY_STATUS = makeStateKey('KEY_STATUS')
   encapsulation: ViewEncapsulation.None
 })
 export class PostPageComponent extends SSRComponent {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
   public post: Post;
   public prevPost: Post;
   public nextPost: Post;
@@ -33,6 +35,7 @@ export class PostPageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params): void {
+    this.loadingScreen.showSpinner()
     let status = this.transferState.get(KEY_STATUS, null)
     this.transferState.set(KEY_STATUS, null)
     if (status == '404') {
@@ -85,6 +88,7 @@ export class PostPageComponent extends SSRComponent {
     this.prevPost = data.meta.previous_post
     this.nextPost = data.meta.next_post
     this.titleService.setTitle(this.post.title)
+    this.loadingScreen.hideSpinner()
     this.addSEOMetaTags()
   }
 

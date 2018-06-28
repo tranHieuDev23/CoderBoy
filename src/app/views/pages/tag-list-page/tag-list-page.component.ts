@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, Optional } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Optional, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
@@ -6,6 +6,7 @@ import { Tag } from '../../../models/tag';
 import { GlobalConfig } from "../../../configs/global-config";
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 import { SSRComponent } from '../../ssr-component';
+import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -15,6 +16,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   styleUrls: ['./tag-list-page.component.scss']
 })
 export class TagListPageComponent extends SSRComponent {
+  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
   public tags: Tag[]
   public query: string
 
@@ -31,6 +33,7 @@ export class TagListPageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params) {
+    this.loadingScreen.showSpinner()
     let data = this.transferState.get(KEY_DATA, null)
     this.transferState.set(KEY_DATA, null)
     if (data) {
@@ -59,6 +62,7 @@ export class TagListPageComponent extends SSRComponent {
   initView(data) {
     this.titleService.setTitle("Danh mục tag trên trang")
     this.tags = data.data
+    this.loadingScreen.hideSpinner()
     this.metaService.addTags([
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: 'Danh mục tag trên trang'},
