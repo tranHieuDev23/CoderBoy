@@ -1,8 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, PLATFORM_ID, Inject, APP_ID } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
-import { HighlightModule } from "ngx-highlightjs";
 import { DisqusModule } from "ngx-disqus";
 
 import { AppComponent } from './app.component';
@@ -31,19 +30,17 @@ import { ExtractUrlPipe } from './views/pipes/extract-url/extract-url.pipe';
 import { TwitterHandleUrlPipe } from './views/pipes/twitter-handle-url/twitter-handle-url.pipe';
 import localeVi from '@angular/common/locales/vi'
 import { registerLocaleData, isPlatformBrowser } from '@angular/common';
+import { HighlightSsrDirective } from './views/directives/highlight-ssr/highlight-ssr.directive';
 
 registerLocaleData(localeVi)
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'coderboy' }),
+    BrowserTransferStateModule,
     AppRoutingModule,
     FormsModule,
     LazyLoadImagesModule,
-    HighlightModule.forRoot({
-      theme: 'atom-one-dark',
-      path: 'assets/js'
-    }),
     DisqusModule.forRoot('coderboy23-surge-sh')
   ],
   declarations: [
@@ -69,7 +66,8 @@ registerLocaleData(localeVi)
     AuthorDisplayComponent,
     AboutPageComponent,
     ExtractUrlPipe,
-    TwitterHandleUrlPipe
+    TwitterHandleUrlPipe,
+    HighlightSsrDirective
   ],
   providers: [{
     provide: LOCALE_ID, useValue: 'vi'

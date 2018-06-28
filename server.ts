@@ -28,7 +28,18 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html')
 app.set('views', join(DIST_FOLDER, 'browser'))
 
+import { GlobalConfig } from "./src/app/configs/global-config";
+const buttercms = require('buttercms')(GlobalConfig.BUTTERCMS_API_TOKEN)
+
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')))
+
+app.use('/post/:slug', (req, res) => {
+    buttercms.post.retrieve(req.params.slug)
+        .then((result) => {
+            res.locals.result = result
+            res.render('200', {req, res})
+        })
+})
 
 app.get('*', (req, res) => {
     res.render('200', {req, res})

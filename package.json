@@ -12,7 +12,7 @@
     "build:prod": "ng build --prod --build-optimizer",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server",
-    "build:client-and-server-bundles": "ng build --prod && ng run coderboy:server",
+    "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng run coderboy:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
@@ -34,6 +34,7 @@
     "buttercms": "^1.1.1",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
+    "highlightjs": "^9.10.0",
     "jquery": "^3.3.1",
     "ngx-disqus": "^2.3.7",
     "ngx-highlightjs": "^2.1.1",
