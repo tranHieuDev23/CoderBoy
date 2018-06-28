@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, Optional, Inject } from '@angular/core';
+import { Component, PLATFORM_ID, Optional, Inject, OnInit } from '@angular/core';
 import { Post } from '../../../models/post';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from "../../../configs/global-config";
 import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { isPlatformBrowser } from '@angular/common';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -14,20 +15,30 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent extends SSRComponent {
+export class SearchPageComponent implements OnInit {
+  private isBrowser: boolean
   public posts: Post[]
   public query: string
 
   constructor(
-    activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) platformId: Object,
-    @Optional() @Inject(RESPONSE) response: any,
-    transferState: TransferState,
+    @Optional() @Inject(RESPONSE) private response: any,
+    private transferState: TransferState,
     private router: Router,
     private titleService: Title,
     private metaService: Meta
   ) {
-    super(activatedRoute, platformId, response, transferState)
+    this.isBrowser = isPlatformBrowser(platformId)
+  }
+
+  ngOnInit() {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if (this.isBrowser)
+        this.onBrowserInit(params)
+      else
+        this.onServerInit(params)
+    })
   }
 
   onBrowserInit(params: Params) {

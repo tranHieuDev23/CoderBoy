@@ -7,6 +7,7 @@ import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-brow
 import { RESPONSE } from "@nguniversal/express-engine/tokens";
 
 const KEY_DATA = makeStateKey('KEY_DATA')
+const KEY_STATUS = makeStateKey('KEY_STATUS')
 
 @Component({
   selector: 'app-post-page',
@@ -32,8 +33,19 @@ export class PostPageComponent extends SSRComponent {
   }
 
   onBrowserInit(params: Params): void {
-    let data = this.transferState.get(KEY_DATA, null)
+    let status = this.transferState.get(KEY_STATUS, null)
+    this.transferState.set(KEY_STATUS, null)
+    if (status == '404') {
+      this.router.navigateByUrl('/404', {
+        skipLocationChange: true,
+        replaceUrl: false
+      })
+      console.log('404 navigate before post retrieving!')
+      return
+    }
 
+    let data = this.transferState.get(KEY_DATA, null)
+    this.transferState.set(KEY_DATA, null)
     if (data != null)
       this.setupPostView(data)
     else {
@@ -44,8 +56,10 @@ export class PostPageComponent extends SSRComponent {
           window.scrollTo(0, 0)
         }, () => {
           this.router.navigateByUrl('/404', {
-            skipLocationChange: false
+            skipLocationChange: false,
+            replaceUrl: false
           })
+          console.log('404 navigate after post retrieving!')
         })
     }
 
@@ -53,6 +67,15 @@ export class PostPageComponent extends SSRComponent {
   }
 
   onServerInit(params: Params): void {
+    if (this.response.locals.status == '404') {
+      this.router.navigateByUrl('/404', {
+        skipLocationChange: false,
+        replaceUrl: false
+      })
+      this.transferState.set(KEY_STATUS, '404')
+      return
+    }
+    
     let data = this.response.locals.result.data;
     this.transferState.set(KEY_DATA, data)
     this.setupPostView(data)

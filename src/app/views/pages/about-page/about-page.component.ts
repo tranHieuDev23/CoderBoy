@@ -45,7 +45,8 @@ export class AboutPageComponent extends SSRComponent {
         window.scrollTo(0, 0)
       }, (res) => {
         this.router.navigateByUrl('/404', {
-          skipLocationChange: false
+          skipLocationChange: true,
+          replaceUrl: true
         })
       })
   }

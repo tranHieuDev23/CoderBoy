@@ -27,19 +27,21 @@ app.engine('html', ngExpressEngine({
 
 app.set('view engine', 'html')
 app.set('views', join(DIST_FOLDER, 'browser'))
-
-import { GlobalConfig } from "./src/app/configs/global-config";
-const buttercms = require('buttercms')(GlobalConfig.BUTTERCMS_API_TOKEN)
-
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')))
 
-app.use('/post/:slug', (req, res) => {
-    buttercms.post.retrieve(req.params.slug)
-        .then((result) => {
-            res.locals.result = result
-            res.render('200', {req, res})
-        })
-})
+import * as aboutRoute from './server_routing/about_page'
+import * as archiveRoute from './server_routing/archive_page'
+import * as homeRoute from './server_routing/home_page'
+import * as postRoute from './server_routing/post_page'
+import * as searchRoute from './server_routing/search_page'
+import * as tagListRoute from './server_routing/tag_list_page'
+
+app.use(aboutRoute)
+app.use(archiveRoute)
+app.use(homeRoute)
+app.use(postRoute)
+app.use(searchRoute)
+app.use(tagListRoute)
 
 app.get('*', (req, res) => {
     res.render('200', {req, res})
