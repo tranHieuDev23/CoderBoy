@@ -10,7 +10,7 @@ router.get('/about', (req, res) => {
         res.locals.result = result
         return res.render('200', {req, res})
     }, (res) => {
-        return res.render('200', {req, res, url: '/404'})
+        return res.render('200', {req, res})
     })
 })
 
