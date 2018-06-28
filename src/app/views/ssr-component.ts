@@ -5,7 +5,7 @@ import { RESPONSE } from "@nguniversal/express-engine/tokens";
 import { TransferState } from "@angular/platform-browser";
 
 export abstract class SSRComponent implements OnInit {
-    private isBrowser: boolean
+    protected isBrowser: boolean
 
     constructor(
         protected activatedRoute: ActivatedRoute,
