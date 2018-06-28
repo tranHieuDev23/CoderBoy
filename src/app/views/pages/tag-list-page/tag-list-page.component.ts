@@ -43,7 +43,10 @@ export class TagListPageComponent extends SSRComponent {
         this.initView(res.data)
         window.scrollTo(0, 0)
       }, (res) => {
-        console.log(res.data)
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: true,
+          replaceUrl: false
+        })
       })
   }
 

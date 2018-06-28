@@ -43,8 +43,12 @@ export class HomePageComponent extends SSRComponent {
       ButterService.category.list()
         .then((res) => {
           this.initView(res.data)
+          window.scrollTo(0, 0)
         }, (res) => {
-          
+          this.router.navigateByUrl('/404', {
+            skipLocationChange: true,
+            replaceUrl: false
+          })
         })
     }
   }

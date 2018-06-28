@@ -40,7 +40,6 @@ export class PostPageComponent extends SSRComponent {
         skipLocationChange: true,
         replaceUrl: false
       })
-      console.log('404 navigate before post retrieving!')
       return
     }
 
@@ -56,10 +55,9 @@ export class PostPageComponent extends SSRComponent {
           window.scrollTo(0, 0)
         }, () => {
           this.router.navigateByUrl('/404', {
-            skipLocationChange: false,
+            skipLocationChange: true,
             replaceUrl: false
           })
-          console.log('404 navigate after post retrieving!')
         })
     }
 
@@ -73,6 +71,7 @@ export class PostPageComponent extends SSRComponent {
         replaceUrl: false
       })
       this.transferState.set(KEY_STATUS, '404')
+      this.response.status(404)
       return
     }
     

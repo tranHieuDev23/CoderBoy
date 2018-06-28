@@ -59,7 +59,10 @@ export class SearchPageComponent implements OnInit {
         this.initView(res.data)
         window.scrollTo(0, 0)
       }, (res) => {
-        
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: true,
+          replaceUrl: false
+        })
       })
     }
   }

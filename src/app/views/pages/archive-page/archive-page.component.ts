@@ -56,7 +56,10 @@ export class ArchivePageComponent extends SSRComponent {
 
     let type = params['type']
     if (type != 'category' && type != 'tag' && type != 'author') {
-      this.router.navigateByUrl('/404')
+      this.router.navigateByUrl('/404', {
+        skipLocationChange: true,
+        replaceUrl: false
+      })
       return
     }
     let slug = params['slug']
@@ -100,6 +103,7 @@ export class ArchivePageComponent extends SSRComponent {
         replaceUrl: false
       })
       this.transferState.set(KEY_STATUS, '404')
+      this.response.status(404)
       return
     }
     
