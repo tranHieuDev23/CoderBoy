@@ -5,6 +5,7 @@ export const GlobalConfig = {
     "BUTTERCMS_API_TOKEN": "d0a9737fab9acd83e6024199769f7b4ac8fca901",
     "FACEBOOK_APP_ID": "1822549548041152",
     "CAROUSEL_PAGES": 5,
+    "HOME_PAGE_CATEGORY_RECENT_SIZE": 3,
     "ARCHIVE_PAGE_SIZE": 10,
     "SEARCH_MAXIMUM_RESULTS": 15,
     "MESSAGE_404": "Nội dung bạn truy cập không có tồn tại. Có lẽ tìm kiếm trên trang web sẽ có ích?"
