@@ -38,7 +38,6 @@ export class SearchPageComponent extends SSRPageComponent {
       return;
     }
 
-    window.scrollTo(0, 0)
     this.query = params['query']
     if (this.query) {
       ButterService.post.search(this.query, {
@@ -47,6 +46,7 @@ export class SearchPageComponent extends SSRPageComponent {
       })
       .then((res) => {
         this.initView(res.data)
+        window.scrollTo(0, 0)
       }, (res) => {
         
       })

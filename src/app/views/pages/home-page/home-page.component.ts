@@ -37,6 +37,7 @@ export class HomePageComponent extends SSRPageComponent {
 
     if (data) {
       this.initView(data)
+      window.scrollTo(0, 0)
     }
     else {
       ButterService.category.list()

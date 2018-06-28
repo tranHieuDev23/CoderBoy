@@ -22,8 +22,8 @@ export class AboutPageComponent extends SSRPageComponent {
   constructor(
     activatedRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) platformId: Object,
-    @Optional() @Inject(RESPONSE) protected response: any,
-    protected transferState: TransferState,
+    @Optional() @Inject(RESPONSE) response: any,
+    transferState: TransferState,
     private router: Router,
     private titleService: Title,
     private metaService: Meta
@@ -34,19 +34,20 @@ export class AboutPageComponent extends SSRPageComponent {
   onBrowserInit(params: Params): void {
     let data = this.transferState.get(KEY_DATA, null)
     this.transferState.set(KEY_DATA, null)
-    
     if (data) {
       this.initView(data)
-    } else {
-      ButterService.author.list()
-        .then((res) => {
-          this.initView(res.data)
-        }, (res) => {
-          this.router.navigateByUrl('/404', {
-            skipLocationChange: false
-          })
-        })
+      return;
     }
+
+    ButterService.author.list()
+      .then((res) => {
+        this.initView(res.data)
+        window.scrollTo(0, 0)
+      }, (res) => {
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: false
+        })
+      })
   }
 
   onServerInit(params: Params): void {

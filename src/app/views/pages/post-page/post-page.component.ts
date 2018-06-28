@@ -37,11 +37,11 @@ export class PostPageComponent extends SSRPageComponent {
     if (data != null)
       this.setupPostView(data)
     else {
-      window.scrollTo(0, 0)
       let slug = params['slug']
       ButterService.post.retrieve(slug)
         .then((res) => {
           this.setupPostView(res.data)
+          window.scrollTo(0, 0)
         }, () => {
           this.router.navigateByUrl('/404', {
             skipLocationChange: false
