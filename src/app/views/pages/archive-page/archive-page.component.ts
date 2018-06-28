@@ -1,19 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Optional, Inject, PLATFORM_ID } from '@angular/core';
 import { Post } from '../../../models/post';
-import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from '../../../configs/global-config';
 import { Author } from '../../../models/author';
+import { SSRPageComponent } from '../ssr-page-component';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
+
+const KEY_DATA = makeStateKey('KEY_DATA')
 
 @Component({
   selector: 'app-archive-page',
   templateUrl: './archive-page.component.html',
   styleUrls: ['./archive-page.component.scss']
 })
-export class ArchivePageComponent implements OnInit {
-  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
+export class ArchivePageComponent extends SSRPageComponent {
   public author: Author
   public posts: Post[]
   public title: string
@@ -22,18 +24,25 @@ export class ArchivePageComponent implements OnInit {
   public baseUrl: string
 
   constructor(
+    activatedRoute: ActivatedRoute,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Optional() @Inject(RESPONSE) response: any,
+    transferState: TransferState,
     private router: Router,
     private titleService: Title,
-    private activatedRoute: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this.activatedRoute.params.subscribe((params) =>{
-      this.initView(params)
-    })
+    private metaService: Meta
+  ) {
+    super(activatedRoute, platformId, response, transferState)
   }
 
-  initView(params: any) {
+  onBrowserInit(params: any) {
+    let data = this.transferState.get(KEY_DATA, null)
+    this.transferState.set(KEY_DATA, null)
+    if (data != null) {
+      this.initView(data.resultMeta, data.resultPosts, data.type)
+      return
+    }
+
     let type = params['type']
     if (type != 'category' && type != 'tag' && type != 'author') {
       this.router.navigateByUrl('/404')
@@ -43,49 +52,54 @@ export class ArchivePageComponent implements OnInit {
     this.currentPage = (params['page'] != null? +params['page'] : 1)
     this.baseUrl = `/archive/${type}/${slug}`
 
-    window.scrollTo(0, 0)
-    this.loadingScreen.showSpinner()
-
     ButterService[type].retrieve(slug)
-    .then((res) => {
-      this.title = this.generateTitle(type, res.data.data)
-      if (type == 'author') {
-        this.author = res.data.data
-        this.titleService.setTitle(`${res.data.data.last_name} ${res.data.data.first_name}`)
-      } else {
-        this.titleService.setTitle(res.data.data.name)
+    .then((resultMeta) => {
+      const REQUEST_PARAMS: any = {
+        page: this.currentPage,
+        page_size: GlobalConfig.ARCHIVE_PAGE_SIZE
       }
-    }, (res) => {
-      console.log(res.data)
+      if (type == 'category')
+        REQUEST_PARAMS.category_slug = slug
+      if (type == 'tag')
+        REQUEST_PARAMS.tag_slug = slug
+      if (type == 'author')
+        REQUEST_PARAMS.author_slug = slug
+
+      ButterService.post.list(REQUEST_PARAMS)
+        .then((resultPosts) => {
+          this.initView(resultMeta, resultPosts, type)
+          window.scrollTo(0, 0)
+        }, () => {
+          this.router.navigateByUrl('/404', {
+            skipLocationChange: false
+          })
+        })
+    }, () => {
       this.router.navigateByUrl('/404', {
         skipLocationChange: false
       })
     })
+  }
 
-    const REQUEST_PARAMS: any = {
-      page: this.currentPage,
-      page_size: GlobalConfig.ARCHIVE_PAGE_SIZE
+  onServerInit(params: Params) {
+    let data = this.response.locals.data
+    this.initView(data.resultMeta, data.resultPosts, data.type)
+    this.transferState.set(KEY_DATA, data)
+  }
+
+  initView(resultMeta: any, resultPosts: any, type: string): void {
+    this.title = this.generateTitle(type, resultMeta.data.data)
+    if (type == 'author') {
+      this.author = resultMeta.data.data
+      this.titleService.setTitle(`${resultMeta.data.data.last_name} ${resultMeta.data.data.first_name}`)
+    } else {
+      this.titleService.setTitle(resultMeta.data.data.name)
     }
-    if (type == 'category')
-      REQUEST_PARAMS.category_slug = slug
-    if (type == 'tag')
-      REQUEST_PARAMS.tag_slug = slug
-    if (type == 'author')
-      REQUEST_PARAMS.author_slug = slug
-    ButterService.post.list(REQUEST_PARAMS)
-      .then((res) => {
-        this.posts = res.data.data
-        this.lastPage = Math.floor(
-          (res.data.meta.count + GlobalConfig.ARCHIVE_PAGE_SIZE - 1) 
-          / GlobalConfig.ARCHIVE_PAGE_SIZE
-        )
-        this.loadingScreen.hideSpinner()
-      }, (res) => {
-        console.log(res.data);
-        this.router.navigateByUrl('/404', {
-          skipLocationChange: false
-        })
-      })
+    this.posts = resultPosts.data.data
+    this.lastPage = Math.floor(
+      (resultPosts.data.meta.count + GlobalConfig.ARCHIVE_PAGE_SIZE - 1) / GlobalConfig.ARCHIVE_PAGE_SIZE
+    )
+    this.addSEOMetaTags()
   }
 
   generateTitle(type: string, data: any): string {
@@ -95,5 +109,15 @@ export class ArchivePageComponent implements OnInit {
       return `Bài viết gắn tag ${data.name}`
     if (type == 'author')
       return `Bài viết của tác giả ${data.last_name} ${data.first_name}`
+  }
+
+  addSEOMetaTags(): void {
+    this.metaService.addTags([
+      {property: 'og:url', content: this.router.url},
+      {property: 'og:title', content: this.title},
+      {property: 'og:description', content: `Trang ${this.currentPage} trên ${this.lastPage}`},
+      {property: 'og:image', content: GlobalConfig.BLOG_FEATURE_IMAGE_URL},
+      {property: 'og:type', content: 'website'},
+    ])
   }
 }

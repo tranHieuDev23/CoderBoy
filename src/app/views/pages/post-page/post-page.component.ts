@@ -1,11 +1,10 @@
 import { SSRPageComponent } from "../ssr-page-component";
-import { Component, ViewEncapsulation, ViewChild, ElementRef, PLATFORM_ID, Inject, Optional } from '@angular/core';
+import { Component, ViewEncapsulation, PLATFORM_ID, Inject, Optional } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-browser';
 import { RESPONSE } from "@nguniversal/express-engine/tokens";
-import { isPlatformBrowser } from "@angular/common";
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -19,18 +18,17 @@ export class PostPageComponent extends SSRPageComponent {
   public post: Post;
   public prevPost: Post;
   public nextPost: Post;
-  private highlighted: boolean;
 
   constructor(
+    activatedRoute: ActivatedRoute,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Optional() @Inject(RESPONSE) protected response: any,
+    protected transferState: TransferState,
     private router: Router,
     private titleService: Title,
-    private metaService: Meta,
-    protected activatedRoute: ActivatedRoute,
-    @Inject(PLATFORM_ID) platformId: Object,
-    @Optional() @Inject(RESPONSE) private response: any,
-    private transferState: TransferState
+    private metaService: Meta
   ) {
-    super(activatedRoute, platformId)
+    super(activatedRoute, platformId, response, transferState)
   }
 
   onBrowserInit(params: Params): void {
@@ -76,14 +74,5 @@ export class PostPageComponent extends SSRPageComponent {
       {property: 'og:image', content: this.post.featured_image},
       {property: 'og:type', content: 'article'},
     ])
-  }
-
-  ngAfterViewChecked() {
-    if (!this.highlighted) {
-      if (isPlatformBrowser(this.platformId)) {
-        
-        this.highlighted = true
-      }
-    }
   }
 }

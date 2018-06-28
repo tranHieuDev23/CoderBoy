@@ -1,53 +1,74 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
+import { Component, PLATFORM_ID, Optional, Inject } from '@angular/core';
 import { Post } from '../../../models/post';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from "../../../configs/global-config";
+import { SSRPageComponent } from '../ssr-page-component';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
+
+const KEY_DATA = makeStateKey('KEY_DATA')
 
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent implements OnInit {
-  @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent;
+export class SearchPageComponent extends SSRPageComponent {
   public posts: Post[]
   public query: string
 
   constructor(
+    activatedRoute: ActivatedRoute,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Optional() @Inject(RESPONSE) response: any,
+    transferState: TransferState,
     private router: Router,
     private titleService: Title,
-    private activatedRoute: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this.activatedRoute.queryParams.subscribe((params) =>{
-      this.initView(params)
-    })
+    private metaService: Meta
+  ) {
+    super(activatedRoute, platformId, response, transferState)
   }
 
-  initView(params: any) {
+  onBrowserInit(params: Params) {
+    let data = this.transferState.get(KEY_DATA, null)
+    this.transferState.set(KEY_DATA, null)
+    if (data) {
+      this.initView(data)
+      return;
+    }
+
     window.scrollTo(0, 0)
-    this.titleService.setTitle("Tìm kiếm")
     this.query = params['query']
-    if (!this.query)
-      this.loadingScreen.hideSpinner()
-    else
-    {
-      this.loadingScreen.showSpinner()
+    if (this.query) {
       ButterService.post.search(this.query, {
         page: 1,
         page_size: GlobalConfig.SEARCH_MAXIMUM_RESULTS
       })
       .then((res) => {
-        this.posts = res.data.data
-        this.loadingScreen.hideSpinner()
+        this.initView(res.data)
       }, (res) => {
-        console.log(res.data)
+        
       })
     }
+  }
+
+  onServerInit(params: Params) {
+    let data = this.response.locals.result.data
+    this.initView(data)
+    this.transferState.set(KEY_DATA, data)
+  }
+
+  initView(data) {
+    this.titleService.setTitle("Tìm kiếm")
+    this.posts = data.data
+    this.metaService.addTags([
+      {property: 'og:url', content: this.router.url},
+      {property: 'og:title', content: 'Tìm kiếm'},
+      {property: 'og:description', content: GlobalConfig.BLOG_DESCRIPTION},
+      {property: 'og:image', content: GlobalConfig.BLOG_FEATURE_IMAGE_URL},
+      {property: 'og:type', content: 'website'},
+    ])
   }
 
   performSearch() {
