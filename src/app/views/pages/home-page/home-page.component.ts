@@ -8,6 +8,7 @@ import { SSRComponent } from '../../ssr-component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -18,6 +19,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
 })
 export class HomePageComponent extends SSRComponent {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent
+  @ViewChild(CarouselComponent) carousel: CarouselComponent
   public posts: Post[]
   public categories: Category[]
 
@@ -39,31 +41,43 @@ export class HomePageComponent extends SSRComponent {
     this.transferState.set(KEY_DATA, null)
 
     if (data) {
-      this.initView(data)
+      this.initView(data.resultCategories, data.resultPosts)
       window.scrollTo(0, 0)
+      return
     }
-    else {
-      ButterService.category.list()
-        .then((res) => {
-          this.initView(res.data)
+    
+    ButterService.category.list()
+      .then((resultCategories) => {
+        ButterService.post.list({
+          page: 1,
+          page_size: GlobalConfig.CAROUSEL_PAGES,
+          exclude_body: true
+        }).then((resultPosts) => {
+          this.initView(resultCategories, resultPosts)
           window.scrollTo(0, 0)
-        }, (res) => {
+        }, () => {
           this.router.navigateByUrl('/404', {
             skipLocationChange: true,
             replaceUrl: false
           })
         })
-    }
+      }, () => {
+        this.router.navigateByUrl('/404', {
+          skipLocationChange: true,
+          replaceUrl: false
+        })
+      })
   }
 
   onServerInit(params: Params) {
-    let data = this.response.locals.result.data
-    this.initView(data)
+    let data = this.response.locals.data
+    this.initView(data.resultCategories, data.resultPosts)
     this.transferState.set(KEY_DATA, data)
   }
 
-  initView(data: any): void {
-    this.categories = data.data
+  initView(resultCategories: any, resultPosts: any): void {
+    this.categories = resultCategories.data.data
+    this.posts = resultPosts.data.data
     this.titleService.setTitle(GlobalConfig.BLOG_TITLE)
     this.loadingScreen.hideSpinner()
     this.metaService.addTags([

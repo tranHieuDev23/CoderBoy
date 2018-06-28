@@ -9,7 +9,7 @@ router.get('/about', (req, res) => {
     .then((result) => {
         res.locals.result = result
         return res.render('200', {req, res})
-    }, (res) => {
+    }, (result) => {
         return res.render('200', {req, res})
     })
 })

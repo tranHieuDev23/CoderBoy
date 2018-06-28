@@ -6,11 +6,19 @@ const ButterService = require('buttercms')(GlobalConfig.BUTTERCMS_API_TOKEN)
 
 function homeMiddleware(req, res) {
     ButterService.category.list()
-    .then((result) => {
-        res.locals.result = result
+    .then((resultCategories) => {
+        ButterService.post.list({
+            page: 1,
+            page_size: GlobalConfig.CAROUSEL_PAGES,
+            exclude_body: true
+        }).then((resultPosts) => {
+            res.locals.data = {resultCategories, resultPosts}
+            return res.render('200', {req, res})
+        }, () => {
+            return res.render('200', {req, res})
+        })
+    }, () => {
         return res.render('200', {req, res})
-    }, (res) => {
-        return res.render('200', {req, res, url: '/404'})
     })
 }
 
