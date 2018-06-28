@@ -4,7 +4,7 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Category } from '../../../models/category';
 import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-browser';
 import { GlobalConfig } from "../../../configs/global-config";
-import { SSRPageComponent } from '../ssr-page-component';
+import { SSRComponent } from '../../ssr-component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 
@@ -15,7 +15,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent extends SSRPageComponent {
+export class HomePageComponent extends SSRComponent {
   public posts: Post[]
   public categories: Category[]
 

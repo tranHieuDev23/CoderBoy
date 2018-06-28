@@ -4,7 +4,7 @@ import { isPlatformBrowser } from "@angular/common";
 import { RESPONSE } from "@nguniversal/express-engine/tokens";
 import { TransferState } from "@angular/platform-browser";
 
-export abstract class SSRPageComponent implements OnInit {
+export abstract class SSRComponent implements OnInit {
     private isBrowser: boolean
 
     constructor(

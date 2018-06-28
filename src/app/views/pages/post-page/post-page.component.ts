@@ -1,4 +1,4 @@
-import { SSRPageComponent } from "../ssr-page-component";
+import { SSRComponent } from "../../ssr-component";
 import { Component, ViewEncapsulation, PLATFORM_ID, Inject, Optional } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
@@ -14,7 +14,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   styleUrls: ['./post-page.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PostPageComponent extends SSRPageComponent {
+export class PostPageComponent extends SSRComponent {
   public post: Post;
   public prevPost: Post;
   public nextPost: Post;

@@ -5,7 +5,7 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-browser';
 import html from '../../../configs/blog-description.html';
 import { GlobalConfig } from "../../../configs/global-config";
-import { SSRPageComponent } from '../ssr-page-component';
+import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
@@ -15,7 +15,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss']
 })
-export class AboutPageComponent extends SSRPageComponent {
+export class AboutPageComponent extends SSRComponent {
   public blogDescription: string = html;
   public authors: Author[]
 

@@ -5,7 +5,7 @@ import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Tag } from '../../../models/tag';
 import { GlobalConfig } from "../../../configs/global-config";
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
-import { SSRPageComponent } from '../ssr-page-component';
+import { SSRComponent } from '../../ssr-component';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
 
@@ -14,7 +14,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   templateUrl: './tag-list-page.component.html',
   styleUrls: ['./tag-list-page.component.scss']
 })
-export class TagListPageComponent extends SSRPageComponent {
+export class TagListPageComponent extends SSRComponent {
   public tags: Tag[]
   public query: string
 

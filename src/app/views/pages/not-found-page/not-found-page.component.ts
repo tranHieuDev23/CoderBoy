@@ -2,7 +2,7 @@ import { Component, PLATFORM_ID, Optional, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title, TransferState, Meta } from '@angular/platform-browser';
 import { GlobalConfig } from "../../../configs/global-config";
-import { SSRPageComponent } from '../ssr-page-component';
+import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 
 @Component({
@@ -10,7 +10,7 @@ import { RESPONSE } from '@nguniversal/express-engine/tokens';
   templateUrl: './not-found-page.component.html',
   styleUrls: ['./not-found-page.component.scss']
 })
-export class NotFoundPageComponent extends SSRPageComponent {
+export class NotFoundPageComponent extends SSRComponent {
   public message: string = GlobalConfig.MESSAGE_404
   public query: string
 

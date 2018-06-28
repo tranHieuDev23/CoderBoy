@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from "../../../configs/global-config";
-import { SSRPageComponent } from '../ssr-page-component';
+import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
@@ -14,7 +14,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent extends SSRPageComponent {
+export class SearchPageComponent extends SSRComponent {
   public posts: Post[]
   public query: string
 

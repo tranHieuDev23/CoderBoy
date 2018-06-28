@@ -5,7 +5,7 @@ import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-brow
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from '../../../configs/global-config';
 import { Author } from '../../../models/author';
-import { SSRPageComponent } from '../ssr-page-component';
+import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 
 const KEY_DATA = makeStateKey('KEY_DATA')
@@ -15,7 +15,7 @@ const KEY_DATA = makeStateKey('KEY_DATA')
   templateUrl: './archive-page.component.html',
   styleUrls: ['./archive-page.component.scss']
 })
-export class ArchivePageComponent extends SSRPageComponent {
+export class ArchivePageComponent extends SSRComponent {
   public author: Author
   public posts: Post[]
   public title: string
