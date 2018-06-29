@@ -4,6 +4,8 @@
 .navbar {
     background-color: $color-top-bar-background;
     z-index: 8000;
+    -webkit-transition: background-color 250ms;
+    -o-transition: background-color 250ms;
     transition: background-color 250ms;
 
     &.transparent {
@@ -30,7 +32,9 @@
     :hover {
         background-color: $color-top-bar-background-selected;
         color: $color-top-bar-text-selected !important;
-        transition-duration: $timing-global-transition-duration;
+        -webkit-transition-duration: $timing-global-transition-duration;
+             -o-transition-duration: $timing-global-transition-duration;
+                transition-duration: $timing-global-transition-duration;
     }
 }
 
@@ -46,6 +50,8 @@
     left: 0;
     width: 0;
     height: 0;
+    -webkit-transition: background-color 200ms;
+    -o-transition: background-color 200ms;
     transition: background-color 200ms;
     z-index: 9000;
 }
@@ -60,7 +66,8 @@
     border: none;
     border-radius: 0;
     background-color: $color-top-bar-dropdown-background;
-    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+    -webkit-box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+            box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
     font-family: $font-family-secondary;
 
     &:hover {
@@ -82,14 +89,18 @@
 
         &:focus {
             outline: none;
-            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+                    box-shadow: none !important;
             border-color: #ced4da !important;
         }
     }
 
     button {
-        appearance: none;
-        box-shadow: none;
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
         border-radius: 0;
         width: 100%;
         border: 0;
@@ -113,7 +124,9 @@
     .nav-link {
         background-color: $color-top-bar-background-selected;
         color: $color-top-bar-text-selected !important;
-        transition-duration: 200ms;
+        -webkit-transition-duration: 200ms;
+             -o-transition-duration: 200ms;
+                transition-duration: 200ms;
     }
 
     .dropdown-menu {
@@ -164,7 +177,9 @@
         width: 240px;
         overflow-x: hidden;
         overflow-y: scroll;
-        transition-duration: 200ms;
+        -webkit-transition-duration: 200ms;
+             -o-transition-duration: 200ms;
+                transition-duration: 200ms;
         background: $color-top-bar-background;
 
         > li {

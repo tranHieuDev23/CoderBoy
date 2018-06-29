@@ -6,7 +6,9 @@ a:link, a:visited, a:hover, a:active {
     font-size: 80%;
     font-family: $font-family-secondary;
     cursor: pointer;
-    transition-duration: $timing-global-transition-duration;
+    -webkit-transition-duration: $timing-global-transition-duration;
+         -o-transition-duration: $timing-global-transition-duration;
+            transition-duration: $timing-global-transition-duration;
 }
 
 a:link, a:visited {

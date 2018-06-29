@@ -4,7 +4,9 @@
 .title {
     font-family: $font-family-primary;
     color: $color-post-title;
-    transition-duration: $timing-global-transition-duration;
+    -webkit-transition-duration: $timing-global-transition-duration;
+         -o-transition-duration: $timing-global-transition-duration;
+            transition-duration: $timing-global-transition-duration;
 
     &:hover {
         color: $color-post-title-selected;
@@ -17,7 +19,9 @@
 }
 
 .author:hover {
-    transition-duration: $timing-global-transition-duration;
+    -webkit-transition-duration: $timing-global-transition-duration;
+         -o-transition-duration: $timing-global-transition-duration;
+            transition-duration: $timing-global-transition-duration;
     color: $color-post-title-selected;
 }
 
@@ -28,8 +32,11 @@
 
 .button-outline {
     display: inline-block;
-    appearance: none;
-    box-shadow: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     border-radius: 0;
     width: 100%;
     max-width: 200px;
@@ -38,7 +45,9 @@
     color: $color-button-outline;
     font-family: $font-family-primary;
     cursor: pointer;
-    transition-duration: $timing-global-transition-duration;
+    -webkit-transition-duration: $timing-global-transition-duration;
+         -o-transition-duration: $timing-global-transition-duration;
+            transition-duration: $timing-global-transition-duration;
 
     &:focus {
         outline: none;

@@ -2,6 +2,10 @@
 @import "variables";
 
 /* Global Style */
+* {
+    outline: none;
+}
+
 body {
     font-size: 18px !important;
     background-color: $color-fake-background !important;
@@ -15,7 +19,8 @@ a:hover, a:visited, a:link, a:active {
     margin: 3rem 5rem 5rem;
     padding: 3rem 14%;
     background-color: $color-card-background;
-    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+    -webkit-box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+            box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
 
     &.extra-top-margin {
         margin-top: $spacer * 6;
@@ -133,7 +138,8 @@ a:hover, a:visited, a:link, a:active {
 @include media-breakpoint-down(xs) {
     .content-container {
         margin: 0;
-        box-shadow: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
 
         &.extra-top-margin {
             margin-top: $spacer * 3;

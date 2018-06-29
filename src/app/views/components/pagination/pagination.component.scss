@@ -2,6 +2,8 @@
 @import "variables";
 
 .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
   
@@ -22,7 +24,8 @@
   
     &:focus {
       outline: none;
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
     }
 }
   
@@ -44,4 +47,3 @@
         border-color: $color-pagination-nav-border-selected;
     }
 }
-  
