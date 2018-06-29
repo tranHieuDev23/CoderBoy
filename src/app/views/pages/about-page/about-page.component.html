@@ -1,7 +1,7 @@
 <app-loading-screen></app-loading-screen>
 <div class="content-container extra-top-margin">
   <div class="content">
-    <div id="blog-description" [innerHtml]="blogDescription"></div>
+    <div class="innerHtmlContent" [innerHtml]="blogDescription | safeHtml"></div>
     <app-section-head text="Tác giả" padding="small"></app-section-head>
     <app-author-display *ngFor="let a of authors" [author]="a"></app-author-display>
   </div>

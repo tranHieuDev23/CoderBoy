@@ -1,6 +1,14 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
+a:link, a:visited {
+    color: $color-post-link;
+}
+
+a:hover, a:active {
+    color: $color-post-link-selected;
+}
+
 .avatar {
     width: 100px;
     height: 100px;

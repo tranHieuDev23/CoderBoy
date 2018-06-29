@@ -3,21 +3,27 @@
 
 .title {
     font-family: $font-family-primary;
-    color: $color-post-text;
+    color: $color-post-title;
+    transition-duration: $timing-global-transition-duration;
+
+    &:hover {
+        color: $color-post-title-selected;
+    }
 }
 
 .author, .timestamp {
     font-family: $font-family-secondary;
-    color: $color-post-text;
+    color: $color-post-title;
+}
+
+.author:hover {
+    transition-duration: $timing-global-transition-duration;
+    color: $color-post-title-selected;
 }
 
 .summary {
     font-family: $font-family-secondary;
     color: $color-post-text;
-}
-
-a:hover, a:visited, a:link, a:active {
-    text-decoration: none;
 }
 
 .button-outline {
@@ -32,12 +38,14 @@ a:hover, a:visited, a:link, a:active {
     color: $color-button-outline;
     font-family: $font-family-primary;
     cursor: pointer;
+    transition-duration: $timing-global-transition-duration;
 
     &:focus {
         outline: none;
     }
 
     &:hover {
+        border-color: $color-button-outline-selected;
         background-color: $color-button-background-selected;
         color: $color-button-text-selected;
     }

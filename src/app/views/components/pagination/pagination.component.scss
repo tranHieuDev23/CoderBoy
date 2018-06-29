@@ -17,7 +17,7 @@
     &:hover {
       color: $color-pagination-nav-text-selected;
       background-color: $color-pagination-nav-background-selected;
-      border-color: $color-pagination-nav-border;
+      border-color: $color-pagination-nav-border-selected;
     }
   
     &:focus {
@@ -41,7 +41,7 @@
     &.active .page-link {
         color: $color-pagination-nav-text-selected;
         background-color: $color-pagination-nav-background-selected;
-        border-color: $color-pagination-nav-border;
+        border-color: $color-pagination-nav-border-selected;
     }
 }
   

@@ -30,7 +30,7 @@
     :hover {
         background-color: $color-top-bar-background-selected;
         color: $color-top-bar-text-selected !important;
-        transition-duration: 200ms;
+        transition-duration: $timing-global-transition-duration;
     }
 }
 
@@ -59,11 +59,27 @@
     min-width: 195px;
     border: none;
     border-radius: 0;
+    background-color: $color-top-bar-dropdown-background;
     box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
     font-family: $font-family-secondary;
 
+    &:hover {
+        background-color: $color-top-bar-dropdown-background !important;
+    }
+
+    form:hover {
+        background-color: $color-top-bar-dropdown-background !important;
+    }
+
     input {
         border-radius: 0;
+        color: $color-top-bar-dropdown-text !important;
+
+        &:hover {
+            background-color: $color-top-bar-dropdown-background !important;
+            color: $color-top-bar-dropdown-text !important;
+        }
+
         &:focus {
             outline: none;
             box-shadow: none !important;
@@ -77,8 +93,8 @@
         border-radius: 0;
         width: 100%;
         border: 0;
-        background-color: $color-button-background-selected;
-        color: $color-button-text-selected;
+        background-color: $color-top-bar-dropdown-button-background;
+        color: $color-top-bar-dropdown-button-text;
         font-family: $font-family-secondary;
         cursor: pointer;
 
@@ -87,8 +103,8 @@
         }
 
         &:hover {
-            background-color: $color-button-background-selected !important;
-            color: $color-button-text-selected !important;
+            background-color: $color-top-bar-dropdown-button-background-selected;
+            color: $color-top-bar-dropdown-button-text-selected;
         }
     }
 }

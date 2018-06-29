@@ -1,20 +1,25 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
-* {
-    color: $color-footer;
-}
-
-.title {
+#title {
     font-family: $font-family-primary;
+    color: $color-footer-text;
 }
 
-.credit {
+a {
     font-family: $font-family-secondary;
+
+    &:link, &:visited {
+        color: $color-footer-link;
+    }
+
+    &:hover, &:active {
+        color: $color-footer-link-selected;
+    }
 }
 
 @include media-breakpoint-down(xs) {
     .container {
-        border-top: solid 1px $color-footer;
+        border-top: solid 1px $color-footer-text;
     }
 }

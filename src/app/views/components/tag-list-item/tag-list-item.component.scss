@@ -1,4 +1,4 @@
-@import "styles";
+@import "variables";
 
 a:link, a:visited, a:hover, a:active {
     display: inline-block;
@@ -6,6 +6,7 @@ a:link, a:visited, a:hover, a:active {
     font-size: 80%;
     font-family: $font-family-secondary;
     cursor: pointer;
+    transition-duration: $timing-global-transition-duration;
 }
 
 a:link, a:visited {

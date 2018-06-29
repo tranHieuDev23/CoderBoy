@@ -13,8 +13,7 @@ const KEY_STATUS = makeStateKey('KEY_STATUS')
 @Component({
   selector: 'app-post-page',
   templateUrl: './post-page.component.html',
-  styleUrls: ['./post-page.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./post-page.component.scss']
 })
 export class PostPageComponent extends SSRComponent {
   @ViewChild(LoadingScreenComponent) loadingScreen: LoadingScreenComponent

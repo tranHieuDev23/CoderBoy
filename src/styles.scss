@@ -26,6 +26,96 @@ a:hover, a:visited, a:link, a:active {
     }
 }
 
+.innerHtmlContent {
+    font-family: $font-family-secondary;
+    color: $color-post-text;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-family-primary;
+    }
+
+    a:link, a:visited {
+        color: $color-post-link;
+    }
+
+    a:hover, a:active {
+        color: $color-post-link-selected;
+    }
+
+    blockquote {
+        border-left: 10px solid $color-blockquote;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+    }
+
+    blockquote:before {
+        color: $color-blockquote;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    figcaption {
+        text-align: center;
+        font-size: 80%;
+        color: $color-post-caption;
+    }
+
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: $spacer;
+        background-color: $color-table-background;
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        thead {
+            color: $color-table-text-header;
+            background-color: $color-table-background-header;
+            border-color: $color-table-border;
+        }
+
+        th, td {
+            padding: $table-cell-padding;
+            vertical-align: top;
+            border-top: $width-table-border solid $color-table-border;
+        }
+
+        thead th {
+            vertical-align: bottom;
+            border-bottom: (2 * $width-table-border) solid $color-table-border;
+        }
+
+        tbody + tbody {
+            border-bottom: (2 * $width-table-border) solid $color-table-border;
+        }
+    }
+}
+
+.footerContent {
+    font-family: $font-family-secondary;
+    color: $color-footer-text;
+    
+    a:link, a:visited {
+        color: $color-footer-link;
+    }
+
+    a:hover, a:active {
+        color: $color-footer-link-selected;
+    }
+}
+
 @include media-breakpoint-down(lg) {
     .content-container {
         margin: 3rem;

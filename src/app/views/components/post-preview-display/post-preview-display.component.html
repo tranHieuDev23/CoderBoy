@@ -3,7 +3,7 @@
     <h3 class="title">{{ post.title }}</h3>
   </a>
   <div>
-    <a routerLink="/author/{{ post.author.slug }}">
+    <a routerLink="/archive/author/{{ post.author.slug }}">
       <span class="author">{{ post.author.last_name }} {{ post.author.first_name }}</span></a>/<span class="timestamp">{{ post.published | date:'medium' }}</span>
   </div>
   <div lazy-load-images>

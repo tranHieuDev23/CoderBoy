@@ -3,7 +3,7 @@
   <app-carousel-post-item [post]="post"></app-carousel-post-item>
   <div class="content-container">
     <div class="content">
-      <div id="post-content" [innerHTML]="post.body | safeHtml" highlightSSR="all"></div>
+      <div class="innerHtmlContent" [innerHTML]="post.body | safeHtml" highlightSSR="all"></div>
       <div id="post-tag-list" class="my-4">
         <app-tag-list-item *ngFor="let t of post.tags" [tag]="t"></app-tag-list-item>
       </div>
