@@ -4,7 +4,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title, TransferState, Meta, makeStateKey } from '@angular/platform-browser';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { GlobalConfig } from "../../../configs/global-config";
-import { SSRComponent } from '../../ssr-component';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
 import { isPlatformBrowser } from '@angular/common';
 import { LoadingScreenComponent } from '../../components/loading-screen/loading-screen.component';

@@ -1,8 +1,6 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TopBarComponent } from './views/components/top-bar/top-bar.component';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
-import { GlobalConfig } from "./configs/global-config";
 
 @Component({
   selector: 'app-root',

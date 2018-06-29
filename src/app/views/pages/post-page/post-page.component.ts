@@ -1,5 +1,5 @@
 import { SSRComponent } from "../../ssr-component";
-import { Component, ViewEncapsulation, PLATFORM_ID, Inject, Optional, ViewChild } from '@angular/core';
+import { Component, PLATFORM_ID, Inject, Optional, ViewChild } from '@angular/core';
 import { Post } from '../../../models/post';
 import { ButterService } from '../../../controllers/butterCMS/butter.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';

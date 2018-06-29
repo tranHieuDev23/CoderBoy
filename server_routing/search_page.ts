@@ -13,9 +13,9 @@ router.use('/search', (req, res) => {
         })
         .then((result) => {
             res.locals.result = result
-            return res.render('200', {req, res})
+            return res.render('index', {req, res})
         }, () => {
-            return res.render('200', {req, res})
+            return res.render('index', {req, res})
         })
     }
 })

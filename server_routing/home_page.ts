@@ -13,12 +13,12 @@ function homeMiddleware(req, res) {
             exclude_body: true
         }).then((resultPosts) => {
             res.locals.data = {resultCategories, resultPosts}
-            return res.render('200', {req, res})
+            return res.render('index', {req, res})
         }, () => {
-            return res.render('200', {req, res})
+            return res.render('index', {req, res})
         })
     }, () => {
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     })
 }
 

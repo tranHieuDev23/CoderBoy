@@ -44,7 +44,7 @@ app.use(searchRoute)
 app.use(tagListRoute)
 
 app.get('*', (req, res) => {
-    res.render('200', {req, res})
+    res.render('index', {req, res})
 })
 
 app.listen(PORT, () => {

@@ -1,5 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID, PLATFORM_ID, Inject, APP_ID } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { LazyLoadImagesModule } from "ngx-lazy-load-images";
 import { DisqusModule } from "ngx-disqus";
@@ -29,7 +29,7 @@ import { AboutPageComponent } from './views/pages/about-page/about-page.componen
 import { ExtractUrlPipe } from './views/pipes/extract-url/extract-url.pipe';
 import { TwitterHandleUrlPipe } from './views/pipes/twitter-handle-url/twitter-handle-url.pipe';
 import localeVi from '@angular/common/locales/vi'
-import { registerLocaleData, isPlatformBrowser } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import { HighlightSsrDirective } from './views/directives/highlight-ssr/highlight-ssr.directive';
 
 registerLocaleData(localeVi)
@@ -74,12 +74,4 @@ registerLocaleData(localeVi)
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(APP_ID) private appId: string
-  ) {
-    const platform = isPlatformBrowser(platformId)? 'in the browser' : 'in the server'
-    console.log(`Running ${platform} with appId = ${appId}`)
-  }
-}
+export class AppModule {}

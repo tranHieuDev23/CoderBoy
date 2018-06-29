@@ -8,10 +8,10 @@ router.use('/post/:slug', (req, res) => {
     ButterService.post.retrieve(req.params.slug)
     .then((result) => {
         res.locals.result = result
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     }, () => {
         res.locals.status = '404'
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     })
 })
 

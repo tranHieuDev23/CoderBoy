@@ -8,9 +8,9 @@ router.get('/tag', (req, res) => {
     ButterService.tag.list()
     .then((result) => {
         res.locals.result = result
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     }, (res) => {
-        return res.render('200', {req, res, url: '/404'})
+        return res.render('index', {req, res, url: '/404'})
     })
 })
 

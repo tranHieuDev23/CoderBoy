@@ -8,9 +8,9 @@ router.get('/about', (req, res) => {
     ButterService.author.list()
     .then((result) => {
         res.locals.result = result
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     }, (result) => {
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     })
 })
 

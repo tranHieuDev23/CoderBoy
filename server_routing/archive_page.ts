@@ -7,7 +7,7 @@ const ButterService = require('buttercms')(GlobalConfig.BUTTERCMS_API_TOKEN)
 function archiveMiddleware (req, res) {
     let type = req.params.type
     if (type != 'category' && type != 'tag' && type != 'author') {
-        return res.render('200', {req, res, url: '/404'})
+        return res.render('index', {req, res, url: '/404'})
     }
 
     let slug = req.params.slug
@@ -29,14 +29,14 @@ function archiveMiddleware (req, res) {
       ButterService.post.list(REQUEST_PARAMS)
         .then((resultPosts) => {
             res.locals.data = {resultMeta, resultPosts, type, slug, currentPage}
-            return res.render('200', {req, res})
+            return res.render('index', {req, res})
         }, () => {
             res.locals.status = '404'
-            return res.render('200', {req, res})
+            return res.render('index', {req, res})
         })
     }, () => {
         res.locals.status = '404'
-        return res.render('200', {req, res})
+        return res.render('index', {req, res})
     })
 }
 
