@@ -36,10 +36,10 @@
 .carousel-metadata, .carousel-summary {
     font-family: $font-family-secondary;
     color: $color-carousel-text;
-}
 
-a:hover, a:visited, a:link, a:active {
-    text-decoration: none;
+    a {
+        color: inherit;
+    }
 }
 
 @include media-breakpoint-down(xs) {
