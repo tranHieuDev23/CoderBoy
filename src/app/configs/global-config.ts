@@ -6,6 +6,7 @@ export const GlobalConfig = {
     "BUTTERCMS_API_TOKEN": "d0a9737fab9acd83e6024199769f7b4ac8fca901",
     "CAROUSEL_PAGES": 5,
     "DISQUS_SHORTNAME": "coderboy",
+    "GOOGLE_CONFIRMATION_META_CONTENT": "ep-VNnGfg3XkwSUAA0UWxMdNCRAc21qBkLPy8g61Pw0",
     "HIGHLIGHTJS_THEME": "atom-one-dark",
     "HOME_PAGE_CATEGORY_RECENT_SIZE": 3,
     "MESSAGE_404": "Nội dung bạn truy cập không có tồn tại. Có lẽ tìm kiếm trên trang web sẽ có ích?",

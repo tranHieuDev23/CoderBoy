@@ -161,6 +161,7 @@ var i4 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var i5 = __webpack_require__(/*! ./views/components/footer/footer.component.ngfactory */ "./src/app/views/components/footer/footer.component.ngfactory.js");
 var i6 = __webpack_require__(/*! ./views/components/footer/footer.component */ "./src/app/views/components/footer/footer.component.ts");
 var i7 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+var i8 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
 var styles_AppComponent = [i0.styles];
 var RenderType_AppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AppComponent, data: {} });
 exports.RenderType_AppComponent = RenderType_AppComponent;
@@ -169,7 +170,7 @@ function View_AppComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { 
         ad = (pd_0 && ad);
     } return ad; }, i2.View_TopBarComponent_0, i2.RenderType_TopBarComponent)), i1.ɵdid(2, 114688, [[1, 4]], 0, i3.TopBarComponent, [i1.PLATFORM_ID, i4.Router, i1.NgZone, i1.Renderer2], null, null), (_l()(), i1.ɵeld(3, 0, null, null, 2, "div", [["class", "content-card"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(5, 212992, null, 0, i4.RouterOutlet, [i4.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null), (_l()(), i1.ɵeld(6, 0, null, null, 1, "app-footer", [], null, null, null, i5.View_FooterComponent_0, i5.RenderType_FooterComponent)), i1.ɵdid(7, 114688, null, 0, i6.FooterComponent, [], null, null)], function (_ck, _v) { _ck(_v, 2, 0); _ck(_v, 5, 0); _ck(_v, 7, 0); }, null); }
 exports.View_AppComponent_0 = View_AppComponent_0;
-function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 49152, null, 0, i7.AppComponent, [i4.Router], null, null)], null, null); }
+function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 114688, null, 0, i7.AppComponent, [i4.Router, i8.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AppComponent_Host_0 = View_AppComponent_Host_0;
 var AppComponentNgFactory = i1.ɵccf("app-root", i7.AppComponent, View_AppComponent_Host_0, {}, {}, []);
 exports.AppComponentNgFactory = AppComponentNgFactory;
@@ -209,16 +210,25 @@ exports.styles = styles;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var top_bar_component_1 = __webpack_require__(/*! ./views/components/top-bar/top-bar.component */ "./src/app/views/components/top-bar/top-bar.component.ts");
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var global_config_1 = __webpack_require__(/*! ./configs/global-config */ "./src/app/configs/global-config.ts");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(router) {
+    function AppComponent(router, metaService) {
         var _this = this;
         this.router = router;
+        this.metaService = metaService;
         this.router.events.subscribe(function (event) {
             _this.handleRoutingEvents(event);
         });
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.metaService.addTags([
+            { name: "google-site-verification", content: global_config_1.GlobalConfig.GOOGLE_CONFIRMATION_META_CONTENT }
+        ]);
+    };
     AppComponent.prototype.routeAllowsTransparentTopbar = function (url) {
         var homeRegExp = new RegExp('(\/home).*');
         var postRegExp = new RegExp('(\/post\/)[a-zA-Z0-9_-]+.*');
@@ -378,6 +388,7 @@ exports.GlobalConfig = {
     "BUTTERCMS_API_TOKEN": "d0a9737fab9acd83e6024199769f7b4ac8fca901",
     "CAROUSEL_PAGES": 5,
     "DISQUS_SHORTNAME": "coderboy",
+    "GOOGLE_CONFIRMATION_META_CONTENT": "ep-VNnGfg3XkwSUAA0UWxMdNCRAc21qBkLPy8g61Pw0",
     "HIGHLIGHTJS_THEME": "atom-one-dark",
     "HOME_PAGE_CATEGORY_RECENT_SIZE": 3,
     "MESSAGE_404": "Nội dung bạn truy cập không có tồn tại. Có lẽ tìm kiếm trên trang web sẽ có ích?",
