@@ -6,7 +6,7 @@
     Một giao diện blog đơn giản, th&acirc;n thiện. Dễ d&agrave;ng t&ugrave;y chỉnh m&agrave; kh&ocirc;ng cần nhiều kiến thức lập tr&igrave;nh!
 </p>
 <p align="center">
-    Thăm quan trang web của m&igrave;nh tại địa chỉ&nbsp;<a title="CoderBoy" href="https://coderboy23.herokuapp.com/" target="_blank" rel="noopener">coderboy23.herokuapp.com</a>
+    Thăm quan trang web của m&igrave;nh tại địa chỉ&nbsp;<a title="CoderBoy" href="https://coderboy23.herokuapp.com/" target="_blank" rel="noopener">coderboy23.herokuapp.com</a>.
 </p>
 
 Mục lục
@@ -60,17 +60,17 @@ Các cài đặt liên quan đến nội dung của blog được lưu trữ tro
 
 File này chứa một số cái đặt quan trọng nhất của chương trình.
 
-*   `ARCHIVE\_PAGE\_SIZE`: Số lượng bài blog mỗi trang khi truy cập vào danh mục bài viết thuộc một category, tag hay của một tag giả nào đó.
+*   `ARCHIVE_PAGE_SIZE`: Số lượng bài blog mỗi trang khi truy cập vào danh mục bài viết thuộc một category, tag hay của một tag giả nào đó.
 *   `BLOG_TITLE`: Tên của blog. Xuất hiện trên các vị trị quan trọng của blog, cũng như khi chia sẻ đường dẫn tới blog.
 *   `BLOG_DESCRIPTION`: Mô tả ngắn gọn về blog. Xuất hiện khi bạn chia sẻ đường dẫn tới blog.
-*   `BLOG\_FEATURE\_IMAGE_URL`: Đường dẫn tới ảnh đại diện của blog. Xuất hiện khi bạn chia sẻ đường dẫn tới blog.
-*   `BUTTERCMS\_API\_TOKEN`: API Token của tài khoản ButterCMS của bạn.
+*   `BLOG_FEATURE_IMAGE_URL`: Đường dẫn tới ảnh đại diện của blog. Xuất hiện khi bạn chia sẻ đường dẫn tới blog.
+*   `BUTTERCMS_API_TOKEN`: API Token của tài khoản ButterCMS của bạn.
 *   `CAROUSEL_PAGES`: Số lượng bài blog tối đa được hiển thị ở đầu trang chủ của blog.
 *   `DISQUS_SHORTNAME`: Shortname tương ứng với trang mà bạn tạo ra trên Disqus.
 *   `HIGHLIGHTJS_THEME`: Theme dành cho Highlight.js (tô màu code). Nếu bạn thay đổi giá trị này, bạn cần phải đặt file `.css` tương ứng vào thư mục `/src/assets/js/`styles.
-*   `HOME\_PAGE\_CATEGORY\_RECENT\_SIZE`: Số lượng bài blog tối đa được hiện thị với mỗi category ở trang chủ của blog.
+*   `HOME_PAGE_CATEGORY_RECENT_SIZE`: Số lượng bài blog tối đa được hiện thị với mỗi category ở trang chủ của blog.
 *   `MESSAGE_404`: Đoạn văn bản xuất hiện tại trang 404 (không tìm thấy nội dung).
-*   `SEARCH\_MAXIMUM\_RESULTS`: Số lượng kết quả tìm kiếm tối đa tại mục tìm kiếm.
+*   `SEARCH_MAXIMUM_RESULTS`: Số lượng kết quả tìm kiếm tối đa tại mục tìm kiếm.
 
 #### `blog-description.html`
 
@@ -107,7 +107,7 @@ Các font phải được import trong file trước khi được đặt vào c�
 
 <a name="heroku"></a>
 
-## Host trên Heroku
+## Host trên [Heroku](https://heroku.com/)
 
 Trong project cũng có một file `Procfile` để có thể triển khai project lên Heroku.
 
