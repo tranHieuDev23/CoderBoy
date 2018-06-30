@@ -1,4 +1,3 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
 .pagination {
@@ -23,7 +22,6 @@
     }
   
     &:focus {
-      outline: none;
       -webkit-box-shadow: none;
               box-shadow: none;
     }
@@ -32,12 +30,14 @@
 .page-item {
     &:first-child {
         .page-link {
-            @include border-left-radius(0);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
     }
     &:last-child {
         .page-link {
-            @include border-right-radius(0);
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
     }
   

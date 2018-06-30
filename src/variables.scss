@@ -30,6 +30,15 @@ $color-text-caption: #6c757d;
 /* Timing */
 $timing-global-transition-duration: 150ms;
 
+/* Bootstrap Grid Breakpoints */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
 /* Specific colors for elements of the page */
 $color-top-bar-background: $color-primary;
 $color-top-bar-background-selected: $color-accent;

@@ -1,21 +1,9 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 @import "variables";
 
 #title {
     font-family: $font-family-primary;
     color: $color-footer-text;
-}
-
-a {
-    font-family: $font-family-secondary;
-
-    &:link, &:visited {
-        color: $color-footer-link;
-    }
-
-    &:hover, &:active {
-        color: $color-footer-link-selected;
-    }
 }
 
 @include media-breakpoint-down(xs) {

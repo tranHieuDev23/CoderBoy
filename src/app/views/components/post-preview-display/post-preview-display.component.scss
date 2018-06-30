@@ -1,4 +1,4 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 @import "variables";
 
 .title {
@@ -48,10 +48,6 @@
     -webkit-transition-duration: $timing-global-transition-duration;
          -o-transition-duration: $timing-global-transition-duration;
             transition-duration: $timing-global-transition-duration;
-
-    &:focus {
-        outline: none;
-    }
 
     &:hover {
         border-color: $color-button-outline-selected;

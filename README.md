@@ -99,6 +99,8 @@ Các cài đặt liên quan đến giao diện của blog được lưu trữ tr
 *   `$color-accent-dark`: Phiên bản tối màu hơn của `$color-secondary`
     
 *   `$timing-global-transition-duration`: Thời gian diễn ra các animation trên trang như chuyển màu top bar, nút bấm, vân vân.
+ 
+*   `$grid-breakpoints`: Các điểm chuyển đổi giao diện của Bootstrap, áp dụng lên nhiều yếu tố giao diện trong trang.
     
 
 Các font phải được import trong file trước khi được đặt vào các biến ở trên.

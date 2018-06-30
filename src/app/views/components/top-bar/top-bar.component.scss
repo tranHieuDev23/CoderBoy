@@ -1,4 +1,4 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 @import "variables";
 
 .navbar {
@@ -88,7 +88,6 @@
         }
 
         &:focus {
-            outline: none;
             -webkit-box-shadow: none !important;
                     box-shadow: none !important;
             border-color: #ced4da !important;
@@ -108,10 +107,6 @@
         color: $color-top-bar-dropdown-button-text;
         font-family: $font-family-secondary;
         cursor: pointer;
-
-        &:focus {
-            outline: none;
-        }
 
         &:hover {
             background-color: $color-top-bar-dropdown-button-background-selected;

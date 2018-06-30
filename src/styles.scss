@@ -1,4 +1,4 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 @import "variables";
 
 /* Global Style */
@@ -23,7 +23,7 @@ a:hover, a:visited, a:link, a:active {
             box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
 
     &.extra-top-margin {
-        margin-top: $spacer * 6;
+        margin-top: 6rem;
     }
 
     .content {
@@ -77,7 +77,7 @@ a:hover, a:visited, a:link, a:active {
     table {
         width: 100%;
         max-width: 100%;
-        margin-bottom: $spacer;
+        margin-bottom: 1rem;
         background-color: $color-table-background;
         display: block;
         width: 100%;
@@ -92,7 +92,7 @@ a:hover, a:visited, a:link, a:active {
         }
 
         th, td {
-            padding: $table-cell-padding;
+            padding: .75rem;
             vertical-align: top;
             border-top: $width-table-border solid $color-table-border;
         }
@@ -142,7 +142,7 @@ a:hover, a:visited, a:link, a:active {
                 box-shadow: none;
 
         &.extra-top-margin {
-            margin-top: $spacer * 3;
+            margin-top: 3rem;
         }
     }
 }

@@ -1,4 +1,4 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 @import "variables";
 
 a:link, a:visited {
@@ -12,7 +12,7 @@ a:hover, a:active {
 .avatar {
     width: 100px;
     height: 100px;
-    margin: 0 auto $spacer;
+    margin: 0 auto 1rem;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;

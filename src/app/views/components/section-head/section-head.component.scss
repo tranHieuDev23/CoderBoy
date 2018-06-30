@@ -1,4 +1,3 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
 .text {
@@ -18,7 +17,7 @@
 
 .large {
     .text {
-        margin-top: $spacer * 1.5;
+        margin-top: 1.5rem;
     }
     .pagination {
         padding: 20px 0 40px; 
@@ -27,7 +26,7 @@
 
 .small {
     .text {
-        margin-top: $spacer;
+        margin-top: 1rem;
     }
     .pagination {
         padding: 10px 0 20px; 
