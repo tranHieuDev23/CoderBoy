@@ -67,6 +67,7 @@ File này chứa một số cái đặt quan trọng nhất của chương trìn
 *   `BUTTERCMS_API_TOKEN`: API Token của tài khoản ButterCMS của bạn.
 *   `CAROUSEL_PAGES`: Số lượng bài blog tối đa được hiển thị ở đầu trang chủ của blog.
 *   `DISQUS_SHORTNAME`: Shortname tương ứng với trang mà bạn tạo ra trên Disqus.
+*   `GOOGLE_CONFIRMATION_META_CONTENT`: Giá trị `content` của thẻ `meta` cần có để Google Search Console xác nhận rằng bạn là chủ của trang web.
 *   `HIGHLIGHTJS_THEME`: Theme dành cho Highlight.js (tô màu code). Nếu bạn thay đổi giá trị này, bạn cần phải đặt file `.css` tương ứng vào thư mục `/src/assets/js/`styles.
 *   `HOME_PAGE_CATEGORY_RECENT_SIZE`: Số lượng bài blog tối đa được hiện thị với mỗi category ở trang chủ của blog.
 *   `MESSAGE_404`: Đoạn văn bản xuất hiện tại trang 404 (không tìm thấy nội dung).
