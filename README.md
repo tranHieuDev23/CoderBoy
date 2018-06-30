@@ -7,14 +7,16 @@
 Mục lục
 -------
 
-*   [Mô tả](#h22sjj0u073i1ry8w1n1o5jgi01e3hc3o)
-*   [Cài đặt](#h27sjj0u0hnrohj5yn1xtp6m41jvb4q5)
-*   [Sử dụng](#h34sjj0veyewcerq1w1o57m3p1tylbpf)
-*   [Tùy chỉnh](#h31sjj0u0pef16dowmz1hk86v71dy14v0)
-*   [Host trên Heroku](#h47sjj0vkk231q3t4z814e5mwd11qcly8)
-*   [Giấy phép](#h55sjj0vpebdaeo9vka61yuedfn0ns)
+*   [Mô tả](#description)
+*   [Cài đặt](#installation)
+*   [Sử dụng](#usage)
+*   [Tùy chỉnh](#config)
+*   [Host trên Heroku](#heroku)
+*   [Giấy phép](#license)
 
-Mô tả
+<a name="description"></a>
+
+## Mô tả
 -----
 
 Dự án này sử dụng [ButterCMS](https://buttercms.com/) - một headless CMS cung cấp các dịch vụ quản lý bài viết và người viết, giúp lập trình viên chỉ cần quan tâm về mặt giao diện của dự án.
@@ -25,14 +27,18 @@ Tính năng bình luận trên trang sử dụng [Disqus](https://disqus.com/) -
 
 Repository này bao gồm một giao diện client được viết bằng [Angular 6](https://angular.io) và một server [Express](https://expressjs.com) để triển khai Server Side Rendering.
 
-Cài đặt
+<a name="installation"></a>
+
+## Cài đặt
 -------
 
     git clone https://github.com/tranHieuDev23/PersonalBlog.git
 
 hoặc [download repository này về](https://github.com/tranHieuDev23/PersonalBlog/archive/master.zip).
 
-Sử dụng
+<a name="usage"></a>
+
+## Sử dụng
 -------
 
 *   Để serve hoặc build client của blog, các lệnh của Angular CLI vẫn được giữ nguyên - `ng serve` và `ng build`.
@@ -40,7 +46,9 @@ Sử dụng
 *   Để chạy server của blog sau khi build: npm run `serve:ssr`.
 *   Để `build:ssr` và `serve:ssr` ngay lập tức: `npm start`.
 
-Tùy chỉnh
+<a name="config"></a>
+
+## Tùy chỉnh
 ---------
 
 ### Về nội dung của blog
@@ -96,14 +104,18 @@ Các font phải được import trong file trước khi được đặt vào c�
 
 Đối với các cài đặt về màu sắc, nếu như 4 cài đặt ở trên vẫn chưa đủ, bạn cũng có thể chỉnh sửa trực tiếp lên các biến cụ thể hơn ở trong file.
 
-Host trên Heroku
+<a name="heroku"></a>
+
+## Host trên Heroku
 ----------------
 
 Trong project cũng có một file `Procfile` để có thể triển khai project lên Heroku.
 
 **Chú ý quan trọng** rằng do Heroku yêu cầu ứng dụng phải khởi động được lên trong một khoảng thời gian nhất định, lệnh `npm start` sẽ bị quá thời gian và ứng dụng sẽ bị crash. Do đó `Procfile` chỉ gọi lệnh `npm run serve:ssr` và bạn cần phải build ứng dụng ra trước khi triển khai lên Heroku.
 
-Giấy phép
+<a name="license"></a>
+
+## Giấy phép
 ---------
 
 [MIT](https://choosealicense.com/licenses/mit/)
