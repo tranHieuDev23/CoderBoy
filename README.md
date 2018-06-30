@@ -80,21 +80,21 @@ Bạn có thể viết một đoạn mô tả chi tiết về blog của mình t
 
 Bạn có thể viết nội dung được hiển thị ở cuối trang blog tại đây bằng ngôn ngữ Html.
 
-### Về giao diện của trang web
+### Về giao diện của blog
 
-Các cài đặt liên quan đến giao diện của trang web được lưu trữ trong file `/src/variables.scss`.
+Các cài đặt liên quan đến giao diện của blog được lưu trữ trong file `/src/variables.scss`.
 
-*   `$font-family-primary`: Font dành cho tiêu đề trang web, tiêu đề bài viết, và các yếu tô nổi bật trên trang.
+*   `$font-family-primary`: Font dành cho tiêu đề blog, tiêu đề bài viết, và các yếu tô nổi bật trên trang.
     
 *   `$font-family-secondary`: Font dành cho các lựa chọn trên menu, nội dung bài viết và các yếu tố còn lại trên trang.
     
 *   `$font-size-top-bar-item`: Kích cỡ font trên thanh top bar.
     
-*   `$color-primary`: Màu sắc chủ đạo của trang web. Được sử dụng trên thanh top bar, menu, tiêu đề bài viết, vân vân...
+*   `$color-primary`: Màu sắc chủ đạo của blog. Được sử dụng trên thanh top bar, menu, tiêu đề bài viết, vân vân...
     
 *   `$color-primary-light`: Phiên bản sáng hơn của `$color-primary`
     
-*   `$color-accent`: Màu sắc phụ đạo của trang web. Được dùng cho các yếu tố cần sự nổi bật trên trang như đường dẫn, nút bấm, vân vân.
+*   `$color-accent`: Màu sắc phụ đạo của blog. Được dùng cho các yếu tố cần sự nổi bật trên trang như đường dẫn, nút bấm, vân vân.
     
 *   `$color-accent-dark`: Phiên bản tối màu hơn của `$color-secondary`
     
