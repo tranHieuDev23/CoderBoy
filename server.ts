@@ -25,6 +25,19 @@ app.engine('html', ngExpressEngine({
     ]
 }))
 
+import { GlobalConfig } from "./src/app/configs/global-config";
+const ButterService = require('buttercms')(GlobalConfig.BUTTERCMS_API_TOKEN)
+
+app.get('/sitemap.xml', (req, res) => {
+    ButterService.feed.retrieve('sitemap')
+    .then((result) => {
+        res.set('Content-Type', 'text/xml')
+        res.end(result.data.data)
+    }, (result) => {
+        res.status(404).end('Nothing. There is no sitemap.')
+    })
+})
+
 app.set('view engine', 'html')
 app.set('views', join(DIST_FOLDER, 'browser'))
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')))
