@@ -1,16 +1,13 @@
-
-<div style="align: center">
-    <h1>Coderboy Theme</h1>
-    <p>
-        <img src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/26195982_314414552401860_673476996156876329_n.jpg?_nc_cat=0&amp;oh=a558cf0a24fca6252db9630c5f58f9ad&amp;oe=5BAE3053" alt="" width="200" height="200"/>
-    </p>
-    <p>
-        Một giao diện blog đơn giản, th&acirc;n thiện. Dễ d&agrave;ng t&ugrave;y chỉnh m&agrave; kh&ocirc;ng cần nhiều kiến thức lập tr&igrave;nh!
-    </p>
-    <p>
-        Thăm quan trang web của m&igrave;nh tại địa chỉ&nbsp;<a title="CoderBoy" href="https://coderboy23.herokuapp.com/" target="_blank" rel="noopener">coderboy23.herokuapp.com</a>
-    </p>
-</div>
+<h1 align="center">CoderBoy Theme</h1>
+<p align="center">
+    <img src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/26195982_314414552401860_673476996156876329_n.jpg?_nc_cat=0&amp;oh=a558cf0a24fca6252db9630c5f58f9ad&amp;oe=5BAE3053" alt="" width="200" height="200"/>
+</p>
+<p align="center">
+    Một giao diện blog đơn giản, th&acirc;n thiện. Dễ d&agrave;ng t&ugrave;y chỉnh m&agrave; kh&ocirc;ng cần nhiều kiến thức lập tr&igrave;nh!
+</p>
+<p align="center">
+    Thăm quan trang web của m&igrave;nh tại địa chỉ&nbsp;<a title="CoderBoy" href="https://coderboy23.herokuapp.com/" target="_blank" rel="noopener">coderboy23.herokuapp.com</a>
+</p>
 
 Mục lục
 -------
