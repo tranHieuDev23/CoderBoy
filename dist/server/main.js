@@ -1802,6 +1802,7 @@ var AboutPageComponent = /** @class */ (function (_super) {
         this.authors = data.data;
         this.titleService.setTitle('About');
         this.metaService.addTags([
+            { name: 'description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: 'About' },
             { property: 'og:description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
@@ -2021,6 +2022,7 @@ var ArchivePageComponent = /** @class */ (function (_super) {
     };
     ArchivePageComponent.prototype.addSEOMetaTags = function () {
         this.metaService.addTags([
+            { name: 'description', content: "Trang " + this.currentPage + " tr\u00EAn " + this.lastPage },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: this.title },
             { property: 'og:description', content: "Trang " + this.currentPage + " tr\u00EAn " + this.lastPage },
@@ -2279,6 +2281,7 @@ var HomePageComponent = /** @class */ (function (_super) {
         this.titleService.setTitle(global_config_1.GlobalConfig.BLOG_TITLE);
         this.loadingScreen.hideSpinner();
         this.metaService.addTags([
+            { name: 'description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: global_config_1.GlobalConfig.BLOG_TITLE },
             { property: 'og:description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
@@ -2426,6 +2429,7 @@ var NotFoundPageComponent = /** @class */ (function (_super) {
     NotFoundPageComponent.prototype.initView = function () {
         this.titleService.setTitle("404 Not Found");
         this.metaService.addTags([
+            { name: 'description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: 'About' },
             { property: 'og:description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
@@ -2615,6 +2619,7 @@ var PostPageComponent = /** @class */ (function (_super) {
     };
     PostPageComponent.prototype.addSEOMetaTags = function () {
         this.metaService.addTags([
+            { name: 'description', content: this.post.meta_description },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: this.post.title },
             { property: 'og:description', content: this.post.meta_description },
@@ -2792,6 +2797,7 @@ var SearchPageComponent = /** @class */ (function () {
         this.posts = data.data;
         this.loadingScreen.hideSpinner();
         this.metaService.addTags([
+            { name: 'description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: 'Tìm kiếm' },
             { property: 'og:description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },
@@ -2944,6 +2950,7 @@ var TagListPageComponent = /** @class */ (function (_super) {
         this.tags = data.data;
         this.loadingScreen.hideSpinner();
         this.metaService.addTags([
+            { name: 'description', content: 'Danh mục tag trên trang' },
             { property: 'og:url', content: this.router.url },
             { property: 'og:title', content: 'Danh mục tag trên trang' },
             { property: 'og:description', content: global_config_1.GlobalConfig.BLOG_DESCRIPTION },

@@ -93,6 +93,7 @@ export class PostPageComponent extends SSRComponent {
 
   addSEOMetaTags(): void {
     this.metaService.addTags([
+      {name: 'description', content: this.post.meta_description},
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: this.post.title},
       {property: 'og:description', content: this.post.meta_description},

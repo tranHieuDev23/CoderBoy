@@ -144,6 +144,7 @@ export class ArchivePageComponent extends SSRComponent {
 
   addSEOMetaTags(): void {
     this.metaService.addTags([
+      {name: 'description', content: `Trang ${this.currentPage} trên ${this.lastPage}`},
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: this.title},
       {property: 'og:description', content: `Trang ${this.currentPage} trên ${this.lastPage}`},

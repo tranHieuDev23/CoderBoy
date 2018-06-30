@@ -81,6 +81,7 @@ export class HomePageComponent extends SSRComponent {
     this.titleService.setTitle(GlobalConfig.BLOG_TITLE)
     this.loadingScreen.hideSpinner()
     this.metaService.addTags([
+      {name: 'description', content: GlobalConfig.BLOG_DESCRIPTION},
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: GlobalConfig.BLOG_TITLE},
       {property: 'og:description', content: GlobalConfig.BLOG_DESCRIPTION},

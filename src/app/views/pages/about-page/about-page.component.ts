@@ -64,6 +64,7 @@ export class AboutPageComponent extends SSRComponent {
     this.authors = data.data
     this.titleService.setTitle('About')
     this.metaService.addTags([
+      {name: 'description', content: GlobalConfig.BLOG_DESCRIPTION},
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: 'About'},
       {property: 'og:description', content: GlobalConfig.BLOG_DESCRIPTION},

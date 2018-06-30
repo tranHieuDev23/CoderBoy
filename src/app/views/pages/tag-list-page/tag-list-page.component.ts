@@ -64,6 +64,7 @@ export class TagListPageComponent extends SSRComponent {
     this.tags = data.data
     this.loadingScreen.hideSpinner()
     this.metaService.addTags([
+      {name: 'description', content: 'Danh mục tag trên trang'},
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: 'Danh mục tag trên trang'},
       {property: 'og:description', content: GlobalConfig.BLOG_DESCRIPTION},

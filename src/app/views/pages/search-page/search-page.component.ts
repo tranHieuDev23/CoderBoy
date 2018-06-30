@@ -80,6 +80,7 @@ export class SearchPageComponent implements OnInit {
     this.posts = data.data
     this.loadingScreen.hideSpinner()
     this.metaService.addTags([
+      {name: 'description', content: GlobalConfig.BLOG_DESCRIPTION},
       {property: 'og:url', content: this.router.url},
       {property: 'og:title', content: 'Tìm kiếm'},
       {property: 'og:description', content: GlobalConfig.BLOG_DESCRIPTION},
