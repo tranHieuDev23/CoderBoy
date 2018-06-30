@@ -3,6 +3,7 @@ import { HighlightJS, HighlightResult } from 'ngx-highlightjs';
 import { from } from 'rxjs';
 import { map, take, filter } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
+import { GlobalConfig } from '../../../configs/global-config';
 
 @Directive({
   selector: '[highlightSSR]'
@@ -35,7 +36,7 @@ export class HighlightSsrDirective implements OnInit, OnDestroy {
     this.isBrowser = isPlatformBrowser(platformId);
     if (this.isBrowser) {
       this.hljs = new HighlightJS({
-        theme: 'atom-one-dark',
+        theme: GlobalConfig.HIGHLIGHTJS_THEME,
         path: 'assets/js'
       })
     }

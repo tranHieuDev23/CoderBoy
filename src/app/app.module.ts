@@ -32,6 +32,8 @@ import localeVi from '@angular/common/locales/vi'
 import { registerLocaleData } from '@angular/common';
 import { HighlightSsrDirective } from './views/directives/highlight-ssr/highlight-ssr.directive';
 
+import { GlobalConfig } from "./configs/global-config";
+
 registerLocaleData(localeVi)
 
 @NgModule({
@@ -41,7 +43,7 @@ registerLocaleData(localeVi)
     AppRoutingModule,
     FormsModule,
     LazyLoadImagesModule,
-    DisqusModule.forRoot('coderboy23-surge-sh')
+    DisqusModule.forRoot(GlobalConfig.DISQUS_SHORTNAME)
   ],
   declarations: [
     AppComponent,

@@ -20,11 +20,9 @@ $font-size-top-bar-item: 1rem;
 
 /* General colors of the page */
 $color-primary: #1a1a1c;
-$color-primary-dark: #000000;
 $color-primary-light: #4e4e50;
-$color-accent: #950740;
-$color-accent-dark: #6f2232;
-$color-accent-light: #c3073f;
+$color-accent-dark: #950740;
+$color-accent: #c3073f;
 $color-text-white: #ffffff;
 $color-text-dark: #000000;
 $color-text-caption: #6c757d;
@@ -34,13 +32,13 @@ $timing-global-transition-duration: 150ms;
 
 /* Specific colors for elements of the page */
 $color-top-bar-background: $color-primary;
-$color-top-bar-background-selected: $color-accent-light;
+$color-top-bar-background-selected: $color-accent;
 $color-top-bar-text: $color-text-white;
 $color-top-bar-text-selected: $color-text-white;
 $color-top-bar-dropdown-background: white;
 $color-top-bar-dropdown-text: $color-text-dark;
 $color-top-bar-dropdown-button-background: $color-primary;
-$color-top-bar-dropdown-button-background-selected: $color-accent-light;
+$color-top-bar-dropdown-button-background-selected: $color-accent;
 $color-top-bar-dropdown-button-text: $color-text-white;
 $color-top-bar-dropdown-button-text-selected: $color-text-white;
 
@@ -53,26 +51,26 @@ $color-fake-background: #f8f8f8;
 $color-card-background: white;
 
 $color-post-title: $color-text-dark;
-$color-post-title-selected: $color-accent-light;
+$color-post-title-selected: $color-accent;
 
 $color-post-text: $color-text-dark;
-$color-post-link: $color-accent-light;
-$color-post-link-selected: $color-accent;
+$color-post-link: $color-accent;
+$color-post-link-selected: $color-accent-dark;
 $color-post-caption: $color-text-caption;
 
 $color-button-outline: $color-primary;
-$color-button-outline-selected: $color-accent-light;
+$color-button-outline-selected: $color-accent;
 $color-button-background: white;
 $color-button-background-selected: white;
 $color-button-text: $color-text-dark;
-$color-button-text-selected: $color-accent-light;
+$color-button-text-selected: $color-accent;
 
 $color-pagination-line: $color-text-dark;
 $color-pagination-header: $color-text-dark;
 
 $color-footer-text: $color-primary-light;
-$color-footer-link: $color-accent-light;
-$color-footer-link-selected: $color-accent;
+$color-footer-link: $color-accent;
+$color-footer-link-selected: $color-accent-dark;
 
 $color-blockquote: $color-primary-light;
 
@@ -86,17 +84,17 @@ $width-table-border: 1px;
 
 $color-tag-item-background: $color-primary;
 $color-tag-item-text: $color-text-white;
-$color-tag-item-background-hover: $color-accent-light;
+$color-tag-item-background-hover: $color-accent;
 $color-tag-item-text-hover: $color-text-white;
 
 $color-pagination-nav-background: white;
 $color-pagination-nav-text: $color-primary;
 $color-pagination-nav-border: $color-primary;
 $color-pagination-nav-background-selected: white;
-$color-pagination-nav-text-selected: $color-accent-light;
-$color-pagination-nav-border-selected: $color-accent-light;
+$color-pagination-nav-text-selected: $color-accent;
+$color-pagination-nav-border-selected: $color-accent;
 
 $color-top-bar-search-button-background: $color-primary;
-$color-top-bar-search-button-background-selected: $color-accent-light;
+$color-top-bar-search-button-background-selected: $color-accent;
 $color-top-bar-search-button-text: $color-text-white;
 $color-top-bar-search-button-text-selected: $color-text-white;
