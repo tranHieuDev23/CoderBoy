@@ -1,8 +1,16 @@
 
-<h1 style="text-align: center;">Coderboy Theme</h1>
-<p style="text-align: center;"><img src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/26195982_314414552401860_673476996156876329_n.jpg?_nc_cat=0&amp;oh=a558cf0a24fca6252db9630c5f58f9ad&amp;oe=5BAE3053" alt="" width="200" height="200" /></p>
-<p style="text-align: center;">Một giao diện blog đơn giản, th&acirc;n thiện. Dễ d&agrave;ng t&ugrave;y chỉnh m&agrave; kh&ocirc;ng cần nhiều kiến thức lập tr&igrave;nh!</p>
-<p style="text-align: center;">Thăm quan trang web của m&igrave;nh tại địa chỉ&nbsp;<a title="CoderBoy" href="https://coderboy23.herokuapp.com/" target="_blank" rel="noopener">coderboy23.herokuapp.com</a></p>
+<div style="align: center">
+    <h1>Coderboy Theme</h1>
+    <p>
+        <img src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/26195982_314414552401860_673476996156876329_n.jpg?_nc_cat=0&amp;oh=a558cf0a24fca6252db9630c5f58f9ad&amp;oe=5BAE3053" alt="" width="200" height="200"/>
+    </p>
+    <p>
+        Một giao diện blog đơn giản, th&acirc;n thiện. Dễ d&agrave;ng t&ugrave;y chỉnh m&agrave; kh&ocirc;ng cần nhiều kiến thức lập tr&igrave;nh!
+    </p>
+    <p>
+        Thăm quan trang web của m&igrave;nh tại địa chỉ&nbsp;<a title="CoderBoy" href="https://coderboy23.herokuapp.com/" target="_blank" rel="noopener">coderboy23.herokuapp.com</a>
+    </p>
+</div>
 
 Mục lục
 -------
@@ -17,7 +25,6 @@ Mục lục
 <a name="description"></a>
 
 ## Mô tả
------
 
 Dự án này sử dụng [ButterCMS](https://buttercms.com/) - một headless CMS cung cấp các dịch vụ quản lý bài viết và người viết, giúp lập trình viên chỉ cần quan tâm về mặt giao diện của dự án.
 
@@ -30,7 +37,6 @@ Repository này bao gồm một giao diện client được viết bằng [Angul
 <a name="installation"></a>
 
 ## Cài đặt
--------
 
     git clone https://github.com/tranHieuDev23/PersonalBlog.git
 
@@ -39,7 +45,6 @@ hoặc [download repository này về](https://github.com/tranHieuDev23/Personal
 <a name="usage"></a>
 
 ## Sử dụng
--------
 
 *   Để serve hoặc build client của blog, các lệnh của Angular CLI vẫn được giữ nguyên - `ng serve` và `ng build`.
 *   Để build cả client và server của blog (dành cho Server Side Rendering): `npm run build:ssr`.
@@ -49,7 +54,6 @@ hoặc [download repository này về](https://github.com/tranHieuDev23/Personal
 <a name="config"></a>
 
 ## Tùy chỉnh
----------
 
 ### Về nội dung của blog
 
@@ -107,7 +111,6 @@ Các font phải được import trong file trước khi được đặt vào c�
 <a name="heroku"></a>
 
 ## Host trên Heroku
-----------------
 
 Trong project cũng có một file `Procfile` để có thể triển khai project lên Heroku.
 
@@ -116,6 +119,5 @@ Trong project cũng có một file `Procfile` để có thể triển khai proje
 <a name="license"></a>
 
 ## Giấy phép
----------
 
 [MIT](https://choosealicense.com/licenses/mit/)
