@@ -17,7 +17,7 @@ a:hover, a:visited, a:link, a:active {
 
 .content-container {
     margin: 3rem 5rem 5rem;
-    padding: 3rem 14%;
+    padding: 4rem 14% 3rem;
     background-color: $color-card-background;
     -webkit-box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
             box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
@@ -124,14 +124,14 @@ a:hover, a:visited, a:link, a:active {
 @include media-breakpoint-down(lg) {
     .content-container {
         margin: 3rem;
-        padding: 3rem 10%;
+        padding: 4rem 10% 3rem;
     }
 }
 
 @include media-breakpoint-down(sm) {
     .content-container {
         margin: 1rem;
-        padding: 3rem 8%;
+        padding: 4rem 8% 3rem;
     }
 }
 
