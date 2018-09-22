@@ -124,14 +124,14 @@ a:hover, a:visited, a:link, a:active {
 @include media-breakpoint-down(lg) {
     .content-container {
         margin: 3rem;
-        padding: 4rem 10% 3rem;
+        padding: 3rem 10%;
     }
 }
 
 @include media-breakpoint-down(sm) {
     .content-container {
         margin: 1rem;
-        padding: 4rem 8% 3rem;
+        padding: 3rem 8%;
     }
 }
 
