@@ -66,14 +66,15 @@ export class ArchivePageComponent extends SSRComponent {
       return
     }
     let slug = params['slug']
-    let currentPage = params['page'] != null? +params['page'] : 1
 
     ButterService[type].retrieve(slug)
     .then((resultMeta) => {
+      let currentPage = params['page'] != null? +params['page'] : 1
       const REQUEST_PARAMS: any = {
-        page: this.currentPage,
+        page: currentPage,
         page_size: GlobalConfig.ARCHIVE_PAGE_SIZE
       }
+      
       if (type == 'category')
         REQUEST_PARAMS.category_slug = slug
       if (type == 'tag')

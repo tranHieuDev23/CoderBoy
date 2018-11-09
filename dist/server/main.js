@@ -1967,11 +1967,11 @@ var ArchivePageComponent = /** @class */ (function (_super) {
             return;
         }
         var slug = params['slug'];
-        var currentPage = params['page'] != null ? +params['page'] : 1;
         butter_service_1.ButterService[type].retrieve(slug)
             .then(function (resultMeta) {
+            var currentPage = params['page'] != null ? +params['page'] : 1;
             var REQUEST_PARAMS = {
-                page: _this.currentPage,
+                page: currentPage,
                 page_size: global_config_1.GlobalConfig.ARCHIVE_PAGE_SIZE
             };
             if (type == 'category')
