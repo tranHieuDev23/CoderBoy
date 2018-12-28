@@ -4,6 +4,7 @@ import 'reflect-metadata'
 import { enableProdMode } from "@angular/core";
 
 import * as express from 'express'
+import * as compression from "compression";
 import { join } from "path";
 
 enableProdMode()
@@ -18,6 +19,7 @@ import { ngExpressEngine } from "@nguniversal/express-engine";
 
 import { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
 
+app.use(compression())
 app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
     providers: [
@@ -40,7 +42,7 @@ app.get('/sitemap.xml', (req, res) => {
 
 app.set('view engine', 'html')
 app.set('views', join(DIST_FOLDER, 'browser'))
-app.get('*.*', express.static(join(DIST_FOLDER, 'browser')))
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {maxAge: 604800}))
 
 import * as aboutRoute from './server_routing/about_page'
 import * as archiveRoute from './server_routing/archive_page'
