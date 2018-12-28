@@ -9,10 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod --build-optimizer",
+    "build:prod": "ng build --prod --build-optimizer=true",
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server NODE_ENV=production",
-    "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng run coderboy:server",
+    "build:client-and-server-bundles": "ng build --prod --build-optimizer=true --optimization=true && ng run coderboy:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
