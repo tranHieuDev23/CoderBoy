@@ -19,6 +19,10 @@ import { ngExpressEngine } from "@nguniversal/express-engine";
 
 import { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
 
+app.use((req, res, next) => {
+    res.setHeader('Cache-Control', 'public, max-age=604800')
+    next()
+})
 app.use(compression())
 app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
@@ -42,7 +46,7 @@ app.get('/sitemap.xml', (req, res) => {
 
 app.set('view engine', 'html')
 app.set('views', join(DIST_FOLDER, 'browser'))
-app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {maxAge: 604800}))
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser')))
 
 import * as aboutRoute from './server_routing/about_page'
 import * as archiveRoute from './server_routing/archive_page'
