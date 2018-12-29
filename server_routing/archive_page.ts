@@ -9,32 +9,26 @@ function archiveMiddleware (req, res) {
     if (type != 'category' && type != 'tag' && type != 'author') {
         return res.render('index', {req, res, url: '/404'})
     }
-
     let slug = req.params.slug
     let currentPage = (req.params.page != null? +req.params.page : 1)
-
-    ButterService[type].retrieve(slug)
-    .then((resultMeta) => {
-      const REQUEST_PARAMS: any = {
+    const REQUEST_PARAMS: any = {
         page: currentPage,
         page_size: GlobalConfig.ARCHIVE_PAGE_SIZE
-      }
-      if (type == 'category')
+    }
+    if (type == 'category')
         REQUEST_PARAMS.category_slug = slug
-      if (type == 'tag')
+    if (type == 'tag')
         REQUEST_PARAMS.tag_slug = slug
-      if (type == 'author')
+    if (type == 'author')
         REQUEST_PARAMS.author_slug = slug
 
-      ButterService.post.list(REQUEST_PARAMS)
-        .then((resultPosts) => {
-            res.locals.data = {resultMeta, resultPosts, type, slug, currentPage}
-            return res.render('index', {req, res})
-        }, () => {
-            res.locals.status = '404'
-            return res.render('index', {req, res})
-        })
-    }, () => {
+    let metaPromise = ButterService[type].retrieve(slug)
+    let postsPromise = ButterService.post.list(REQUEST_PARAMS)
+
+    Promise.all([metaPromise, postsPromise]).then((result) => {
+        res.locals.data = {resultMeta: result[0], resultPosts: result[1], type, slug, currentPage}
+        return res.render('index', {req, res})
+    }, (err) => {
         res.locals.status = '404'
         return res.render('index', {req, res})
     })
