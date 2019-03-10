@@ -1,54 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <base href="/">
-  <title>Loading</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Favicon -->
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/favicon/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/favicon/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/favicon/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/favicon/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/favicon/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/favicon/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/favicon/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="CoderBoy"/>
-  <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="/assets/favicon/mstile-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="/assets/favicon/mstile-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="/assets/favicon/mstile-150x150.png" />
-  <meta name="msapplication-wide310x150logo" content="/assets/favicon/mstile-310x150.png" />
-  <meta name="msapplication-square310x310logo" content="/assets/favicon/mstile-310x310.png" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" 
-    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" 
-    crossorigin="anonymous">
-<link rel="stylesheet" href="styles.eac5c8e0a7807901a960.css"></head>
-<body>
-  <app-root></app-root>
-  <!-- JQuery -->
-  <script 
-    src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
-    crossorigin="anonymous">
-  </script>
-  <!-- PopperJS -->
-  <script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
-    crossorigin="anonymous"></script>
-  <!-- Bootstrap JS -->
-  <script 
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
-    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" 
-    crossorigin="anonymous"></script>
-<script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.f6ae3e8b63939c618130.js"></script><script type="text/javascript" src="main.bcc52b4e4a01d41bfb51.js"></script></body>
+  <head>
+    <base href="/" />
+    <title>Loading</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="57x57"
+      href="/assets/favicon/apple-touch-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="/assets/favicon/apple-touch-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="/assets/favicon/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="/assets/favicon/apple-touch-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="60x60"
+      href="/assets/favicon/apple-touch-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="120x120"
+      href="/assets/favicon/apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="76x76"
+      href="/assets/favicon/apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="152x152"
+      href="/assets/favicon/apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-196x196.png"
+      sizes="196x196"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-128.png"
+      sizes="128x128"
+    />
+    <meta name="application-name" content="CoderBoy" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta
+      name="msapplication-TileImage"
+      content="/assets/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-square70x70logo"
+      content="/assets/favicon/mstile-70x70.png"
+    />
+    <meta
+      name="msapplication-square150x150logo"
+      content="/assets/favicon/mstile-150x150.png"
+    />
+    <meta
+      name="msapplication-wide310x150logo"
+      content="/assets/favicon/mstile-310x150.png"
+    />
+    <meta
+      name="msapplication-square310x310logo"
+      content="/assets/favicon/mstile-310x310.png"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+  <link rel="stylesheet" href="styles.eac5c8e0a7807901a960.css"></head>
+  <body>
+    <app-root></app-root>
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- PopperJS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Default Statcounter code for CoderBoy https://coderboy23.herokuapp.com -->
+    <script type="text/javascript">
+      var sc_project = 11965150;
+      var sc_invisible = 1;
+      var sc_security = "02fdaa19";
+      var sc_https = 1;
+    </script>
+    <script
+      type="text/javascript"
+      src="https://www.statcounter.com/counter/counter.js"
+      async
+    ></script>
+    <noscript
+      ><div class="statcounter">
+        <a
+          title="website statistics"
+          href="https://statcounter.com/"
+          target="_blank"
+          ><img
+            class="statcounter"
+            src="https://c.statcounter.com/11965150/0/02fdaa19/1/"
+            alt="website
+    statistics"
+        /></a></div
+    ></noscript>
+    <!-- End of Statcounter Code -->
+  <script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.38cfeb63b91a963d9fbf.js"></script><script type="text/javascript" src="main.8bece404821b4a929252.js"></script></body>
 </html>
