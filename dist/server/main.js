@@ -1967,30 +1967,23 @@ var ArchivePageComponent = /** @class */ (function (_super) {
             return;
         }
         var slug = params['slug'];
-        butter_service_1.ButterService[type].retrieve(slug)
-            .then(function (resultMeta) {
-            var currentPage = params['page'] != null ? +params['page'] : 1;
-            var REQUEST_PARAMS = {
-                page: currentPage,
-                page_size: global_config_1.GlobalConfig.ARCHIVE_PAGE_SIZE
-            };
-            if (type == 'category')
-                REQUEST_PARAMS.category_slug = slug;
-            if (type == 'tag')
-                REQUEST_PARAMS.tag_slug = slug;
-            if (type == 'author')
-                REQUEST_PARAMS.author_slug = slug;
-            butter_service_1.ButterService.post.list(REQUEST_PARAMS)
-                .then(function (resultPosts) {
-                _this.initView(resultMeta, resultPosts, type, slug, currentPage);
-                window.scrollTo(0, 0);
-            }, function () {
-                _this.router.navigateByUrl('/404', {
-                    skipLocationChange: true,
-                    replaceUrl: false
-                });
-            });
-        }, function () {
+        var currentPage = params['page'] != null ? +params['page'] : 1;
+        var REQUEST_PARAMS = {
+            page: currentPage,
+            page_size: global_config_1.GlobalConfig.ARCHIVE_PAGE_SIZE
+        };
+        if (type == 'category')
+            REQUEST_PARAMS.category_slug = slug;
+        if (type == 'tag')
+            REQUEST_PARAMS.tag_slug = slug;
+        if (type == 'author')
+            REQUEST_PARAMS.author_slug = slug;
+        var metaPromise = butter_service_1.ButterService[type].retrieve(slug);
+        var postsPromise = butter_service_1.ButterService.post.list(REQUEST_PARAMS);
+        Promise.all([metaPromise, postsPromise]).then(function (result) {
+            _this.initView(result[0], result[1], type, slug, currentPage);
+            window.scrollTo(0, 0);
+        }, function (error) {
             _this.router.navigateByUrl('/404', {
                 skipLocationChange: true,
                 replaceUrl: false
@@ -2263,22 +2256,17 @@ var HomePageComponent = /** @class */ (function (_super) {
             window.scrollTo(0, 0);
             return;
         }
-        butter_service_1.ButterService.category.list()
-            .then(function (resultCategories) {
-            butter_service_1.ButterService.post.list({
-                page: 1,
-                page_size: global_config_1.GlobalConfig.CAROUSEL_PAGES,
-                exclude_body: true
-            }).then(function (resultPosts) {
-                _this.initView(resultCategories, resultPosts);
-                window.scrollTo(0, 0);
-            }, function () {
-                _this.router.navigateByUrl('/404', {
-                    skipLocationChange: true,
-                    replaceUrl: false
-                });
-            });
-        }, function () {
+        var categoryPromise = butter_service_1.ButterService.category.list();
+        var postsPromise = butter_service_1.ButterService.post.list({
+            page: 1,
+            page_size: global_config_1.GlobalConfig.CAROUSEL_PAGES,
+            exclude_body: true
+        });
+        Promise.all([categoryPromise, postsPromise])
+            .then(function (result) {
+            _this.initView(result[0], result[1]);
+            window.scrollTo(0, 0);
+        }, function (error) {
             _this.router.navigateByUrl('/404', {
                 skipLocationChange: true,
                 replaceUrl: false
