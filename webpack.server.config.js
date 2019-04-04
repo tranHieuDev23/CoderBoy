@@ -5,7 +5,7 @@ module.exports = {
   entry: { server: './server.ts' },
   resolve: { extensions: ['.js', '.ts'] },
   target: 'node',
-  mode: 'production',
+  mode: 'development',
   // this makes sure we include node_modules and other 3rd party libraries
   externals: [/node_modules/],
   output: {
