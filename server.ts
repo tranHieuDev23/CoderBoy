@@ -19,10 +19,6 @@ import { ngExpressEngine } from "@nguniversal/express-engine";
 
 import { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
 
-app.use((req, res, next) => {
-    res.setHeader('Cache-Control', 'public, max-age=604800')
-    next()
-})
 app.use(compression())
 app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
